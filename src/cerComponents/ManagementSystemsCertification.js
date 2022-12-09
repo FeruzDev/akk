@@ -4,7 +4,8 @@ import axios from "axios";
 import Select from "react-select";
 import {getText} from "../locales";
 import {Modal, ModalFooter, ModalHeader} from "reactstrap";
-import  {toast} from "react-toastify";
+import {toast} from "react-toastify";
+import Checks from "./inputs/Checks";
 
 const ManagementSystemsCertification = () => {
     const [design, setDesign] = useState([])
@@ -74,19 +75,71 @@ const ManagementSystemsCertification = () => {
         setLocLang(lang)
     };
 
-    const [inputsCount, setInputsCount] = useState([{branchAdress: "", phone_number: "", full_name_head: "", employees_count_in_branch: "" ,key_activities: ""}]);
+    const [inputsCount, setInputsCount] = useState([{
+        address: "",
+        phone_number: "",
+        full_name_head: "",
+        employees_count_in_branch: "",
+        key_activities: ""
+    }]);
+    const [toogleCount4, setToogleCount4] = useState([{
+        name: "",
+        certificate_number: "",
+        accreditation_date: "",
+        foreign_accredit: "",
+    }]);
+    const [toogleCount5, setToogleCount5] = useState([{
+        additional_offices: ""
+    }]);
+    const addElement = () => {
+        setInputsCount(inputsCount.concat({
+            address: "",
+            phone_number: "",
+            full_name_head: "",
+            employees_count_in_branch: "",
+            key_activities: ""
+        }))
 
-    const inputsValue=[]
-    const addElement =()=>{
-        setInputsCount(inputsCount.concat({address: "", count: 0, feruz: ""}))
-        console.log(inputsCount)
+    };
+    const removeElement = (item) => {
+        setInputsCount(inputsCount.filter((abs, index) => index !== item));
+    };
 
-        console.log(inputsValue)
+    const changeValue = (e, ind) => {
+        setInputsCount(inputsCount.map((item, index) => {
+            return index === ind ? {...item, [e.target.name]: e.target.value} : item
+        }))
     };
-    const removeElement =(item)=>{
-         setInputsCount( inputsCount.filter((fruit, index) => index!== item));
-        console.log( inputsCount.filter((fruit) => fruit!== item))
+    const addElementToogle4Value = () => {
+        setToogleCount4(toogleCount4.concat({
+            name: "",
+            accreditation_date: "",
+            certificate_number: "",
+            foreign_accredit: "",
+        }));
     };
+    const addElementToogle5Value = () => {
+        setToogleCount5(toogleCount5.concat({
+            additional_offices: ""
+        }));
+    };
+    const removeToogle4 = (item) => {
+        setToogleCount4(toogleCount4.filter((abs, index) => index !== item));
+    };
+    const changeToogle4Value = (e, ind) => {
+        setToogleCount4(toogleCount4.map((item, index) => {
+            return index === ind ? {...item, [e.target.name]: e.target.value} : item
+        }))
+    };
+    const removeToogle5 = (item) => {
+        setToogleCount5(toogleCount5.filter((abs, index) => index !== item));
+    };
+    const changeToogle5Value = (e, ind) => {
+        setToogleCount5(toogleCount5.map((item, index) => {
+            return index === ind ? {...item, [e.target.name]: e.target.value} : item
+        }))
+    };
+
     const ref1 = useRef();
     const ref2 = useRef();
     const ref3 = useRef();
@@ -112,127 +165,127 @@ const ManagementSystemsCertification = () => {
 
     const validate = () => {
 
-        if(file4 === null) {
+        if (file4 === null) {
             ref20.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref20.current.classList.remove( "errorInput");
+            ref20.current.classList.remove("errorInput");
         }
-        if(file3 === null) {
+        if (file3 === null) {
             ref19.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref19.current.classList.remove( "errorInput");
+            ref19.current.classList.remove("errorInput");
         }
-        if(file2 === null) {
+        if (file2 === null) {
             ref18.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref18.current.classList.remove( "errorInput");
+            ref18.current.classList.remove("errorInput");
         }
-        if(file1 === null) {
+        if (file1 === null) {
             ref17.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref17.current.classList.remove( "errorInput");
+            ref17.current.classList.remove("errorInput");
         }
-        if(phoneYurPerson === "") {
+        if (phoneYurPerson === "") {
             ref16.current.focus();
             ref16.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref16.current.classList.remove( "errorInput");
+            ref16.current.classList.remove("errorInput");
         }
-        if(yurPerson === "") {
+        if (yurPerson === "") {
             ref15.current.focus();
             ref15.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref15.current.classList.remove( "errorInput");
+            ref15.current.classList.remove("errorInput");
         }
-        if(inn === "") {
+        if (inn === "") {
             ref151.current.focus();
             ref151.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref151.current.classList.remove( "errorInput");
+            ref151.current.classList.remove("errorInput");
         }
-        if(soogu === "") {
+        if (soogu === "") {
             ref14.current.focus();
             ref14.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref14.current.classList.remove( "errorInput");
+            ref14.current.classList.remove("errorInput");
         }
-        if(oked === "") {
+        if (oked === "") {
             ref13.current.focus();
             ref13.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref13.current.classList.remove( "errorInput");
+            ref13.current.classList.remove("errorInput");
         }
-        if(mfo === "") {
+        if (mfo === "") {
             ref12.current.focus();
             ref12.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref12.current.classList.remove( "errorInput");
+            ref12.current.classList.remove("errorInput");
         }
-        if(raschot === "") {
+        if (raschot === "") {
             ref11.current.focus();
             ref11.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref11.current.classList.remove( "errorInput");
+            ref11.current.classList.remove("errorInput");
         }
-        if(bank === "") {
+        if (bank === "") {
             ref10.current.focus();
             ref10.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref10.current.classList.remove( "errorInput");
+            ref10.current.classList.remove("errorInput");
         }
-        if(mail === "") {
+        if (mail === "") {
             ref9.current.focus();
             ref9.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref9.current.classList.remove( "errorInput");
+            ref9.current.classList.remove("errorInput");
         }
-        if(siteName === "") {
+        if (siteName === "") {
             ref8.current.focus();
             ref8.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref8.current.classList.remove( "errorInput");
+            ref8.current.classList.remove("errorInput");
         }
-        if(phoneNumber === "") {
+        if (phoneNumber === "") {
             ref7.current.focus();
             ref7.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref7.current.classList.remove( "errorInput");
+            ref7.current.classList.remove("errorInput");
         }
         if (factAddress === "") {
             ref6.current.focus();
             ref6.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref6.current.classList.remove( "errorInput");
+            ref6.current.classList.remove("errorInput");
         }
         if (yurAddress === "") {
             ref5.current.focus();
             ref5.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref5.current.classList.remove( "errorInput");
+            ref5.current.classList.remove("errorInput");
         }
         if (statusOrgDate === "") {
             ref4.current.focus();
             ref4.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref4.current.classList.remove( "errorInput");
+            ref4.current.classList.remove("errorInput");
         }
 
         if (statusOrgNum === "") {
@@ -240,7 +293,7 @@ const ManagementSystemsCertification = () => {
             ref3.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref3.current.classList.remove( "errorInput");
+            ref3.current.classList.remove("errorInput");
 
         }
 
@@ -249,7 +302,7 @@ const ManagementSystemsCertification = () => {
             ref2.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref2.current.classList.remove( "errorInput");
+            ref2.current.classList.remove("errorInput");
 
         }
 
@@ -258,16 +311,17 @@ const ManagementSystemsCertification = () => {
             ref1.current.className = "errorInput";
             prover2 = false;
         } else {
-            ref1.current.classList.remove( "errorInput");
+            ref1.current.classList.remove("errorInput");
         }
 
         return prover2;
     };
     const sendDataModal = () => {
-        if (validate()) {
-            setMainModal(true);
-        }
+        // if (validate()) {
+        setMainModal(true);
+        // }
     };
+
     const sendData = () => {
         bigData.append("is_accreditation", akk);
         bigData.append("is_re_accreditation", prAkk);
@@ -293,12 +347,12 @@ const ManagementSystemsCertification = () => {
 
         bigData.append("is_branches", toogle1);
         if (toogle1) {
-            inputsCount?.map((item, index)=>{
-                bigData.append("branches["+index+"]address", item.branchAdress);
-                bigData.append("branches["+index+"]phone_number", item.phone_number);
-                bigData.append("branches["+index+"]full_name_head", item.full_name_head);
-                bigData.append("branches["+index+"]employees_count_in_branch", item.employees_count_in_branch);
-                bigData.append("branches["+index+"]key_activities", item.key_activities);
+            inputsCount?.map((item, index) => {
+                bigData.append("branches[" + index + "]address", item.address);
+                bigData.append("branches[" + index + "]phone_number", item.phone_number);
+                bigData.append("branches[" + index + "]full_name_head", item.full_name_head);
+                bigData.append("branches[" + index + "]employees_count_in_branch", item.employees_count_in_branch);
+                bigData.append("branches[" + index + "]key_activities", item.key_activities);
             })
 
         }
@@ -315,15 +369,22 @@ const ManagementSystemsCertification = () => {
 
         bigData.append("is_accredited_organ", toogle4);
         if (toogle4) {
-            bigData.append("accredit_organ[0]name", orgName);
-            // bigData.append("accredit_organ[0]certificate_number", certificate_number);
-            bigData.append("accredit_organ[0]accreditation_date", accreditation_date);
-            bigData.append("accredit_organ[0]foreign_accredit", foreign_accredit);
+            toogleCount4?.map((item, index) => {
+
+                bigData.append("accredit_organ[" + index + "]name", item.name);
+                bigData.append("accredit_organ[" + index + "]certificate_number", item.certificate_number);
+                bigData.append("accredit_organ[" + index + "]accreditation_date", item.accreditation_date);
+                bigData.append("accredit_organ[" + index + "]foreign_accredit", item.foreign_accredit);
+            })
         }
 
         bigData.append("is_add_offices", toogle5);
         if (toogle5) {
-            bigData.append("offices[0]additional_offices", additional_offices);
+            toogleCount5?.map((item, index) => {
+
+                bigData.append("offices[" + index + "]additional_offices", item.additional_offices);
+            })
+
         }
 
         bigData.append("manage_system", srok);
@@ -372,6 +433,8 @@ const ManagementSystemsCertification = () => {
                 setDesign(res.data)
             })
     };
+
+
     useEffect(() => {
         getDesign()
         getCert()
@@ -383,12 +446,6 @@ const ManagementSystemsCertification = () => {
         )
 
     }, []);
-
-    const changeValue = (e, ind) => {
-        setInputsCount(inputsCount.map((item, index) => {
-            return index === ind ? {...item, [e.target.name]: e.target.value} : item
-        }))
-    }
 
     return (
         <div className="ManagementSystemsCertification">
@@ -424,35 +481,20 @@ const ManagementSystemsCertification = () => {
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("ser1")}
                 </h2>
-                <div className="big-box">
-                    <h3 className="big-box-title open-sans-medium">
-                        {getText("ser2")}
-                    </h3>
-                    <div className="check-list">
-                        <input type="checkbox" disabled={prAkk === true || rasAkk === true || sokAkk === true || aktAkk === true ||  perAkk === true ? true : false   }  onChange={() => setAkk(!akk)} id="cur1"/>
-                        <label htmlFor="cur1" className="open-sans-medium">{getText("ser3")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox" disabled={akk === true || rasAkk === true || sokAkk === true ||  aktAkk === true ? true : false   } onChange={() => setPrAkk(!prAkk)} id="cur2"/>
-                        <label htmlFor="cur2" className="open-sans-medium">{getText("ser4")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox" disabled={akk === true ||  prAkk === true ||  perAkk === true ? true : false} onChange={() => setRasAkk(!rasAkk)} id="cur3"/>
-                        <label htmlFor="cur3" className="open-sans-medium">{getText("ser5")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"  disabled={akk === true ||  prAkk === true ||  perAkk === true ? true : false}  onChange={() => setAktAkk(!aktAkk)} id="cur4"/>
-                        <label htmlFor="cur4" className="open-sans-medium">{getText("ser6")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"  disabled={akk === true ||  prAkk === true ||  perAkk === true ? true : false} onChange={() => setSokAkk(!sokAkk)} id="cur5"/>
-                        <label htmlFor="cur5" className="open-sans-medium">{getText("ser7")} </label>
-                    </div>
-                    <div className="check-list d-flex">
-                        <input type="checkbox" disabled={akk === true || rasAkk === true || sokAkk === true ||  aktAkk === true  ? true : false   } onChange={() => setPerAkk(!perAkk)} id="cur6"/>
-                        <label htmlFor="cur6" className="open-sans-medium">{getText("ser8")} </label>
-                    </div>
-                </div>
+                <Checks
+                    akk={akk}
+                    setAkk={setAkk}
+                    prAkk={prAkk}
+                    setPrAkk={setPrAkk}
+                    aktAkk={aktAkk}
+                    setAktAkk={setAktAkk}
+                    sokAkk={sokAkk}
+                    setSokAkk={setSokAkk}
+                    perAkk={perAkk}
+                    setPerAkk={setPerAkk}
+                    rasAkk={rasAkk}
+                    setRasAkk={setRasAkk}
+                />
                 <div className="big-box">
                     <h3 className="big-box-title open-sans-medium">
                         {getText("ser9")}
@@ -503,52 +545,62 @@ const ManagementSystemsCertification = () => {
                     </div>
                     <div className="row">
                         <div className="my-input-groups col-md-6 pr-20">
-                            <label className="open-sans-medium">{getText("ser14")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser14")}<span
+                                className="with-star">*</span></label>
                             <input type="text" ref={ref1} onChange={(e) => setFullName(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser15")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser15")}<span
+                                className="with-star">*</span></label>
                             <input type="text" ref={ref2} onChange={(e) => setObjectName(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
                                 <div className="col-md-6 d-flex flex-column   justify-content-between">
-                                    <label className="open-sans-medium"> {getText("ser18")}<span className="with-star">*</span> </label>
-                                    <input type="number"  ref={ref3} onChange={(e) => setStatusOrgNum(e.target.value)}/>
+                                    <label className="open-sans-medium"> {getText("ser18")}<span
+                                        className="with-star">*</span> </label>
+                                    <input type="number" ref={ref3} onChange={(e) => setStatusOrgNum(e.target.value)}/>
                                 </div>
                                 <div className="col-md-6">
-                                    <label className="open-sans-medium">{getText("ser19")} <span className="with-star">*</span></label>
-                                    <input type="date"  ref={ref4} onChange={(e) => setStatusOrgDate(e.target.value)}/>
+                                    <label className="open-sans-medium">{getText("ser19")} <span
+                                        className="with-star">*</span></label>
+                                    <input type="date" ref={ref4} onChange={(e) => setStatusOrgDate(e.target.value)}/>
                                 </div>
                             </div>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser17")} <span className="with-star">*</span></label>
-                            <input type="text"  ref={ref5} onChange={(e) => setYurAddress(e.target.value)}/>
+                            <input type="text" ref={ref5} onChange={(e) => setYurAddress(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6 ">
-                            <label className="open-sans-medium">{getText("ser20")}<span className="with-star">*</span> </label>
-                            <input type="text"  ref={ref6} onChange={(e) => setFactAddress(e.target.value)}/>
+                            <label className="open-sans-medium">{getText("ser20")}<span className="with-star">*</span>
+                            </label>
+                            <input type="text" ref={ref6} onChange={(e) => setFactAddress(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser21")}<span className="with-star">*</span> </label>
-                            <input type="text"  ref={ref7} onChange={(e) => setPhoneNumber(e.target.value)}/>
+                            <label className="open-sans-medium">{getText("ser21")}<span className="with-star">*</span>
+                            </label>
+                            <input type="text" ref={ref7} onChange={(e) => setPhoneNumber(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser22")}<span className="with-star">*</span></label>
-                            <input type="text"  ref={ref8} onChange={(e) => setSiteName(e.target.value)}/>
+                            <label className="open-sans-medium">{getText("ser22")}<span
+                                className="with-star">*</span></label>
+                            <input type="text" ref={ref8} onChange={(e) => setSiteName(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser23")}<span className="with-star">*</span></label>
-                            <input type="mail"  ref={ref9} onChange={(e) => setMail(e.target.value)}/>
+                            <label className="open-sans-medium">{getText("ser23")}<span
+                                className="with-star">*</span></label>
+                            <input type="mail" ref={ref9} onChange={(e) => setMail(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser24")}<span className="with-star">*</span></label>
-                            <input type="text"  ref={ref10} onChange={(e) => setBank(e.target.value)}/>
+                            <label className="open-sans-medium">{getText("ser24")}<span
+                                className="with-star">*</span></label>
+                            <input type="text" ref={ref10} onChange={(e) => setBank(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser25")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser25")}<span
+                                className="with-star">*</span></label>
                             <input type="text" ref={ref11} onChange={(e) => setRaschot(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
@@ -556,23 +608,26 @@ const ManagementSystemsCertification = () => {
                             <input type="number" ref={ref12} onChange={(e) => setMFO(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser27")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser27")}<span
+                                className="with-star">*</span></label>
                             <input type="number" ref={ref13} onChange={(e) => setOKED(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser28")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser28")}<span
+                                className="with-star">*</span></label>
                             <input type="number" ref={ref14} onChange={(e) => setSoogu(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser29")}</label>
-                            <input type="text"  ref={ref151}  onChange={(e) => setInn(e.target.value)}/>
+                            <input type="text" ref={ref151} onChange={(e) => setInn(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser30")} <span className="with-star">*</span></label>
                             <input type="text" ref={ref15} onChange={(e) => setYurPerson(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser31")}<span className="with-star">*</span></label>
+                            <label className="open-sans-medium">{getText("ser31")}<span
+                                className="with-star">*</span></label>
                             <input type="text" ref={ref16} onChange={(e) => setPhoneYurPerson(e.target.value)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
@@ -604,50 +659,55 @@ const ManagementSystemsCertification = () => {
                     </div>
                     {
                         toogle1
-
                             ?
-
                             <div className="many-checks">
                                 <p className="open-sans-medium">
                                     {getText("ser35")}
                                 </p>
-{
-                            inputsCount?.map((item, index) =>(
+                                {
+                                    inputsCount?.map((item, index) => (
 
-                                <div className="row inputs-box">
-                                    <div className="index open-sans-bold">
-                                        {index + 1})
-                                    </div>
-                                    <button onClick={() => removeElement(index)} className="close open-sans-bold">
-                                        <img src="/img/close.png" alt=""/>
-                                    </button>
-                                    <div className="my-input-groups col-md-4">
-                                        <label className="open-sans-medium">{getText("ser36")} </label>
-                                        <input onChange={(e) => changeValue(e, index)} value={item.branchAdress} name="branchAdress" type="text"/>
-                                    </div>
-                                    <div className="my-input-groups col-md-4">
-                                        <label className="open-sans-medium">{getText("ser37")} </label>
-                                        <input onChange={(e) => changeValue(e, index)} value={item.phone_number} name="phone_number" type="text"/>
-                                    </div>
-                                    <div className="my-input-groups col-md-4">
-                                        <label className="open-sans-medium"> {getText("ser38")}</label>
-                                        <input onChange={(e) => changeValue(e, index)} value={item.full_name_head} name="full_name_head" type="text"/>
-                                    </div>
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium"> {getText("ser40")}</label>
-                                        <input onChange={(e) => changeValue(e, index)} value={item.key_activities} name="key_activities"  type="text"/>
-                                    </div>
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium">{getText("ser39")} </label>
-                                        <input t onChange={(e) => changeValue(e, index)} value={item.employees_count_in_branch} name="employees_count_in_branch"
-                                               type="number"/>
-                                    </div>
-                                </div>
-                        ))}
-
-                                        <div className="row d-flex justify-content-end">
-                                            <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещо </button>
+                                        <div className="row inputs-box">
+                                            <div className="index open-sans-bold">
+                                                {index + 1})
+                                            </div>
+                                            <button onClick={() => removeElement(index)}
+                                                    className="close open-sans-bold">
+                                                <img src="/img/close.png" alt=""/>
+                                            </button>
+                                            <div className="my-input-groups col-md-4">
+                                                <label className="open-sans-medium">{getText("ser36")} </label>
+                                                <input onChange={(e) => changeValue(e, index)} value={item.address}
+                                                       name="address" type="text"/>
+                                            </div>
+                                            <div className="my-input-groups col-md-4">
+                                                <label className="open-sans-medium">{getText("ser37")} </label>
+                                                <input onChange={(e) => changeValue(e, index)} value={item.phone_number}
+                                                       name="phone_number" type="text"/>
+                                            </div>
+                                            <div className="my-input-groups col-md-4">
+                                                <label className="open-sans-medium"> {getText("ser38")}</label>
+                                                <input onChange={(e) => changeValue(e, index)}
+                                                       value={item.full_name_head} name="full_name_head" type="text"/>
+                                            </div>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium"> {getText("ser39")}</label>
+                                                <input onChange={(e) => changeValue(e, index)}
+                                                       value={item.employees_count_in_branch}
+                                                       name="employees_count_in_branch" type="text"/>
+                                            </div>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium"> {getText("ser40")}</label>
+                                                <input onChange={(e) => changeValue(e, index)}
+                                                       value={item.key_activities} name="key_activities" type="text"/>
+                                            </div>
                                         </div>
+                                    ))}
+
+                                <div className="row d-flex justify-content-end">
+                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещо
+                                    </button>
+                                </div>
 
                             </div>
 
@@ -739,22 +799,53 @@ const ManagementSystemsCertification = () => {
                                     {getText("ser48")}
                                 </p>
 
-                                <div className="row">
+                                {
+                                    toogleCount4?.map((item, index) => (
+                                <div className="row inputs-box">
+                                    <div className="index open-sans-bold">
+                                        {index + 1})
+                                    </div>
+                                    <button onClick={() => removeToogle4(index)}
+                                            className="close open-sans-bold">
+                                        <img src="/img/close.png" alt=""/>
+                                    </button>
                                     <div className="my-input-groups col-md-6">
                                         <label className="open-sans-medium">{getText("ser49")}</label>
-                                        <input type="text" onChange={(e) => setOrgName(e.target.value)}/>
+                                        <input type="text"
+                                               onChange={(e) => changeToogle4Value(e, index)}
+                                               value={item.name}
+                                               name="name" />
                                     </div>
 
                                     <div className="my-input-groups col-md-6">
                                         <label className="open-sans-medium">{getText("ser50")}</label>
-                                        <input type="date" onChange={(e) => setaccreditation_date(e.target.value)}/>
+                                        <input type="date"
+                                               onChange={(e) => changeToogle4Value(e, index)}
+                                               value={item.accreditation_date}
+                                               name="accreditation_date"/>
                                     </div>
 
-                                    <div className="my-input-groups col-md-12">
+                                    <div className="my-input-groups col-md-6">
+                                        <label className="open-sans-medium">{getText("ser501")}</label>
+                                        <input type="text"
+                                               onChange={(e) => changeToogle4Value(e, index)}
+                                               value={item.certificate_number}
+                                               name="certificate_number"/>
+                                    </div>
+
+                                    <div className="my-input-groups col-md-6">
                                         <label className="open-sans-medium">{getText("ser51")}</label>
-                                        <input type="text" onChange={(e) => setforeign_accredit(e.target.value)}/>
+                                        <input type="text"
+                                               onChange={(e) => changeToogle4Value(e, index)}
+                                               value={item.foreign_accredit}
+                                               name="foreign_accredit"/>
                                     </div>
 
+                                </div>
+                                        ))}
+                                <div className="row d-flex justify-content-end">
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещо
+                                    </button>
                                 </div>
                             </div>
                             :
@@ -781,13 +872,31 @@ const ManagementSystemsCertification = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser53")}
                                 </p>
+                                {
+                                    toogleCount5?.map((item, index) => (
+                                        <div className="row inputs-box">
+                                            <div className="index open-sans-bold">
+                                                {index + 1})
+                                            </div>
+                                            <button onClick={() => removeToogle5(index)}
+                                                    className="close open-sans-bold">
+                                                <img src="/img/close.png" alt=""/>
+                                            </button>
 
-                                <div className="row">
-                                    <div className="my-input-groups col-md-12">
-                                        <label className="open-sans-medium">{getText("ser54")}</label>
-                                        <input type="text" onChange={(e) => setadditional_offices(e.target.value)}/>
-                                    </div>
 
+                                            <div className="my-input-groups col-md-12">
+                                                <label className="open-sans-medium">{getText("ser54")}</label>
+                                                <input type="text"
+                                                       onChange={(e) => changeToogle5Value(e, index)}
+                                                       value={item.additional_offices}
+                                                       name="additional_offices"/>
+                                            </div>
+                                        </div>
+
+                                ))}
+                                <div className="row d-flex justify-content-end">
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещо
+                                    </button>
                                 </div>
                             </div>
                             :
@@ -908,20 +1017,23 @@ const ManagementSystemsCertification = () => {
                     </h2>
                     <div className="row">
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser71")} <span className="with-star">*</span> </label>
+                            <label className="open-sans-medium">{getText("ser71")} <span className="with-star">*</span>
+                            </label>
                             <input type="file" ref={ref17} onChange={(e) => setFile1(e)}/>
                         </div>
                         <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser72")} <span className="with-star" style={{bottom: "0 !important"}}>*</span> </label>
-                            <input type="file" ref={ref18} onChange={(e) => setFile2(e)}  accept=".zip,.rar,.7zip"/>
+                            <label className="open-sans-medium">{getText("ser72")} <span className="with-star"
+                                                                                         style={{bottom: "0 !important"}}>*</span>
+                            </label>
+                            <input type="file" ref={ref18} onChange={(e) => setFile2(e)} accept=".zip,.rar,.7zip"/>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser73")} <span className="with-star">*</span></label>
-                            <input type="file" ref={ref19} onChange={(e) => setFile3(e)}  accept=".zip,.rar,.7zip"/>
+                            <input type="file" ref={ref19} onChange={(e) => setFile3(e)} accept=".zip,.rar,.7zip"/>
                         </div>
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser74")} <span className="with-star">*</span></label>
-                            <input type="file" ref={ref20} onChange={(e) => setFile4(e)}  />
+                            <input type="file" ref={ref20} onChange={(e) => setFile4(e)}/>
                         </div>
                     </div>
                 </div>
@@ -1133,19 +1245,16 @@ const ManagementSystemsCertification = () => {
                         {
                             toogle1
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser35")}
-                                    </p>
+                                <div className="many-checks-items">
                                     {
-                                        inputsCount?.map((item, index)=> (
+                                        inputsCount?.map((item, index) => (
                                             <div className="row inputs-box">
                                                 <div className="index open-sans-bold">
                                                     {index + 1})
                                                 </div>
                                                 <div className="my-input-groups col-md-6">
                                                     <label className="open-sans-bold">{getText("ser36")} </label>
-                                                    <span>{item?.branchAdress ? item.branchAdress : "-"}</span>
+                                                    <span>{item?.address ? item.address : "-"}</span>
                                                 </div>
                                                 <div className="my-input-groups col-md-6">
                                                     <label className="open-sans-bold">{getText("ser37")} </label>
@@ -1186,14 +1295,11 @@ const ManagementSystemsCertification = () => {
                         {
                             toogle2
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser42")}
-                                    </p>
+                                <div className="many-checks-items">
 
-                                    <div className="row">
+                                    <div className="row inputs-box">
                                         <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser43")}</label>
+                                            <label className="open-sans-bold">{getText("ser76")}</label>
                                             <span>{typeOf ? typeOf : "-"}</span>
                                         </div>
 
@@ -1218,14 +1324,11 @@ const ManagementSystemsCertification = () => {
                         {
                             toogle3
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser45")}
-                                    </p>
+                                <div className="many-checks-items">
 
-                                    <div className="row">
+                                    <div className="row inputs-box">
                                         <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser46")}</label>
+                                            <label className="open-sans-bold">{getText("ser76")}</label>
                                             <span>{serCount ? serCount : "-"}</span>
                                         </div>
 
@@ -1248,28 +1351,36 @@ const ManagementSystemsCertification = () => {
                         {
                             toogle4
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser48")}
-                                    </p>
+                                <div className="many-checks-items">
+                                    {
+                                        toogleCount4?.map((item, index)=>(
+                                            <div className="row inputs-box">
+                                                <div className="index open-sans-bold">
+                                                    {index + 1})
+                                                </div>
+                                                <div className="my-input-groups col-md-4">
+                                                    <label className="open-sans-bold">{getText("ser49")}</label>
+                                                    <span>{item.name ? item.name : "-"}</span>
+                                                </div>
 
-                                    <div className="row">
-                                        <div className="my-input-groups col-md-6">
-                                            <label className="open-sans-bold">{getText("ser49")}</label>
-                                            <span>{orgName ? orgName : "-"}</span>
-                                        </div>
+                                                <div className="my-input-groups col-md-4">
+                                                    <label className="open-sans-bold">{getText("ser50")}</label>
+                                                    <span>{item.accreditation_date ? item.accreditation_date : "-"}</span>
+                                                </div>
 
-                                        <div className="my-input-groups col-md-6">
-                                            <label className="open-sans-bold">{getText("ser50")}</label>
-                                            <span>{accreditation_date ? accreditation_date : "-"}</span>
-                                        </div>
+                                                <div className="my-input-groups col-md-4">
+                                                    <label className="open-sans-bold">{getText("ser501")}</label>
+                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
+                                                </div>
+                                                <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("ser51")}</label>
+                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
+                                                </div>
 
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser51")}</label>
-                                            <span>{foreign_accredit ? foreign_accredit : "-"}</span>
-                                        </div>
+                                            </div>
+                                        ))
+                                    }
 
-                                    </div>
                                 </div>
                                 :
                                 ""
@@ -1290,18 +1401,20 @@ const ManagementSystemsCertification = () => {
                         {
                             toogle5
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser53")}
-                                    </p>
+                                <div className="many-checks-items">
+                                        {
+                                            toogleCount5?.map((item, index)=>(
+                                            <div className="row inputs-box">
+                                                <div className="index open-sans-bold">
+                                                    {index + 1})
+                                                </div>
+                                            <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("ser541")}</label>
+                                                    <span>{item.additional_offices ? item.additional_offices : "-"}</span>
+                                                </div>
+                                            </div>
 
-                                    <div className="row">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser54")}</label>
-                                            <span>{additional_offices ? additional_offices : "-"}</span>
-                                        </div>
-
-                                    </div>
+                                            ))}
                                 </div>
                                 :
                                 ""

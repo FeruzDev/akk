@@ -5,6 +5,7 @@ import Select from "react-select";
 import {getText} from "../locales";
 import {Modal, ModalFooter, ModalHeader} from "reactstrap";
 import {toast} from "react-toastify";
+import Checks from "./inputs/Checks";
 
 const InspectionBody = () => {
     const [design, setDesign] = useState([])
@@ -53,17 +54,10 @@ const InspectionBody = () => {
     const [phoneOrgSer, setPhoneOrgSer] = useState("");
     const [typeOf, setTypeOf] = useState("");
 
-    const [serCount, setSerCount] = useState("");
-    // const [certificate_number, setcertificate_number] = useState("");
-    const [accreditation_date, setaccreditation_date] = useState("");
-    const [foreign_accredit, setforeign_accredit] = useState("");
-    const [orgName, setOrgName] = useState("");
-    const [additional_offices, setadditional_offices] = useState("");
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
     const [certificate_validity_period_to, setcertificate_validity_period_to] = useState("");
-    const [complex, setComplex] = useState([]);
 
 
     const [file1, setFile1] = useState(null);
@@ -77,14 +71,9 @@ const InspectionBody = () => {
     };
 
     const [inputsCount, setInputsCount] = useState([{
-        branchAdress: "",
+        adress: "",
         phone_number: "",
         full_name_head: "",
-        // employees_count_in_branch: "",
-        // key_activities: ""
-    }]);
-    const [toogleCount2, setToogleCount2] = useState([{
-        mobile_complex: "",
     }]);
     const [toogleCount3, setToogleCount3] = useState([{
         mobile_complex: "",
@@ -97,7 +86,7 @@ const InspectionBody = () => {
     }]);
 
     const addElement = () => {
-        setInputsCount(inputsCount.concat({branchAdress: "", phone_number: "", full_name_head: ""}));
+        setInputsCount(inputsCount.concat({adress: "", phone_number: "", full_name_head: ""}));
 
     };
     const addElementToogle3Value = () => {
@@ -107,7 +96,7 @@ const InspectionBody = () => {
         setToogleCount4(toogleCount4.concat({full_name_staff: ""}));
     };
     const addElementToogle5Value = () => {
-        setToogleCount5(toogleCount5.concat({full_name_staff: ""}));
+        setToogleCount5(toogleCount5.concat({additional_offices: ""}));
     };
     const removeElement = (item) => {
         setInputsCount(inputsCount.filter((abs, index) => index !== item));
@@ -326,17 +315,13 @@ const InspectionBody = () => {
         bigData.append("phone_number_legal_person", phoneYurPerson);
         bigData.append("full_name_head_certification", orgSer);
         bigData.append("phone_head_certification", phoneOrgSer);
-
         bigData.append("is_branches", toogle1);
         if (toogle1) {
             inputsCount?.map((item, index) => {
-                bigData.append("branches[" + index + "]address", item.branchAdress);
+                bigData.append("branches[" + index + "]address", item.adress);
                 bigData.append("branches[" + index + "]phone_number", item.phone_number);
                 bigData.append("branches[" + index + "]full_name_head", item.full_name_head);
-                // bigData.append("branches[" + index + "]employees_count_in_branch", item.employees_count_in_branch);
-                // bigData.append("branches[" + index + "]key_activities", item.key_activities);
             })
-
         }
 
         bigData.append("is_commercial_activity", toogle2);
@@ -361,7 +346,7 @@ const InspectionBody = () => {
 
 
         bigData.append("is_add_offices", toogle5);
-        if (toogle4) {
+        if (toogle5) {
             toogleCount5?.map((item, index) => {
                 bigData.append("offices[" + index + "]additional_offices", item.additional_offices);
             })
@@ -394,31 +379,17 @@ const InspectionBody = () => {
         certValue?.map((item) => {
             bigData.append("standard_certification", item.value);
         });
-        axios.post(APIT_APTH + "apps/application/send/9/", bigData, AUTH)
+        axios.post(APIT_APTH + "apps/application/send/5/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
                 window.location.reload()
             })
     };
-    const getCert = () => {
-        axios.get(APIT_APTH + "apps/application/cert-standards/", AUTH)
-            .then(res => {
-                setCert(res.data)
-            })
-    };
-    const getDesign = () => {
-        axios.get(APIT_APTH + "apps/application/design-standards/", AUTH)
-            .then(res => {
-                setDesign(res.data)
-            })
-    };
     useEffect(() => {
-        getDesign()
-        getCert()
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
-        )
+        );
         else (
             setLocLang("ru")
         )
@@ -429,7 +400,7 @@ const InspectionBody = () => {
         setInputsCount(inputsCount.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
-    }
+    };
     const changeToogle3Value = (e, ind) => {
         setToogleCount3(toogleCount3.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
@@ -441,7 +412,7 @@ const InspectionBody = () => {
         }))
     };
     const changeToogle5Value = (e, ind) => {
-        setToogleCount4(toogleCount4.map((item, index) => {
+        setToogleCount5(toogleCount5.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
@@ -480,47 +451,20 @@ const InspectionBody = () => {
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("io1")}
                 </h2>
-                <div className="big-box">
-                    <h3 className="big-box-title open-sans-medium">
-                        {getText("ser2")}
-                    </h3>
-                    <div className="check-list">
-                        <input type="checkbox"
-                               disabled={prAkk === true || rasAkk === true || sokAkk === true || aktAkk === true || perAkk === true ? true : false}
-                               onChange={() => setAkk(!akk)} id="cur1"/>
-                        <label htmlFor="cur1" className="open-sans-medium">{getText("ser3")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"
-                               disabled={akk === true || rasAkk === true || sokAkk === true || aktAkk === true ? true : false}
-                               onChange={() => setPrAkk(!prAkk)} id="cur2"/>
-                        <label htmlFor="cur2" className="open-sans-medium">{getText("ser4")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"
-                               disabled={akk === true || prAkk === true || perAkk === true ? true : false}
-                               onChange={() => setRasAkk(!rasAkk)} id="cur3"/>
-                        <label htmlFor="cur3" className="open-sans-medium">{getText("ser5")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"
-                               disabled={akk === true || prAkk === true || perAkk === true ? true : false}
-                               onChange={() => setAktAkk(!aktAkk)} id="cur4"/>
-                        <label htmlFor="cur4" className="open-sans-medium">{getText("ser6")}</label>
-                    </div>
-                    <div className="check-list">
-                        <input type="checkbox"
-                               disabled={akk === true || prAkk === true || perAkk === true ? true : false}
-                               onChange={() => setSokAkk(!sokAkk)} id="cur5"/>
-                        <label htmlFor="cur5" className="open-sans-medium">{getText("ser7")} </label>
-                    </div>
-                    <div className="check-list d-flex">
-                        <input type="checkbox"
-                               disabled={akk === true || rasAkk === true || sokAkk === true || aktAkk === true ? true : false}
-                               onChange={() => setPerAkk(!perAkk)} id="cur6"/>
-                        <label htmlFor="cur6" className="open-sans-medium">{getText("ser8")} </label>
-                    </div>
-                </div>
+                <Checks
+                    akk={akk}
+                    setAkk={setAkk}
+                    prAkk={prAkk}
+                    setPrAkk={setPrAkk}
+                    aktAkk={aktAkk}
+                    setAktAkk={setAktAkk}
+                    sokAkk={sokAkk}
+                    setSokAkk={setSokAkk}
+                    perAkk={perAkk}
+                    setPerAkk={setPerAkk}
+                    rasAkk={rasAkk}
+                    setRasAkk={setRasAkk}
+                />
                 <div className="big-box">
                     <h3 className="big-box-title open-sans-medium">
                         {getText("ser9")}
@@ -645,9 +589,7 @@ const InspectionBody = () => {
                     </div>
                     {
                         toogle1
-
                             ?
-
                             <div className="many-checks">
                                 <p className="open-sans-medium">
                                     {getText("ser35")}
@@ -665,8 +607,8 @@ const InspectionBody = () => {
                                             </button>
                                             <div className="my-input-groups col-md-4">
                                                 <label className="open-sans-medium">{getText("ser36")} </label>
-                                                <input onChange={(e) => changeValue(e, index)} value={item.branchAdress}
-                                                       name="branchAdress" type="text"/>
+                                                <input onChange={(e) => changeValue(e, index)} value={item.adress}
+                                                       name="adress" type="text"/>
                                             </div>
                                             <div className="my-input-groups col-md-4">
                                                 <label className="open-sans-medium">{getText("ser37")} </label>
@@ -1089,30 +1031,6 @@ const InspectionBody = () => {
                             <label className="open-sans-medium">{getText("ser10")}</label>
                             <label className="open-sans-medium" style={{marginLeft: "10px"}}>{getText("ser101")}</label>
                         </div>
-                        <div className="many-checks">
-                            <p className="open-sans-medium">{getText("ser11")}</p>
-                            <div className="lists mb-2">
-                                {
-                                    designValue ? designValue?.map(item => (
-                                            <span className="d-block">{item.label}</span>
-                                        ))
-                                        :
-                                        "-"
-                                }
-                            </div>
-                        </div>
-                        <div className="many-checks">
-                            <p className="open-sans-medium">{getText("ser12")}</p>
-                            <div className="lists mb-2">
-                                {
-                                    certValue ? certValue?.map(item => (
-                                            <span className="d-block">{item.label}</span>
-                                        ))
-                                        :
-                                        "-"
-                                }
-                            </div>
-                        </div>
                         <div className="row mt-4">
                             <div className="my-input-groups col-md-6 pr-20 m-0 justify-content-center">
                                 <label className="open-sans-bold">{getText("ser14")} </label>
@@ -1218,10 +1136,7 @@ const InspectionBody = () => {
                         {
                             toogle1
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser35")}
-                                    </p>
+                                <div className="many-checks-items mt-4">
                                     {
                                         inputsCount?.map((item, index) => (
                                             <div className="row inputs-box">
@@ -1230,7 +1145,7 @@ const InspectionBody = () => {
                                                 </div>
                                                 <div className="my-input-groups col-md-6">
                                                     <label className="open-sans-bold">{getText("ser36")} </label>
-                                                    <span>{item?.branchAdress ? item.branchAdress : "-"}</span>
+                                                    <span>{item?.adress ? item.adress : "-"}</span>
                                                 </div>
                                                 <div className="my-input-groups col-md-6">
                                                     <label className="open-sans-bold">{getText("ser37")} </label>
@@ -1239,14 +1154,6 @@ const InspectionBody = () => {
                                                 <div className="my-input-groups col-md-6">
                                                     <label className="open-sans-bold"> {getText("ser38")}</label>
                                                     <span>{item?.full_name_head ? item.full_name_head : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser39")} </label>
-                                                    <span>{item?.employees_count_in_branch ? item.employees_count_in_branch : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser40")}</label>
-                                                    <span>{item?.key_activities ? item.key_activities : "-"}</span>
                                                 </div>
                                             </div>
                                         ))
@@ -1257,7 +1164,7 @@ const InspectionBody = () => {
                                 ""
                         }
                         <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser41")}
+                            <label className="open-sans-bold">{getText("io2")}
                                 <div>
                                     {toogle2 ? (
                                         <img className="check-img-md" src="/img/bird.png"/>
@@ -1271,17 +1178,12 @@ const InspectionBody = () => {
                         {
                             toogle2
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser42")}
-                                    </p>
-
-                                    <div className="row">
+                                <div className="many-checks-items mt-4">
+                                    <div className="row inputs-box pt-0 pb-0">
                                         <div className="my-input-groups col-md-12">
                                             <label className="open-sans-bold">{getText("ser43")}</label>
                                             <span>{typeOf ? typeOf : "-"}</span>
                                         </div>
-
                                     </div>
                                 </div>
                                 :
@@ -1290,7 +1192,7 @@ const InspectionBody = () => {
 
                         <div className="toggle">
                             <label className="open-sans-bold">
-                                {getText("ser44")}
+                                {getText("io3")}
                                 <div>
                                     {toogle3 ? (
                                         <img className="check-img-md" src="/img/bird.png"/>
@@ -1303,24 +1205,30 @@ const InspectionBody = () => {
                         {
                             toogle3
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser45")}
-                                    </p>
+                                <div className="many-checks-item">
 
-                                    <div className="row">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser46")}</label>
-                                            <span>{serCount ? serCount : "-"}</span>
-                                        </div>
+                                    {
+                                        toogleCount3?.map((item, index)=>(
+                                            <div className="row inputs-box">
+                                                <div className="index open-sans-bold">
+                                                    {index + 1})
+                                                </div>
+                                                <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("ser46")}</label>
 
-                                    </div>
+                                                    <span>{item.mobile_complex ? item.mobile_complex : "-"}</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+
+
                                 </div>
                                 :
                                 ""
                         }
                         <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser47")}
+                            <label className="open-sans-bold">{getText("io5")}
                                 <div>
                                     {toogle4 ? (
                                         <img className="check-img-md" src="/img/bird.png"/>
@@ -1333,34 +1241,26 @@ const InspectionBody = () => {
                         {
                             toogle4
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser48")}
-                                    </p>
+                                <div className="many-checks-items">
 
-                                    <div className="row">
-                                        <div className="my-input-groups col-md-6">
-                                            <label className="open-sans-bold">{getText("ser49")}</label>
-                                            <span>{orgName ? orgName : "-"}</span>
-                                        </div>
+                                    {
+                                        toogleCount4?.map((item, index)=>(
+                                            <div className="row inputs-box">
+                                                <div className="index open-sans-bold">
+                                                    {index + 1})
+                                                </div>
+                                                <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("io6")}</label>
 
-                                        <div className="my-input-groups col-md-6">
-                                            <label className="open-sans-bold">{getText("ser50")}</label>
-                                            <span>{accreditation_date ? accreditation_date : "-"}</span>
-                                        </div>
-
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser51")}</label>
-                                            <span>{foreign_accredit ? foreign_accredit : "-"}</span>
-                                        </div>
-
-                                    </div>
+                                                    <span>{item.full_name_staff ? item.full_name_staff : "-"}</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                                 :
                                 ""
                         }
-
-
                         <div className="toggle">
                             <label className="open-sans-bold">{getText("ser52")}
                                 <div>
@@ -1375,18 +1275,21 @@ const InspectionBody = () => {
                         {
                             toogle5
                                 ?
-                                <div className="many-checks">
-                                    <p className="open-sans-bold">
-                                        {getText("ser53")}
-                                    </p>
+                                <div className="many-checks-items">
+                                    {
+                                        toogleCount5?.map((item, index)=>(
+                                            <div className="row inputs-box">
+                                                <div className="index open-sans-bold">
+                                                    {index + 1})
+                                                </div>
+                                                <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("ser54")}</label>
 
-                                    <div className="row">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser54")}</label>
-                                            <span>{additional_offices ? additional_offices : "-"}</span>
-                                        </div>
-
-                                    </div>
+                                                    <span>{item.additional_offices ? item.additional_offices : "-"}</span>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                                 :
                                 ""
@@ -1450,7 +1353,7 @@ const InspectionBody = () => {
                         <div className="toggle">
                             <label className="open-sans-bold">{getText("ser62")}
                                 <div>
-                                    {toogle7 ? (
+                                    {toogle8 ? (
                                         <img className="check-img-md" src="/img/bird.png"/>
                                     ) : (
                                         <img className="check-img-md" src="/img/del.png"/>
@@ -1458,6 +1361,24 @@ const InspectionBody = () => {
                                 </div>
                             </label>
                         </div>
+                        {
+                            toogle8
+                                ?
+                                <div className="many-checks-items">
+
+                                            <div className="row inputs-box pt-2">
+
+                                                <div className="my-input-groups col-md-12">
+                                                    <label className="open-sans-bold">{getText("ser64")}</label>
+
+                                                    <span>{consulting_info ?  consulting_info : "-"}</span>
+                                                </div>
+                                            </div>
+
+                                </div>
+                                :
+                                ""
+                        }
                     </div>
                     <div className="big-box">
                         <h2 className="big-box-title">
