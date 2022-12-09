@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/Checks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/UZ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/inputs/OneInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/inputs/OneInput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +64,7 @@
       <workItem from="1670219287124" duration="13885000" />
       <workItem from="1670301942629" duration="18667000" />
       <workItem from="1670388135158" duration="9137000" />
-      <workItem from="1670559988598" duration="14090000" />
+      <workItem from="1670559988598" duration="16656000" />
     </task>
     <servers />
   </component>
@@ -92,10 +88,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670396266566" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1670578041611">
+    <state x="616" y="243" key="run.anything.popup" timestamp="1670589914224">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670578041611" />
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670589914224" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1670231149139">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

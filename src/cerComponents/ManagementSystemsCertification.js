@@ -6,6 +6,7 @@ import {getText} from "../locales";
 import {Modal, ModalFooter, ModalHeader} from "reactstrap";
 import {toast} from "react-toastify";
 import Checks from "./inputs/Checks";
+import OneInput from "./inputs/OneInput";
 
 const ManagementSystemsCertification = () => {
     const [design, setDesign] = useState([])
@@ -164,7 +165,6 @@ const ManagementSystemsCertification = () => {
     let prover2 = true;
 
     const validate = () => {
-
         if (file4 === null) {
             ref20.current.className = "errorInput";
             prover2 = false;
@@ -544,101 +544,185 @@ const ManagementSystemsCertification = () => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="my-input-groups col-md-6 pr-20">
-                            <label className="open-sans-medium">{getText("ser14")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref1} onChange={(e) => setFullName(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser15")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref2} onChange={(e) => setObjectName(e.target.value)}/>
-                        </div>
+                        <OneInput
+                            refSelect={ref1}
+                            setState={setFullName}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser14")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref2}
+                            setState={setObjectName}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser15")}
+                            myClass="my-input-groups col-md-6"
+                        />
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
-                                <div className="col-md-6 d-flex flex-column   justify-content-between">
-                                    <label className="open-sans-medium"> {getText("ser18")}<span
-                                        className="with-star">*</span> </label>
-                                    <input type="number" ref={ref3} onChange={(e) => setStatusOrgNum(e.target.value)}/>
-                                </div>
-                                <div className="col-md-6">
-                                    <label className="open-sans-medium">{getText("ser19")} <span
-                                        className="with-star">*</span></label>
-                                    <input type="date" ref={ref4} onChange={(e) => setStatusOrgDate(e.target.value)}/>
-                                </div>
+
+                                <OneInput
+                                    refSelect={ref3}
+                                    setState={setStatusOrgNum}
+                                    star={true}
+                                    inputType="text"
+                                    font="open-sans-medium"
+                                    titleLabel={getText("ser18")}
+                                    myClass="col-md-6 d-flex flex-column   justify-content-between"
+                                />
+                                <OneInput
+                                    refSelect={ref4}
+                                    setState={setStatusOrgDate}
+                                    star={true}
+                                    inputType="date"
+                                    font="open-sans-medium"
+                                    titleLabel={getText("ser19")}
+                                    myClass="col-md-6  "
+                                />
                             </div>
                         </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser17")} <span className="with-star">*</span></label>
-                            <input type="text" ref={ref5} onChange={(e) => setYurAddress(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6 ">
-                            <label className="open-sans-medium">{getText("ser20")}<span className="with-star">*</span>
-                            </label>
-                            <input type="text" ref={ref6} onChange={(e) => setFactAddress(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser21")}<span className="with-star">*</span>
-                            </label>
-                            <input type="text" ref={ref7} onChange={(e) => setPhoneNumber(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser22")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref8} onChange={(e) => setSiteName(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser23")}<span
-                                className="with-star">*</span></label>
-                            <input type="mail" ref={ref9} onChange={(e) => setMail(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser24")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref10} onChange={(e) => setBank(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser25")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref11} onChange={(e) => setRaschot(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">  {getText("ser26")}<span className="with-star">*</span></label>
-                            <input type="number" ref={ref12} onChange={(e) => setMFO(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser27")}<span
-                                className="with-star">*</span></label>
-                            <input type="number" ref={ref13} onChange={(e) => setOKED(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser28")}<span
-                                className="with-star">*</span></label>
-                            <input type="number" ref={ref14} onChange={(e) => setSoogu(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser29")}</label>
-                            <input type="text" ref={ref151} onChange={(e) => setInn(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser30")} <span className="with-star">*</span></label>
-                            <input type="text" ref={ref15} onChange={(e) => setYurPerson(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser31")}<span
-                                className="with-star">*</span></label>
-                            <input type="text" ref={ref16} onChange={(e) => setPhoneYurPerson(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser32")}</label>
-                            <input type="text" onChange={(e) => setOrgSer(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser33")}</label>
-                            <input type="text" onChange={(e) => setPhoneOrgSer(e.target.value)}/>
-                        </div>
 
+                        <OneInput
+                            refSelect={ref5}
+                            setState={setYurAddress}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser17")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref6}
+                            setState={setFactAddress}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser20")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref7}
+                            setState={setPhoneNumber}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser21")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref8}
+                            setState={setSiteName}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser22")}
+                            myClass="my-input-groups col-md-6"
+                        />
+
+                        <OneInput
+                            refSelect={ref9}
+                            setState={setMail}
+                            star={true}
+                            inputType="mail"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser23")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref10}
+                            setState={setBank}
+                            star={true}
+                            inputType="mail"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser24")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref11}
+                            setState={setRaschot}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser25")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref12}
+                            setState={setMFO}
+                            star={true}
+                            inputType="number"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser26")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref13}
+                            setState={setOKED}
+                            star={true}
+                            inputType="number"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser27")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref14}
+                            setState={setSoogu}
+                            star={true}
+                            inputType="number"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser28")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref151}
+                            setState={setInn}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser29")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref15}
+                            setState={setYurPerson}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser30")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref16}
+                            setState={setPhoneYurPerson}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser31")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref17}
+                            setState={setOrgSer}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser32")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref18}
+                            setState={setPhoneOrgSer}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ser33")}
+                            myClass="my-input-groups col-md-6"
+                        />
                     </div>
                 </div>
                 <div className="big-box">
@@ -801,50 +885,51 @@ const ManagementSystemsCertification = () => {
 
                                 {
                                     toogleCount4?.map((item, index) => (
-                                <div className="row inputs-box">
-                                    <div className="index open-sans-bold">
-                                        {index + 1})
-                                    </div>
-                                    <button onClick={() => removeToogle4(index)}
-                                            className="close open-sans-bold">
-                                        <img src="/img/close.png" alt=""/>
-                                    </button>
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium">{getText("ser49")}</label>
-                                        <input type="text"
-                                               onChange={(e) => changeToogle4Value(e, index)}
-                                               value={item.name}
-                                               name="name" />
-                                    </div>
+                                        <div className="row inputs-box">
+                                            <div className="index open-sans-bold">
+                                                {index + 1})
+                                            </div>
+                                            <button onClick={() => removeToogle4(index)}
+                                                    className="close open-sans-bold">
+                                                <img src="/img/close.png" alt=""/>
+                                            </button>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium">{getText("ser49")}</label>
+                                                <input type="text"
+                                                       onChange={(e) => changeToogle4Value(e, index)}
+                                                       value={item.name}
+                                                       name="name"/>
+                                            </div>
 
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium">{getText("ser50")}</label>
-                                        <input type="date"
-                                               onChange={(e) => changeToogle4Value(e, index)}
-                                               value={item.accreditation_date}
-                                               name="accreditation_date"/>
-                                    </div>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium">{getText("ser50")}</label>
+                                                <input type="date"
+                                                       onChange={(e) => changeToogle4Value(e, index)}
+                                                       value={item.accreditation_date}
+                                                       name="accreditation_date"/>
+                                            </div>
 
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium">{getText("ser501")}</label>
-                                        <input type="text"
-                                               onChange={(e) => changeToogle4Value(e, index)}
-                                               value={item.certificate_number}
-                                               name="certificate_number"/>
-                                    </div>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium">{getText("ser501")}</label>
+                                                <input type="text"
+                                                       onChange={(e) => changeToogle4Value(e, index)}
+                                                       value={item.certificate_number}
+                                                       name="certificate_number"/>
+                                            </div>
 
-                                    <div className="my-input-groups col-md-6">
-                                        <label className="open-sans-medium">{getText("ser51")}</label>
-                                        <input type="text"
-                                               onChange={(e) => changeToogle4Value(e, index)}
-                                               value={item.foreign_accredit}
-                                               name="foreign_accredit"/>
-                                    </div>
+                                            <div className="my-input-groups col-md-6">
+                                                <label className="open-sans-medium">{getText("ser51")}</label>
+                                                <input type="text"
+                                                       onChange={(e) => changeToogle4Value(e, index)}
+                                                       value={item.foreign_accredit}
+                                                       name="foreign_accredit"/>
+                                            </div>
 
-                                </div>
-                                        ))}
+                                        </div>
+                                    ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещо
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle4Value}>Добавить ещо
                                     </button>
                                 </div>
                             </div>
@@ -893,9 +978,10 @@ const ManagementSystemsCertification = () => {
                                             </div>
                                         </div>
 
-                                ))}
+                                    ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещо
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle5Value}>Добавить ещо
                                     </button>
                                 </div>
                             </div>
@@ -1353,7 +1439,7 @@ const ManagementSystemsCertification = () => {
                                 ?
                                 <div className="many-checks-items">
                                     {
-                                        toogleCount4?.map((item, index)=>(
+                                        toogleCount4?.map((item, index) => (
                                             <div className="row inputs-box">
                                                 <div className="index open-sans-bold">
                                                     {index + 1})
@@ -1402,19 +1488,19 @@ const ManagementSystemsCertification = () => {
                             toogle5
                                 ?
                                 <div className="many-checks-items">
-                                        {
-                                            toogleCount5?.map((item, index)=>(
+                                    {
+                                        toogleCount5?.map((item, index) => (
                                             <div className="row inputs-box">
                                                 <div className="index open-sans-bold">
                                                     {index + 1})
                                                 </div>
-                                            <div className="my-input-groups col-md-12">
+                                                <div className="my-input-groups col-md-12">
                                                     <label className="open-sans-bold">{getText("ser541")}</label>
                                                     <span>{item.additional_offices ? item.additional_offices : "-"}</span>
                                                 </div>
                                             </div>
 
-                                            ))}
+                                        ))}
                                 </div>
                                 :
                                 ""
