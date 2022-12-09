@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FeruzAkk" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2IIoi0b1SXpgsJC5w1ORBxDR0tE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Navruz\Desktop\FeruzAkk\public\img" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="" />
+      <created>1669878113350</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669878113350</updated>
+      <workItem from="1669878170868" duration="37000" />
+      <workItem from="1669878601567" duration="18984000" />
+      <workItem from="1669955216912" duration="17069000" />
+      <workItem from="1670219287124" duration="13885000" />
+      <workItem from="1670301942629" duration="18667000" />
+      <workItem from="1670388135158" duration="9137000" />
+      <workItem from="1670559988598" duration="322000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1669891481765">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1669891481765" />
+    <state x="657" y="142" key="SettingsEditor" timestamp="1669879240094">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="657" y="142" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669879240094" />
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670396920502">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670396920502" />
+    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1670396266566">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670396266566" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1670318981277">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670318981277" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1670231149139">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670231149139" />
+  </component>
+</project>
