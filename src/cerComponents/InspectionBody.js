@@ -6,6 +6,7 @@ import {getText} from "../locales";
 import {Modal, ModalFooter, ModalHeader} from "reactstrap";
 import {toast} from "react-toastify";
 import Checks from "./inputs/Checks";
+import SrokSelect from "./inputs/SrokSelect";
 
 const InspectionBody = () => {
     const [design, setDesign] = useState([])
@@ -289,9 +290,9 @@ const InspectionBody = () => {
         return prover2;
     };
     const sendDataModal = () => {
-        // if (validate()) {
+        if (validate()) {
             setMainModal(true);
-        // }
+        }
     };
     const sendData = () => {
         bigData.append("is_accreditation", akk);
@@ -624,7 +625,7 @@ const InspectionBody = () => {
                                     ))}
 
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещо
+                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
                                 </div>
 
@@ -709,7 +710,7 @@ const InspectionBody = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle3Value}>Добавить ещо
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle3Value}>Добавить ещё
                                     </button>
                                 </div>
 
@@ -758,7 +759,7 @@ const InspectionBody = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещо
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещё
                                     </button>
                                 </div>
 
@@ -809,7 +810,7 @@ const InspectionBody = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещо
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещё
                                     </button>
                                 </div>
 
@@ -1206,7 +1207,6 @@ const InspectionBody = () => {
                             toogle3
                                 ?
                                 <div className="many-checks-item">
-
                                     {
                                         toogleCount3?.map((item, index)=>(
                                             <div className="row inputs-box">
@@ -1221,8 +1221,6 @@ const InspectionBody = () => {
                                             </div>
                                         ))
                                     }
-
-
                                 </div>
                                 :
                                 ""
@@ -1294,34 +1292,11 @@ const InspectionBody = () => {
                                 :
                                 ""
                         }
-                        <div className="toggle-select mt-4 mb-4">
-                            <label className="open-sans-bold">{getText("ser55")}
-                                <div>
-                                    {
-                                        srok === 0 ?
-                                            <button disabled
-                                                    className="open-sans-medium active">
-                                                {getText("ser56")}
-                                            </button>
-                                            :
-                                            srok === 1 ?
-                                                <button disabled
-                                                        className="open-sans-medium active">
-                                                    {getText("ser57")}
-                                                </button> :
-                                                srok === 3 ?
-                                                    <button disabled
-                                                            className="open-sans-medium active">{getText("ser58")}
-                                                    </button>
-                                                    :
-                                                    <img className="check-img-md" src="/img/del.png"/>
-
-                                    }
-
-                                </div>
-
-                            </label>
-                        </div>
+                        <SrokSelect
+                            title={getText("ser55")}
+                            srok={srok}
+                            setSrok={setSrok}
+                        />
 
                         <div className="toggle">
                             <label className="open-sans-bold">{getText("ser59")}

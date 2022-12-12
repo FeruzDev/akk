@@ -10,11 +10,7 @@ import OneInput from "./inputs/OneInput";
 import Consulting from "./inputs/Consulting";
 import SrokSelect from "./inputs/SrokSelect";
 
-const ManagementSystemsCertification = () => {
-    const [design, setDesign] = useState([])
-    const [cert, setCert] = useState([])
-    const [certValue, setCertValue] = useState(null)
-    const [designValue, setDesignValue] = useState(null)
+const ProductsAndServices = () => {
     const [locLang, setLocLang] = useState("ru")
 
     const [mainModal, setMainModal] = useState(false);
@@ -22,7 +18,11 @@ const ManagementSystemsCertification = () => {
     const [toogle1, setToogle1] = useState(false);
     const [toogle2, setToogle2] = useState(false);
     const [toogle3, setToogle3] = useState(false);
+    const [toogle31, setToogle31] = useState(false);
+    const [toogle32, setToogle32] = useState(false);
+    const [toogle321, setToogle321] = useState(false);
     const [toogle4, setToogle4] = useState(false);
+    const [toogle41, setToogle41] = useState(false);
     const [toogle5, setToogle5] = useState(false);
     const [toogle6, setToogle6] = useState(false);
     const [toogle7, setToogle7] = useState(false);
@@ -37,6 +37,7 @@ const ManagementSystemsCertification = () => {
     const [perAkk, setPerAkk] = useState(false);
 
     const [fullName, setFullName] = useState("");
+    const [evidence_number_accreditation, setevidence_number_accreditation] = useState("");
     const [objectName, setObjectName] = useState("");
     const [statusOrgDate, setStatusOrgDate] = useState("");
     const [statusOrgNum, setStatusOrgNum] = useState("");
@@ -53,16 +54,12 @@ const ManagementSystemsCertification = () => {
     const [inn, setInn] = useState("");
     const [yurPerson, setYurPerson] = useState("");
     const [phoneYurPerson, setPhoneYurPerson] = useState("");
+    const [phoneYurPerson2, setPhoneYurPerson2] = useState("");
     const [orgSer, setOrgSer] = useState("");
     const [phoneOrgSer, setPhoneOrgSer] = useState("");
     const [typeOf, setTypeOf] = useState("");
 
     const [serCount, setSerCount] = useState("");
-    // const [certificate_number, setcertificate_number] = useState("");
-    const [accreditation_date, setaccreditation_date] = useState("");
-    const [foreign_accredit, setforeign_accredit] = useState("");
-    const [orgName, setOrgName] = useState("");
-    const [additional_offices, setadditional_offices] = useState("");
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
@@ -91,8 +88,8 @@ const ManagementSystemsCertification = () => {
         accreditation_date: "",
         foreign_accredit: "",
     }]);
-    const [toogleCount5, setToogleCount5] = useState([{
-        additional_offices: ""
+    const [toogleCount41, setToogleCount41] = useState([{
+        full_name_staff: "",
     }]);
     const addElement = () => {
         setInputsCount(inputsCount.concat({
@@ -121,9 +118,9 @@ const ManagementSystemsCertification = () => {
             foreign_accredit: "",
         }));
     };
-    const addElementToogle5Value = () => {
-        setToogleCount5(toogleCount5.concat({
-            additional_offices: ""
+    const addElementToogle41Value = () => {
+        setToogleCount41(toogleCount41.concat({
+            full_name_staff: ""
         }));
     };
     const removeToogle4 = (item) => {
@@ -134,11 +131,11 @@ const ManagementSystemsCertification = () => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
-    const removeToogle5 = (item) => {
-        setToogleCount5(toogleCount5.filter((abs, index) => index !== item));
+    const removeToogle41 = (item) => {
+        setToogleCount41(toogleCount41.filter((abs, index) => index !== item));
     };
-    const changeToogle5Value = (e, ind) => {
-        setToogleCount5(toogleCount5.map((item, index) => {
+    const changeToogle41Value = (e, ind) => {
+        setToogleCount41(toogleCount41.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
@@ -342,11 +339,11 @@ const ManagementSystemsCertification = () => {
         bigData.append("email", mail);
         bigData.append("bank_name", bank);
         bigData.append("tin", inn);
-        bigData.append("full_name_legal_person", yurPerson);
-        bigData.append("phone_number_legal_person", phoneYurPerson);
+        bigData.append("full_name_contact_person", yurPerson);
+        bigData.append("position_contact_person", phoneYurPerson);
+        bigData.append("phone_number_contact_person", phoneYurPerson2);
         bigData.append("full_name_head_certification", orgSer);
         bigData.append("phone_head_certification", phoneOrgSer);
-
         bigData.append("is_branches", toogle1);
         if (toogle1) {
             inputsCount?.map((item, index) => {
@@ -356,38 +353,35 @@ const ManagementSystemsCertification = () => {
                 bigData.append("branches[" + index + "]employees_count_in_branch", item.employees_count_in_branch);
                 bigData.append("branches[" + index + "]key_activities", item.key_activities);
             })
-
         }
-
         bigData.append("is_commercial_activity", toogle2);
         if (toogle2) {
             bigData.append("type_of_commercial_activity", typeOf);
         }
-
+        bigData.append("engaged_staff", toogle31);
+        bigData.append("own_laboratory", toogle32);
+        bigData.append("attached_data", toogle321);
         bigData.append("certification_activity", toogle3);
         if (toogle3) {
             bigData.append("certification_activity_count", serCount);
         }
-
         bigData.append("is_accredited_organ", toogle4);
         if (toogle4) {
             toogleCount4?.map((item, index) => {
-
                 bigData.append("accredit_organ[" + index + "]name", item.name);
                 bigData.append("accredit_organ[" + index + "]certificate_number", item.certificate_number);
                 bigData.append("accredit_organ[" + index + "]accreditation_date", item.accreditation_date);
                 bigData.append("accredit_organ[" + index + "]foreign_accredit", item.foreign_accredit);
             })
         }
-
-        bigData.append("is_add_offices", toogle5);
-        if (toogle5) {
-            toogleCount5?.map((item, index) => {
-
-                bigData.append("offices[" + index + "]additional_offices", item.additional_offices);
+        bigData.append("is_add_staff", toogle41);
+        if (toogle41) {
+            toogleCount41?.map((item, index) => {
+                bigData.append("staff[" + index + "]full_name_staff", item.full_name_staff);
             })
-
         }
+        bigData.append("laboratory_accredited", toogle5);
+        bigData.append("evidence_number_accreditation", evidence_number_accreditation);
 
         bigData.append("manage_system", srok);
         bigData.append("internal_audit", toogle6);
@@ -410,39 +404,21 @@ const ManagementSystemsCertification = () => {
         bigData.append("payment_acc", raschot);
         bigData.append("soogu", soogu);
 
-        designValue?.map((item) => {
-            bigData.append("standard_designation", item.value);
-        });
-        certValue?.map((item) => {
-            bigData.append("standard_certification", item.value);
-        });
-        axios.post(APIT_APTH + "apps/application/send/9/", bigData, AUTH)
+        axios.post(APIT_APTH + "apps/application/send/8/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
-                window.location.reload()
+                // window.location.reload()
+            })
+            .catch(err =>{
+                toast.error("ERROR")
             })
     };
-    const getCert = () => {
-        axios.get(APIT_APTH + "apps/application/cert-standards/", AUTH)
-            .then(res => {
-                setCert(res.data)
-            })
-    };
-    const getDesign = () => {
-        axios.get(APIT_APTH + "apps/application/design-standards/", AUTH)
-            .then(res => {
-                setDesign(res.data)
-            })
-    };
-
 
     useEffect(() => {
-        getDesign()
-        getCert()
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
-        )
+        );
         else (
             setLocLang("ru")
         )
@@ -481,7 +457,7 @@ const ManagementSystemsCertification = () => {
             </div>
             <div className="container">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
-                    {getText("ser1")}
+                    {getText("ms1")}
                 </h2>
                 <Checks
                     akk={akk}
@@ -501,50 +477,6 @@ const ManagementSystemsCertification = () => {
                     <h3 className="big-box-title open-sans-medium">
                         {getText("ser9")}
                     </h3>
-                    <div className="check-list">
-                        <label className="open-sans-medium">{getText("ser10")}</label>
-                        <label className="open-sans-medium" style={{marginLeft: "10px"}}>{getText("ser101")}</label>
-                    </div>
-                    <div className="many-checks">
-                        <p className="open-sans-medium">{getText("ser11")}</p>
-                        <div className="lists mb-2">
-                            <Select
-                                isClearable
-                                isMulti
-                                placeholder={getText("ser11")}
-                                options={design?.map((item) => {
-                                    return {
-                                        value: item.id,
-                                        label: item.name
-                                    };
-                                })}
-                                value={designValue}
-                                onChange={(e) => {
-                                    setDesignValue(e);
-                                }}
-                            />
-                        </div>
-                    </div>
-                    <div className="many-checks">
-                        <p className="open-sans-medium">{getText("ser12")}</p>
-                        <div className="lists mb-2">
-                            <Select
-                                isClearable
-                                isMulti
-                                placeholder={getText("ser13")}
-                                options={cert?.map((item) => {
-                                    return {
-                                        value: item.id,
-                                        label: item.name
-                                    };
-                                })}
-                                value={certValue}
-                                onChange={(e) => {
-                                    setCertValue(e);
-                                }}
-                            />
-                        </div>
-                    </div>
                     <div className="row">
                         <OneInput
                             refSelect={ref1}
@@ -695,7 +627,7 @@ const ManagementSystemsCertification = () => {
                             star={true}
                             inputType="text"
                             font="open-sans-medium"
-                            titleLabel={getText("ser30")}
+                            titleLabel={getText("ms2")}
                             myClass="my-input-groups col-md-6"
                         />
                         <OneInput
@@ -704,7 +636,16 @@ const ManagementSystemsCertification = () => {
                             star={true}
                             inputType="text"
                             font="open-sans-medium"
-                            titleLabel={getText("ser31")}
+                            titleLabel={getText("ms3")}
+                            myClass="my-input-groups col-md-6"
+                        />
+                        <OneInput
+                            refSelect={ref16}
+                            setState={setPhoneYurPerson2}
+                            star={true}
+                            inputType="text"
+                            font="open-sans-medium"
+                            titleLabel={getText("ms4")}
                             myClass="my-input-groups col-md-6"
                         />
                         <OneInput
@@ -746,7 +687,7 @@ const ManagementSystemsCertification = () => {
                     {
                         toogle1
                             ?
-                            <div className="many-checks">
+                            <div className="many-checks-items">
                                 <p className="open-sans-medium">
                                     {getText("ser35")}
                                 </p>
@@ -761,20 +702,15 @@ const ManagementSystemsCertification = () => {
                                                     className="close open-sans-bold">
                                                 <img src="/img/close.png" alt=""/>
                                             </button>
-                                            <div className="my-input-groups col-md-4">
+                                            <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser36")} </label>
                                                 <input onChange={(e) => changeValue(e, index)} value={item.address}
                                                        name="address" type="text"/>
                                             </div>
-                                            <div className="my-input-groups col-md-4">
+                                            <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser37")} </label>
                                                 <input onChange={(e) => changeValue(e, index)} value={item.phone_number}
                                                        name="phone_number" type="text"/>
-                                            </div>
-                                            <div className="my-input-groups col-md-4">
-                                                <label className="open-sans-medium"> {getText("ser38")}</label>
-                                                <input onChange={(e) => changeValue(e, index)}
-                                                       value={item.full_name_head} name="full_name_head" type="text"/>
                                             </div>
                                             <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium"> {getText("ser39")}</label>
@@ -802,7 +738,7 @@ const ManagementSystemsCertification = () => {
                     }
 
                     <div className="toggle">
-                        <label className="open-sans-medium">{getText("ser41")}
+                        <label className="open-sans-medium">{getText("ms5")}
                             <div>
                                 <button onClick={() => setToogle2(true)}
                                         className={toogle2 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
@@ -833,6 +769,19 @@ const ManagementSystemsCertification = () => {
                             :
                             ""
                     }
+
+                    <div className="toggle">
+                        <label className="open-sans-medium">{getText("ms6")}
+                            <div>
+                                <button onClick={() => setToogle31(true)}
+                                        className={toogle31 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
+                                </button>
+                                <button onClick={() => setToogle31(false)}
+                                        className={toogle31 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
+                                </button>
+                            </div>
+                        </label>
+                    </div>
 
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("ser44")}
@@ -880,11 +829,7 @@ const ManagementSystemsCertification = () => {
                     {
                         toogle4
                             ?
-                            <div className="many-checks">
-                                <p className="open-sans-medium">
-                                    {getText("ser48")}
-                                </p>
-
+                            <div className="many-checks-items">
                                 {
                                     toogleCount4?.map((item, index) => (
                                         <div className="row inputs-box">
@@ -939,9 +884,22 @@ const ManagementSystemsCertification = () => {
                             ""
                     }
 
+                    <div className="toggle">
+                        <label className="open-sans-medium">{getText("ms7")}
+                            <div>
+                                <button onClick={() => setToogle32(true)}
+                                        className={toogle32 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
+                                </button>
+                                <button onClick={() => setToogle32(false)}
+                                        className={toogle32 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+
 
                     <div className="toggle">
-                        <label className="open-sans-medium">{getText("ser52")}
+                        <label className="open-sans-medium">{getText("ms9")}
                             <div>
                                 <button onClick={() => setToogle5(true)}
                                         className={toogle5 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
@@ -955,44 +913,90 @@ const ManagementSystemsCertification = () => {
                     {
                         toogle5
                             ?
-                            <div className="many-checks">
+                            <div className="many-checks-items">
                                 <p className="open-sans-medium">
                                     {getText("ser53")}
                                 </p>
-                                {
-                                    toogleCount5?.map((item, index) => (
-                                        <div className="row inputs-box">
-                                            <div className="index open-sans-bold">
-                                                {index + 1})
-                                            </div>
-                                            <button onClick={() => removeToogle5(index)}
-                                                    className="close open-sans-bold">
-                                                <img src="/img/close.png" alt=""/>
-                                            </button>
 
-
-                                            <div className="my-input-groups col-md-12">
-                                                <label className="open-sans-medium">{getText("ser54")}</label>
+                                        <div className="row inputs-box pt-0">
+                                            <div className="my-input-groups col-md-12 ">
+                                                <label className="open-sans-medium">{getText("ms10")}</label>
                                                 <input type="text"
-                                                       onChange={(e) => changeToogle5Value(e, index)}
-                                                       value={item.additional_offices}
-                                                       name="additional_offices"/>
+                                                       onChange={(e) => setevidence_number_accreditation(e.target.value)} />
                                             </div>
                                         </div>
 
-                                    ))}
-                                <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
-                                            onClick={addElementToogle5Value}>Добавить ещё
-                                    </button>
-                                </div>
                             </div>
                             :
                             ""
                     }
+                    <div className="toggle">
+                        <label className="open-sans-medium">{getText("ms11")}
+                            <div>
+                                <button onClick={() => setToogle321(true)}
+                                        className={toogle321 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
+                                </button>
+                                <button onClick={() => setToogle321(false)}
+                                        className={toogle321 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+
+
+                    <div className="toggle">
+                        <label className="open-sans-medium">{getText("io5")}
+                            <div>
+                                <button onClick={() => setToogle41(true)}
+                                        className={toogle41 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
+                                </button>
+                                <button onClick={() => setToogle41(false)}
+                                        className={toogle41 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
+                                </button>
+                            </div>
+                        </label>
+                    </div>
+                    {
+                        toogle41
+                            ?
+                            <div className="many-checks-items">
+                                <p className="open-sans-medium">
+                                    {getText("ser48")}
+                                </p>
+
+                                {
+                                    toogleCount41?.map((item, index) => (
+
+                                        <div className="row inputs-box">
+                                            <div className="index open-sans-bold">
+                                                {index + 1})
+                                            </div>
+                                            <button onClick={() => removeToogle41(index)}
+                                                    className="close open-sans-bold">
+                                                <img src="/img/close.png" alt=""/>
+                                            </button>
+                                            <div className="my-input-groups col-md-12">
+                                                <label className="open-sans-medium">{getText("io6")}</label>
+                                                <input onChange={(e) => changeToogle41Value(e, index)}
+                                                       value={item.full_name_staff}
+                                                       name="full_name_staff"
+                                                       type="text"/>
+                                            </div>
+                                        </div>
+                                    ))}
+                                <div className="row d-flex justify-content-end">
+                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle41Value}>Добавить ещё
+                                    </button>
+                                </div>
+
+                            </div>
+                            :
+                            ""
+                    }
+
                     <SrokSelect
-                        title={getText("ser55")}
                         srok={srok}
+                        title={getText("ms8")}
                         setSrok={setSrok}
                     />
                     <div className="toggle">
@@ -1160,30 +1164,7 @@ const ManagementSystemsCertification = () => {
                             <label className="open-sans-medium">{getText("ser10")}</label>
                             <label className="open-sans-medium" style={{marginLeft: "10px"}}>{getText("ser101")}</label>
                         </div>
-                        <div className="many-checks">
-                            <p className="open-sans-medium">{getText("ser11")}</p>
-                            <div className="lists mb-2">
-                                {
-                                    designValue ? designValue?.map(item => (
-                                            <span className="d-block">{item.label}</span>
-                                        ))
-                                        :
-                                        "-"
-                                }
-                            </div>
-                        </div>
-                        <div className="many-checks">
-                            <p className="open-sans-medium">{getText("ser12")}</p>
-                            <div className="lists mb-2">
-                                {
-                                    certValue ? certValue?.map(item => (
-                                            <span className="d-block">{item.label}</span>
-                                        ))
-                                        :
-                                        "-"
-                                }
-                            </div>
-                        </div>
+
                         <div className="row mt-4">
                             <div className="my-input-groups col-md-6 pr-20 m-0 justify-content-center">
                                 <label className="open-sans-bold">{getText("ser14")} </label>
@@ -1431,38 +1412,30 @@ const ManagementSystemsCertification = () => {
                         }
 
 
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser52")}
-                                <div>
-                                    {toogle5 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
                         {
-                            toogle5
+                            toogle41
                                 ?
                                 <div className="many-checks-items">
+
                                     {
-                                        toogleCount5?.map((item, index) => (
+                                        toogleCount41?.map((item, index)=>(
                                             <div className="row inputs-box">
                                                 <div className="index open-sans-bold">
                                                     {index + 1})
                                                 </div>
                                                 <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser541")}</label>
-                                                    <span>{item.additional_offices ? item.additional_offices : "-"}</span>
+                                                    <label className="open-sans-bold">{getText("io6")}</label>
+
+                                                    <span>{item.full_name_staff ? item.full_name_staff : "-"}</span>
                                                 </div>
                                             </div>
-
-                                        ))}
+                                        ))
+                                    }
                                 </div>
                                 :
                                 ""
                         }
+
                         <div className="toggle-select mt-4 mb-4">
                             <label className="open-sans-bold">{getText("ser55")}
                                 <div>
@@ -1634,4 +1607,4 @@ const ManagementSystemsCertification = () => {
     );
 };
 
-export default ManagementSystemsCertification;
+export default ProductsAndServices;

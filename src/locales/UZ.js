@@ -166,4 +166,15 @@ export const UZ = {
   io5: "Masofadagi xodimlar bormi?",
   io6: "To'liq ismni kiriting",
 
+  ms1: "mahsulotlar va xizmatlarni sertifikatlash organini O'z DSt ISO/IEC 17065:2015 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+  ms2: "Sertifikatlashtirish organining aloqa shaxsining to'liq ismi",
+  ms3: "Aloqa qiluvchi shaxsning pozitsiyasi",
+  ms4: "Aloqa telefoni",
+  ms5: "Yuridik shaxs mahsulot va xizmatlarni sertifikatlashdan tashqari faoliyat bilan shug'ullanadimi",
+  ms6: "Sertifikatlovchida tashqi xodimlar bormi?",
+  ms7: "Sertifikatlashtirish organining o'z laboratoriyasi bormi?",
+  ms8: "Sifat tizimi qancha vaqtdan beri mavjud?",
+  ms9: "Laboratoriya akkreditatsiyalanganmi?",
+  ms10: "Ha bo'lsa, akkreditatsiya sertifikatining raqami qancha?",
+  ms11: "Ushbu ilova o'zining sinov laboratoriyasi mavjudligi haqidagi ma'lumotlarni o'z ichiga oladimi?",
 };

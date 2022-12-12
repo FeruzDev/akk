@@ -4,7 +4,7 @@ import {getText} from "../../locales";
 const OneInput = (props) => {
     return (
             <div className={props.myClass}>
-                <label className={props.font}>
+                <label className={props?.font}>
                     {
                         props.titleLabel
 
@@ -17,7 +17,7 @@ const OneInput = (props) => {
                             : ""
                     }
                 </label>
-                <input type={props.inputType} ref={props.refSelect} onChange={(e) => props.setState(e.target.value)}/>
+                <input type={props?.inputType}  ref={props.refSelect ? props.refSelect : "fake"}    onChange={(e) => props.setState(e.target.value)}/>
             </div>
     );
 };
