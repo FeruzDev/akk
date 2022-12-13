@@ -2,17 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/Consulting.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/SrokSelect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NavbarMain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cerComponents/inputs/OneInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/inputs/OneInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddEmployee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OneID.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OneID.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/AcModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/AcModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/AspModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/AspModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/CompetencyModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/CompetencyModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/ConfilctModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/ConfilctModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/DcModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/DcModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/FactoryModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/FactoryModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/FamilyModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/FamilyModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/LangModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/LangModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/LocationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/LocationModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/MgModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/MgModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/NationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/NationModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/PositionModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/PositionModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/PropiskaModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/PropiskaModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/SerModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/SerModal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modals/UniversityModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/UniversityModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/UZ.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tools/Const.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/Const.js" afterDir="false" />
     </list>
@@ -75,7 +91,10 @@
       <workItem from="1670301942629" duration="18667000" />
       <workItem from="1670388135158" duration="9137000" />
       <workItem from="1670559988598" duration="17112000" />
-      <workItem from="1670818610820" duration="20710000" />
+      <workItem from="1670818610820" duration="21513000" />
+      <workItem from="1670904805949" duration="1560000" />
+      <workItem from="1670911464256" duration="390000" />
+      <workItem from="1670911882569" duration="17440000" />
     </task>
     <servers />
   </component>
@@ -91,21 +110,33 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="657" y="142" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669879240094" />
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670833960452">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670935285011">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670833960452" />
-    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1670840989692">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670935285011" />
+    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1670917274203">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670840989692" />
+    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670917274203" />
     <state x="616" y="243" key="run.anything.popup" timestamp="1670589914224">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670589914224" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1670231149139">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1670935722910">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670231149139" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670935722910" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/cerComponents/InspectionBody.js</url>
+          <line>735</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

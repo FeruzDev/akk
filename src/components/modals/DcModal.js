@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Select from "react-select";
 import axios from "axios";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import {toast} from "react-toastify";
 import {getText} from "../../locales";
 const DcModal = (props) => {
@@ -16,13 +16,13 @@ const DcModal = (props) => {
     const [uniTitle, setUniTitle] = useState("")
 
     const getFaculty = () => {
-        axios.get(APIT_APTH + "apps/references/faculty/", AUTH)
+        axios.get(API_APTH + "apps/references/faculty/", AUTH)
             .then(res =>{
                 setFacultyList(res.data)
             })
     }
     const getUniversity = () => {
-        axios.get(APIT_APTH + "apps/references/edu/", AUTH)
+        axios.get(API_APTH + "apps/references/edu/", AUTH)
             .then(res =>{
                 setUniversityList(res.data)
             })
@@ -30,13 +30,13 @@ const DcModal = (props) => {
 
 
     const bachelorList = () => {
-        axios.get(APIT_APTH + "apps/references/" + props.url + "/", AUTH)
+        axios.get(API_APTH + "apps/references/" + props.url + "/", AUTH)
             .then(res =>{
                 props.setBachelorList(res.data)
             })
     }
     const createFac = () => {
-        axios.post(APIT_APTH + "apps/references/" + props.url + "/", {
+        axios.post(API_APTH + "apps/references/" + props.url + "/", {
             "period": period,
             "education_pk": facultyListValue.value
         }, AUTH)
@@ -46,7 +46,7 @@ const DcModal = (props) => {
             })
     }
     const createSecond = () => {
-        axios.post(APIT_APTH + "apps/references/faculty/", {
+        axios.post(API_APTH + "apps/references/faculty/", {
             "graduate": graduate,
             "university_pk": universityListValue.value
         }, AUTH)
@@ -58,7 +58,7 @@ const DcModal = (props) => {
             })
     }
     const createThird = () => {
-        axios.post(APIT_APTH + "apps/references/edu/", {
+        axios.post(API_APTH + "apps/references/edu/", {
             "name": uniTitle
         }, AUTH)
             .then(() =>{

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { APIT_APTH, AUTH } from "../../tools/Const";
+import { API_APTH, AUTH } from "../../tools/Const";
 import axios from "axios";
 import Select from "react-select";
 import { getText } from "../../locales";
@@ -21,7 +21,7 @@ const FamilyModal = (props) => {
   const createLang = () => {
     axios
       .post(
-        APIT_APTH + "apps/references/about_family/",
+        API_APTH + "apps/references/about_family/",
         {
           relation_degree: FaName.value,
           full_name: fio,
@@ -61,7 +61,7 @@ const FamilyModal = (props) => {
 
     axios
       .put(
-        APIT_APTH + "apps/references/about_family/update/" + props.facId?.id,
+        API_APTH + "apps/references/about_family/update/" + props.facId?.id,
         {
           relation_degree: FaName.value,
           full_name: fio,

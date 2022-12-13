@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Select from "react-select";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import axios from "axios";
 import {getText} from "../../locales";
 
@@ -9,13 +9,13 @@ const PositionModal = (props) => {
     const [getPositionValue, setGetPositionValue] = useState("")
 
     const getData = () => {
-        axios.get(APIT_APTH + "apps/references/position/", AUTH)
+        axios.get(API_APTH + "apps/references/position/", AUTH)
             .then(res => {
                 props.setGetPosition(res.data)
             })
     }
     const createPosition = () => {
-        axios.post(APIT_APTH + "apps/references/position/", {"name": getPositionValue}, AUTH)
+        axios.post(API_APTH + "apps/references/position/", {"name": getPositionValue}, AUTH)
             .then(res => {
                 props.setPosition(res.data)
                 props.setLocationModal(false)
@@ -24,7 +24,7 @@ const PositionModal = (props) => {
             })
     }
     const editPosition = () => {
-        axios.put(APIT_APTH + "apps/references/position/update/" + props.locationValue?.value, {"name": getPositionValue}, AUTH)
+        axios.put(API_APTH + "apps/references/position/update/" + props.locationValue?.value, {"name": getPositionValue}, AUTH)
             .then(res => {
                 props.setPosition(res.data)
                 props.setLocationModal(false)

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Select from "react-select";
 import axios from "axios";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import {toast} from "react-toastify";
 import {getText} from "../../locales/";
 
@@ -15,7 +15,7 @@ const CompetencyModal = (props) => {
     const [cityCountry, setCityCountry] = useState("")
 
     const addCountry = () => {
-        axios.post(APIT_APTH + "apps/references/type_of_competency/", {"name": country}, AUTH)
+        axios.post(API_APTH + "apps/references/type_of_competency/", {"name": country}, AUTH)
             .then(res => {
                 getConutryList()
                 props.setLocationModal(true)
@@ -24,7 +24,7 @@ const CompetencyModal = (props) => {
     }
 
     const createCity = () => {
-        axios.post(APIT_APTH + "apps/references/competency/",
+        axios.post(API_APTH + "apps/references/competency/",
             {
                 "code_pk": cityCountry.value,
                 "name_code": city},
@@ -41,14 +41,14 @@ const CompetencyModal = (props) => {
             })
     }
     const getCityList = () => {
-        axios.get(APIT_APTH + "apps/references/competency/", AUTH)
+        axios.get(API_APTH + "apps/references/competency/", AUTH)
             .then(res => {
                 setGetCity(res.data)
                 props.setLocation(res.data)
             })
     }
     const getConutryList = () => {
-        axios.get(APIT_APTH + "apps/references/type_of_competency/", AUTH)
+        axios.get(API_APTH + "apps/references/type_of_competency/", AUTH)
             .then(res => {
                 setGetCountry(res.data)
             })

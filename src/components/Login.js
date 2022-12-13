@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import axios from "axios";
-import {APIT_APTH} from "../tools/Const";
+import {API_APTH} from "../tools/Const";
 import {useHistory} from "react-router-dom";
 const Login = () => {
     const [myTabs, setMyTabs] = useState(true)
     let history = useHistory()
     const login = (event, value) => {
-        axios.post(APIT_APTH  + "auth/token/login/",
+        axios.post(API_APTH  + "auth/token/login/",
                 {
                     "password": document.getElementById("password").value,
                     "username": document.getElementById("username").value,

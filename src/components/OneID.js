@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useLocation, useHistory} from 'react-router-dom'
 import axios from "axios";
-import {APIT_APTH} from "../tools/Const";
+import {API_APTH} from "../tools/Const";
 
 const OneId = (props) => {
     const location = useLocation();
@@ -9,7 +9,7 @@ const OneId = (props) => {
     const history = useHistory();
     useEffect(() => {
         console.log(params.get("code"));
-        axios.post(APIT_APTH + "users/one_id/",
+        axios.post(API_APTH + "users/one_id/",
             {"access_token": params.get("code")}
         )
             .then(res => {

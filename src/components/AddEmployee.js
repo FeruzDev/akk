@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import axios from "axios";
-import { APIT_APTH, AUTH, SITE_LANG } from "../tools/Const";
+import { API_APTH, AUTH, SITE_LANG } from "../tools/Const";
 import { toast } from "react-toastify";
 import LocationModal from "./modals/LocationModal";
 import PropiskaModal from "./modals/PropiskaModal";
@@ -120,71 +120,71 @@ const AddEmployee = () => {
   const [facIndex, setIndex] = useState("");
   const [serId, setSerId] = useState("");
   const getUsersList = () => {
-    axios.get(APIT_APTH + "users/list/", AUTH).then((res) => {
+    axios.get(API_APTH + "users/list/", AUTH).then((res) => {
       setUsers(res.data);
     });
   };
   const getCityList = () => {
-    axios.get(APIT_APTH + "apps/references/city/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/city/", AUTH).then((res) => {
       setLocation(res.data);
     });
   };
   const getNationData = () => {
-    axios.get(APIT_APTH + "apps/references/nation/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/nation/", AUTH).then((res) => {
       setGetNation(res.data);
     });
   };
   const getPositionData = () => {
-    axios.get(APIT_APTH + "apps/references/position/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/position/", AUTH).then((res) => {
       setGetPosition(res.data);
     });
   };
   const getConfilictData = () => {
     axios
-      .get(APIT_APTH + "apps/references/conflict_of_interest/", AUTH)
+      .get(API_APTH + "apps/references/conflict_of_interest/", AUTH)
       .then((res) => {
         setGetConfilict(res.data);
       });
   };
   const getLangData = () => {
     axios
-      .get(APIT_APTH + "apps/references/foreign_languages/", AUTH)
+      .get(API_APTH + "apps/references/foreign_languages/", AUTH)
       .then((res) => {
         setGetLang(res.data);
       });
   };
   const getCompData = () => {
-    axios.get(APIT_APTH + "apps/references/competency/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/competency/", AUTH).then((res) => {
       setGetComp(res.data);
     });
   };
   const getStatusData = () => {
-    axios.get(APIT_APTH + "apps/references/status/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/status/", AUTH).then((res) => {
       setStatus(res.data);
     });
   };
   const getBachelorData = () => {
-    axios.get(APIT_APTH + "apps/references/bachelor/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/bachelor/", AUTH).then((res) => {
       setBachelorList(res.data);
     });
   };
   const getMagstrData = () => {
-    axios.get(APIT_APTH + "apps/references/magistracy/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/magistracy/", AUTH).then((res) => {
       setMagstrList(res.data);
     });
   };
   const getAspirantData = () => {
-    axios.get(APIT_APTH + "apps/references/phd/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/phd/", AUTH).then((res) => {
       setAspirantList(res.data);
     });
   };
   const getDoctorantData = () => {
-    axios.get(APIT_APTH + "apps/references/dr_science/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/dr_science/", AUTH).then((res) => {
       setDoctorantList(res.data);
     });
   };
   const getAcademikData = () => {
-    axios.get(APIT_APTH + "apps/references/academician/", AUTH).then((res) => {
+    axios.get(API_APTH + "apps/references/academician/", AUTH).then((res) => {
       setAcademikList(res.data);
     });
   };
@@ -375,7 +375,7 @@ const AddEmployee = () => {
     });
 
     axios
-      .post(APIT_APTH + "apps/employees/create/", bigData, {
+      .post(API_APTH + "apps/employees/create/", bigData, {
         headers: {
           Authorization: "token " + localStorage.getItem("auth_token"),
         },

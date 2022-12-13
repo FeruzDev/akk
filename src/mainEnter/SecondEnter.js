@@ -13,9 +13,9 @@ const SecondEnter = () => {
                     <Link to="/first-enter/second-enter/products-and-services" className="col-md-12 open-sans-medium">
                         O'z DSt ISO/IEC 17065:2015 Сертификация продукции и услуг
                     </Link>
-                    <a className="col-md-12 open-sans-medium inActive">
+                    <Link to="/first-enter/second-enter/personnel-certification" className="col-md-12 open-sans-medium">
                         O'z DSt ISO/IEC 17024:2009 Сертификация персонала
-                    </a>
+                    </Link>
                     <a className="col-md-12 open-sans-medium inActive">
                         O'z DSt ISO/IEC 17043:2015 Проверки провайдера
                     </a>

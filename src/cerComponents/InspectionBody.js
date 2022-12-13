@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {APIT_APTH, AUTH, SITE_LANG} from "../tools/Const";
+import {API_APTH, AUTH, SITE_LANG} from "../tools/Const";
 import axios from "axios";
 import Select from "react-select";
 import {getText} from "../locales";
@@ -380,7 +380,7 @@ const InspectionBody = () => {
         certValue?.map((item) => {
             bigData.append("standard_certification", item.value);
         });
-        axios.post(APIT_APTH + "apps/application/send/5/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/5/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);

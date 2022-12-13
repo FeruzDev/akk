@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import axios from "axios";
 import {getText} from "../../locales";
 
@@ -9,13 +9,13 @@ const ConfilictModal = (props) => {
     const [getPositionValueSecond, setGetPositionValueSecond] = useState("")
 
     const getData = () => {
-        axios.get(APIT_APTH + "apps/references/conflict_of_interest/", AUTH)
+        axios.get(API_APTH + "apps/references/conflict_of_interest/", AUTH)
             .then(res => {
                 props.setGetPosition(res.data)
             })
     }
     const createPosition = () => {
-        axios.post(APIT_APTH + "apps/references/conflict_of_interest/", {
+        axios.post(API_APTH + "apps/references/conflict_of_interest/", {
             "name": getPositionValue,
             "reason": getPositionValueSecond
         }, AUTH)

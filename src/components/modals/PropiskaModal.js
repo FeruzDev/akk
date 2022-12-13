@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Select from "react-select";
 import axios from "axios";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import {toast} from "react-toastify";
 import {getText} from "../../locales";
 
@@ -15,7 +15,7 @@ const PropiskaModal = (props) => {
     const [cityCountry, setCityCountry] = useState("")
 
     const addCountry = () => {
-        axios.post(APIT_APTH + "apps/references/country/", {"name": country}, AUTH)
+        axios.post(API_APTH + "apps/references/country/", {"name": country}, AUTH)
             .then(res => {
                 getConutryList()
                 props.setLocationModal(true)
@@ -24,7 +24,7 @@ const PropiskaModal = (props) => {
     }
 
     const createCity = () => {
-        axios.post(APIT_APTH + "apps/references/city/", {
+        axios.post(API_APTH + "apps/references/city/", {
             "country_pk": cityCountry.value, "name": city
         }, AUTH)
             .then(res => {
@@ -40,7 +40,7 @@ const PropiskaModal = (props) => {
     }
 
     const editCity = () => {
-        axios.put(APIT_APTH + "apps/references/city/update/" + props.locationValue?.value, {
+        axios.put(API_APTH + "apps/references/city/update/" + props.locationValue?.value, {
             "country_pk": cityCountry?.value, "name": city
         }, AUTH)
             .then(res => {
@@ -55,14 +55,14 @@ const PropiskaModal = (props) => {
             })
     }
     const getCityList = () => {
-        axios.get(APIT_APTH + "apps/references/city/", AUTH)
+        axios.get(API_APTH + "apps/references/city/", AUTH)
             .then(res => {
                 setGetCity(res.data)
                 props.setLocation(res?.data)
             })
     }
     const getConutryList = () => {
-        axios.get(APIT_APTH + "apps/references/country/", AUTH)
+        axios.get(API_APTH + "apps/references/country/", AUTH)
             .then(res => {
                 setGetCountry(res.data)
             })

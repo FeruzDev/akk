@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { APIT_APTH, AUTH } from "../../tools/Const";
+import { API_APTH, AUTH } from "../../tools/Const";
 import axios from "axios";
 import { getText } from "../../locales";
 
@@ -12,7 +12,7 @@ const SerModal = (props) => {
   const createLang = () => {
     axios
       .post(
-        APIT_APTH + "apps/references/certificate/",
+        API_APTH + "apps/references/certificate/",
         { name: FaName, period: period, person: person },
         AUTH
       )
@@ -37,7 +37,7 @@ const SerModal = (props) => {
 
     axios
       .put(
-        APIT_APTH + "apps/references/certificate/update/" + props.facId,
+        API_APTH + "apps/references/certificate/update/" + props.facId,
         {
           name: props.locationValue[index].name,
           period: props.locationValue[index].period,

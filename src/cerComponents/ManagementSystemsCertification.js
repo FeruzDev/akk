@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {APIT_APTH, AUTH, SITE_LANG} from "../tools/Const";
+import {API_APTH, AUTH, SITE_LANG} from "../tools/Const";
 import axios from "axios";
 import Select from "react-select";
 import {getText} from "../locales";
@@ -58,11 +58,6 @@ const ManagementSystemsCertification = () => {
     const [typeOf, setTypeOf] = useState("");
 
     const [serCount, setSerCount] = useState("");
-    // const [certificate_number, setcertificate_number] = useState("");
-    const [accreditation_date, setaccreditation_date] = useState("");
-    const [foreign_accredit, setforeign_accredit] = useState("");
-    const [orgName, setOrgName] = useState("");
-    const [additional_offices, setadditional_offices] = useState("");
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
@@ -296,18 +291,14 @@ const ManagementSystemsCertification = () => {
             prover2 = false;
         } else {
             ref3.current.classList.remove("errorInput");
-
         }
-
         if (objectName === "") {
             ref2.current.focus();
             ref2.current.className = "errorInput";
             prover2 = false;
         } else {
             ref2.current.classList.remove("errorInput");
-
         }
-
         if (fullName === "") {
             ref1.current.focus();
             ref1.current.className = "errorInput";
@@ -315,7 +306,6 @@ const ManagementSystemsCertification = () => {
         } else {
             ref1.current.classList.remove("errorInput");
         }
-
         return prover2;
     };
     const sendDataModal = () => {
@@ -323,7 +313,6 @@ const ManagementSystemsCertification = () => {
         setMainModal(true);
         }
     };
-
     const sendData = () => {
         bigData.append("is_accreditation", akk);
         bigData.append("is_re_accreditation", prAkk);
@@ -346,7 +335,6 @@ const ManagementSystemsCertification = () => {
         bigData.append("phone_number_legal_person", phoneYurPerson);
         bigData.append("full_name_head_certification", orgSer);
         bigData.append("phone_head_certification", phoneOrgSer);
-
         bigData.append("is_branches", toogle1);
         if (toogle1) {
             inputsCount?.map((item, index) => {
@@ -356,9 +344,7 @@ const ManagementSystemsCertification = () => {
                 bigData.append("branches[" + index + "]employees_count_in_branch", item.employees_count_in_branch);
                 bigData.append("branches[" + index + "]key_activities", item.key_activities);
             })
-
         }
-
         bigData.append("is_commercial_activity", toogle2);
         if (toogle2) {
             bigData.append("type_of_commercial_activity", typeOf);
@@ -368,7 +354,6 @@ const ManagementSystemsCertification = () => {
         if (toogle3) {
             bigData.append("certification_activity_count", serCount);
         }
-
         bigData.append("is_accredited_organ", toogle4);
         if (toogle4) {
             toogleCount4?.map((item, index) => {
@@ -379,16 +364,13 @@ const ManagementSystemsCertification = () => {
                 bigData.append("accredit_organ[" + index + "]foreign_accredit", item.foreign_accredit);
             })
         }
-
         bigData.append("is_add_offices", toogle5);
         if (toogle5) {
             toogleCount5?.map((item, index) => {
 
                 bigData.append("offices[" + index + "]additional_offices", item.additional_offices);
             })
-
         }
-
         bigData.append("manage_system", srok);
         bigData.append("internal_audit", toogle6);
         bigData.append("leader_analyses", toogle7);
@@ -416,7 +398,7 @@ const ManagementSystemsCertification = () => {
         certValue?.map((item) => {
             bigData.append("standard_certification", item.value);
         });
-        axios.post(APIT_APTH + "apps/application/send/9/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/9/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
@@ -424,13 +406,13 @@ const ManagementSystemsCertification = () => {
             })
     };
     const getCert = () => {
-        axios.get(APIT_APTH + "apps/application/cert-standards/", AUTH)
+        axios.get(API_APTH + "apps/application/cert-standards/", AUTH)
             .then(res => {
                 setCert(res.data)
             })
     };
     const getDesign = () => {
-        axios.get(APIT_APTH + "apps/application/design-standards/", AUTH)
+        axios.get(API_APTH + "apps/application/design-standards/", AUTH)
             .then(res => {
                 setDesign(res.data)
             })
@@ -438,15 +420,14 @@ const ManagementSystemsCertification = () => {
 
 
     useEffect(() => {
-        getDesign()
-        getCert()
+        getDesign();
+        getCert();
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
-        )
+        );
         else (
             setLocLang("ru")
         )
-
     }, []);
 
     return (
@@ -479,6 +460,7 @@ const ManagementSystemsCertification = () => {
                     </div>
                 </div>
             </div>
+
             <div className="container">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("ser1")}

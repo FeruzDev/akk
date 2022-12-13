@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { APIT_APTH, AUTH } from "../../tools/Const";
+import { API_APTH, AUTH } from "../../tools/Const";
 import axios from "axios";
 import { getText } from "../../locales";
 
@@ -9,7 +9,7 @@ const LangModal = (props) => {
 
   const getData = () => {
     axios
-      .get(APIT_APTH + "apps/references/foreign_languages/", AUTH)
+      .get(API_APTH + "apps/references/foreign_languages/", AUTH)
       .then((res) => {
         props.setGetLang(res.data);
       });
@@ -17,7 +17,7 @@ const LangModal = (props) => {
   const createLang = () => {
     axios
       .post(
-        APIT_APTH + "apps/references/foreign_languages/",
+        API_APTH + "apps/references/foreign_languages/",
         { lang: getLangValue },
         AUTH
       )
@@ -32,7 +32,7 @@ const LangModal = (props) => {
   const editLang = () => {
     axios
       .put(
-        APIT_APTH +
+        API_APTH +
           "apps/references/foreign_languages/update/" +
           props.locationValue[0]?.value,
         { lang: getLangValue },

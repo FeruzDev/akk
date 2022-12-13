@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { APIT_APTH, AUTH } from "../../tools/Const";
+import { API_APTH, AUTH } from "../../tools/Const";
 import axios from "axios";
 import { getText } from "../../locales";
 
@@ -11,7 +11,7 @@ const FactoryModal = (props) => {
   const createLang = () => {
     axios
       .post(
-        APIT_APTH + "apps/references/labor_activity/",
+        API_APTH + "apps/references/labor_activity/",
         { name: FaName, period: period },
         AUTH
       )
@@ -34,7 +34,7 @@ const FactoryModal = (props) => {
 
     axios
       .put(
-        APIT_APTH + "apps/references/labor_activity/update/" + props.facId,
+        API_APTH + "apps/references/labor_activity/update/" + props.facId,
         {
           name: props.locationValue[index].name,
           period: props.locationValue[index].period,

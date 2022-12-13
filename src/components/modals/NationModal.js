@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Select from "react-select";
-import {APIT_APTH, AUTH} from "../../tools/Const";
+import {API_APTH, AUTH} from "../../tools/Const";
 import axios from "axios";
 import {getText} from "../../locales";
 
@@ -9,13 +9,13 @@ const NationModal = (props) => {
     const [getNationValue, setGetNationValue] = useState("")
 
     const getData = () => {
-        axios.get(APIT_APTH + "apps/references/nation/", AUTH)
+        axios.get(API_APTH + "apps/references/nation/", AUTH)
             .then(res => {
                 props.setGetNation(res.data)
             })
     }
     const createNation = () => {
-        axios.post(APIT_APTH + "apps/references/nation/", {"name": getNationValue}, AUTH)
+        axios.post(API_APTH + "apps/references/nation/", {"name": getNationValue}, AUTH)
             .then(res => {
                 props.setNation(res.data)
                 props.setLocationModal(false)
@@ -24,7 +24,7 @@ const NationModal = (props) => {
             })
     }
     const editNation = () => {
-        axios.put(APIT_APTH + "apps/references/nation/update/" + props.locationValue?.value, {"name": getNationValue}, AUTH)
+        axios.put(API_APTH + "apps/references/nation/update/" + props.locationValue?.value, {"name": getNationValue}, AUTH)
             .then(res => {
                 props.setNation(res.data)
                 props.setLocationModal(false)
