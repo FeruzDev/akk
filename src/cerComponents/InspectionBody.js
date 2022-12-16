@@ -380,7 +380,7 @@ const InspectionBody = () => {
         certValue?.map((item) => {
             bigData.append("standard_certification", item.value);
         });
-        axios.post(API_APTH + "apps/application/send/5/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/io/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);

@@ -398,7 +398,7 @@ const ManagementSystemsCertification = () => {
         certValue?.map((item) => {
             bigData.append("standard_certification", item.value);
         });
-        axios.post(API_APTH + "apps/application/send/9/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/mt/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
@@ -746,7 +746,7 @@ const ManagementSystemsCertification = () => {
                                             <div className="my-input-groups col-md-4">
                                                 <label className="open-sans-medium">{getText("ser36")} </label>
                                                 <input onChange={(e) => changeValue(e, index)} value={item.address}
-                                                       name="address" type="text"/>
+                                                               name="address" type="text"/>
                                             </div>
                                             <div className="my-input-groups col-md-4">
                                                 <label className="open-sans-medium">{getText("ser37")} </label>
@@ -782,7 +782,6 @@ const ManagementSystemsCertification = () => {
                             :
                             ""
                     }
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("ser41")}
                             <div>

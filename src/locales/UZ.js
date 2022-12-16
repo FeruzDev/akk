@@ -177,4 +177,23 @@ export const UZ = {
   ms9: "Laboratoriya akkreditatsiyalanganmi?",
   ms10: "Ha bo'lsa, akkreditatsiya sertifikatining raqami qancha?",
   ms11: "Ushbu ilova o'zining sinov laboratoriyasi mavjudligi haqidagi ma'lumotlarni o'z ichiga oladimi?",
+
+  xs1: "xodimlarni sertifikatlash organini Oʻz DSt ISO/IEC 17024:2009 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+  xs2: "Barcha xodimlarni sertifikatlash dasturlari tanangiz tomonidan qo'llaniladimi?",
+  xs3: "Agar bo'lmasa, nima autsorsing qilinmoqda?",
+  xs4: "Sizning baholashingiz qayerda:",
+  xs5: "Yuridik shaxs xodimlarni sertifikatlashdan boshqa faoliyat bilan shug'ullanadimi?",
+  xs6: "Sertifikatlovchida tashqi xodimlar bormi?",
+  xs7: "Sertifikatlashtirish organidami?",
+  xs8: "Ta'lim muassasasidami?",
+  xs9: "ishlab chiqarishdami?",
+  xs10: "Boshqa joylardami?",
+  xs11: "Agar mavjud bo'lsa, imtihon qanchalik tez-tez o'tkaziladi?",
+  xs12: "so'ralganidek",
+  xs13: "yiliga ikki marta",
+  xs14: "yiliga 4 marta",
+  xs15: "yilda bir marta",
+  xs16: "yiliga 3 marta",
+  xs17: "4 dan ortiq",
+
 };

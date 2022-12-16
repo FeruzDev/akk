@@ -12,6 +12,7 @@ import InspectionBody from "./cerComponents/InspectionBody";
 import ProductsAndServices from "./cerComponents/ProductsAndServices";
 import PersonnelCertification from "./cerComponents/PersonnelCertification";
 import {SITE_LANG} from "./tools/Const";
+import ProviderChecks from "./cerComponents/ProviderChecks";
 
 function App() {
   const [locLang, setLocLang] = useState("ru")
@@ -44,6 +45,7 @@ function App() {
           <Route exact path="/first-enter/second-enter/inspection-body"  component={InspectionBody} />
           <Route exact path="/first-enter/second-enter/products-and-services"  component={ProductsAndServices} />
           <Route exact path="/first-enter/second-enter/personnel-certification"  component={PersonnelCertification} />
+          <Route exact path="/first-enter/second-enter/provider-checks"  component={ProviderChecks} />
 
           {/*<Route path"/https://id.egov.uz/?client_id=e_akkred_uz&token_id=808c8a7a-ad7b-45f9-8e23-73d6e1538ff2&method=IDPW" exact component={OneId}/>*/}
         </Switch>

@@ -424,7 +424,7 @@ const PersonnelCertification = () => {
         bigData.append("payment_acc", raschot);
         bigData.append("soogu", soogu);
 
-        axios.post(API_APTH + "apps/application/send/9/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/xs/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);

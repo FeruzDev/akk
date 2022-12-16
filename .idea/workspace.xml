@@ -2,35 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/NavbarMain.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddEmployee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OneID.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OneID.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/AcModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/AcModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/AspModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/AspModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/CompetencyModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/CompetencyModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/ConfilctModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/ConfilctModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/DcModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/DcModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/FactoryModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/FactoryModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/FamilyModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/FamilyModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/LangModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/LangModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/LocationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/LocationModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/MgModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/MgModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/NationModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/NationModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/PositionModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/PositionModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/PropiskaModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/PropiskaModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/SerModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/SerModal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modals/UniversityModal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modals/UniversityModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/RU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/UZ.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/Const.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/Const.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -94,7 +76,12 @@
       <workItem from="1670818610820" duration="21513000" />
       <workItem from="1670904805949" duration="1560000" />
       <workItem from="1670911464256" duration="390000" />
-      <workItem from="1670911882569" duration="17440000" />
+      <workItem from="1670911882569" duration="17776000" />
+      <workItem from="1670991842337" duration="10984000" />
+      <workItem from="1671077875246" duration="1273000" />
+      <workItem from="1671109944519" duration="51000" />
+      <workItem from="1671170401683" duration="5176000" />
+      <workItem from="1671193706465" duration="1893000" />
     </task>
     <servers />
   </component>
@@ -110,10 +97,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="657" y="142" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669879240094" />
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670935285011">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670993449239">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670935285011" />
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670993449239" />
     <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1670917274203">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -133,7 +120,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/cerComponents/InspectionBody.js</url>
           <line>735</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

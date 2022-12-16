@@ -10,20 +10,12 @@ import OneInput from "./inputs/OneInput";
 import Consulting from "./inputs/Consulting";
 import SrokSelect from "./inputs/SrokSelect";
 
-const ProductsAndServices = () => {
+const ProviderChecks = () => {
     const [locLang, setLocLang] = useState("ru")
 
     const [mainModal, setMainModal] = useState(false);
 
-    const [toogle1, setToogle1] = useState(false);
     const [toogle2, setToogle2] = useState(false);
-    const [toogle3, setToogle3] = useState(false);
-    const [toogle31, setToogle31] = useState(false);
-    const [toogle32, setToogle32] = useState(false);
-    const [toogle321, setToogle321] = useState(false);
-    const [toogle4, setToogle4] = useState(false);
-    const [toogle41, setToogle41] = useState(false);
-    const [toogle5, setToogle5] = useState(false);
     const [toogle6, setToogle6] = useState(false);
     const [toogle7, setToogle7] = useState(false);
     const [toogle8, setToogle8] = useState(false);
@@ -37,8 +29,6 @@ const ProductsAndServices = () => {
     const [perAkk, setPerAkk] = useState(false);
 
     const [fullName, setFullName] = useState("");
-    const [evidence_number_accreditation, setevidence_number_accreditation] = useState("");
-    const [objectName, setObjectName] = useState("");
     const [statusOrgDate, setStatusOrgDate] = useState("");
     const [statusOrgNum, setStatusOrgNum] = useState("");
     const [yurAddress, setYurAddress] = useState("");
@@ -54,12 +44,10 @@ const ProductsAndServices = () => {
     const [inn, setInn] = useState("");
     const [yurPerson, setYurPerson] = useState("");
     const [phoneYurPerson, setPhoneYurPerson] = useState("");
-    const [phoneYurPerson2, setPhoneYurPerson2] = useState("");
     const [orgSer, setOrgSer] = useState("");
     const [phoneOrgSer, setPhoneOrgSer] = useState("");
     const [typeOf, setTypeOf] = useState("");
 
-    const [serCount, setSerCount] = useState("");
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
@@ -75,70 +63,6 @@ const ProductsAndServices = () => {
         setLocLang(lang)
     };
 
-    const [inputsCount, setInputsCount] = useState([{
-        address: "",
-        phone_number: "",
-        full_name_head: "",
-        employees_count_in_branch: "",
-        key_activities: ""
-    }]);
-    const [toogleCount4, setToogleCount4] = useState([{
-        name: "",
-        certificate_number: "",
-        accreditation_date: "",
-        foreign_accredit: "",
-    }]);
-    const [toogleCount41, setToogleCount41] = useState([{
-        full_name_staff: "",
-    }]);
-    const addElement = () => {
-        setInputsCount(inputsCount.concat({
-            address: "",
-            phone_number: "",
-            full_name_head: "",
-            employees_count_in_branch: "",
-            key_activities: ""
-        }))
-
-    };
-    const removeElement = (item) => {
-        setInputsCount(inputsCount.filter((abs, index) => index !== item));
-    };
-
-    const changeValue = (e, ind) => {
-        setInputsCount(inputsCount.map((item, index) => {
-            return index === ind ? {...item, [e.target.name]: e.target.value} : item
-        }))
-    };
-    const addElementToogle4Value = () => {
-        setToogleCount4(toogleCount4.concat({
-            name: "",
-            accreditation_date: "",
-            certificate_number: "",
-            foreign_accredit: "",
-        }));
-    };
-    const addElementToogle41Value = () => {
-        setToogleCount41(toogleCount41.concat({
-            full_name_staff: ""
-        }));
-    };
-    const removeToogle4 = (item) => {
-        setToogleCount4(toogleCount4.filter((abs, index) => index !== item));
-    };
-    const changeToogle4Value = (e, ind) => {
-        setToogleCount4(toogleCount4.map((item, index) => {
-            return index === ind ? {...item, [e.target.name]: e.target.value} : item
-        }))
-    };
-    const removeToogle41 = (item) => {
-        setToogleCount41(toogleCount41.filter((abs, index) => index !== item));
-    };
-    const changeToogle41Value = (e, ind) => {
-        setToogleCount41(toogleCount41.map((item, index) => {
-            return index === ind ? {...item, [e.target.name]: e.target.value} : item
-        }))
-    };
 
     const ref1 = useRef();
     const ref2 = useRef();
@@ -293,18 +217,7 @@ const ProductsAndServices = () => {
             prover2 = false;
         } else {
             ref3.current.classList.remove("errorInput");
-
         }
-
-        if (objectName === "") {
-            ref2.current.focus();
-            ref2.current.className = "errorInput";
-            prover2 = false;
-        } else {
-            ref2.current.classList.remove("errorInput");
-
-        }
-
         if (fullName === "") {
             ref1.current.focus();
             ref1.current.className = "errorInput";
@@ -312,15 +225,13 @@ const ProductsAndServices = () => {
         } else {
             ref1.current.classList.remove("errorInput");
         }
-
         return prover2;
     };
     const sendDataModal = () => {
-        if (validate()) {
-        setMainModal(true);
-        }
+        // if (validate()) {
+            setMainModal(true);
+        // }
     };
-
     const sendData = () => {
         bigData.append("is_accreditation", akk);
         bigData.append("is_re_accreditation", prAkk);
@@ -329,7 +240,6 @@ const ProductsAndServices = () => {
         bigData.append("is_area_reduction_accreditation", sokAkk);
         bigData.append("is_upgrade_new_version", perAkk);
         bigData.append("legal_entity_full_name", fullName);
-        bigData.append("full_name_accreditation_object", objectName);
         bigData.append("documentary_confirmation_int", statusOrgNum);
         bigData.append("documentary_confirmation_date", statusOrgDate);
         bigData.append("legal_address", yurAddress);
@@ -339,50 +249,14 @@ const ProductsAndServices = () => {
         bigData.append("email", mail);
         bigData.append("bank_name", bank);
         bigData.append("tin", inn);
-        bigData.append("full_name_contact_person", yurPerson);
-        bigData.append("position_contact_person", phoneYurPerson);
-        bigData.append("phone_number_contact_person", phoneYurPerson2);
+        bigData.append("full_name_legal_person", yurPerson);
+        bigData.append("phone_number_legal_person", phoneYurPerson);
         bigData.append("full_name_head_certification", orgSer);
         bigData.append("phone_head_certification", phoneOrgSer);
-        bigData.append("is_branches", toogle1);
-        if (toogle1) {
-            inputsCount?.map((item, index) => {
-                bigData.append("branches[" + index + "]address", item.address);
-                bigData.append("branches[" + index + "]phone_number", item.phone_number);
-                bigData.append("branches[" + index + "]full_name_head", item.full_name_head);
-                bigData.append("branches[" + index + "]employees_count_in_branch", item.employees_count_in_branch);
-                bigData.append("branches[" + index + "]key_activities", item.key_activities);
-            })
-        }
         bigData.append("is_commercial_activity", toogle2);
         if (toogle2) {
             bigData.append("type_of_commercial_activity", typeOf);
         }
-        bigData.append("engaged_staff", toogle31);
-        bigData.append("own_laboratory", toogle32);
-        bigData.append("attached_data", toogle321);
-        bigData.append("certification_activity", toogle3);
-        if (toogle3) {
-            bigData.append("certification_activity_count", serCount);
-        }
-        bigData.append("is_accredited_organ", toogle4);
-        if (toogle4) {
-            toogleCount4?.map((item, index) => {
-                bigData.append("accredit_organ[" + index + "]name", item.name);
-                bigData.append("accredit_organ[" + index + "]certificate_number", item.certificate_number);
-                bigData.append("accredit_organ[" + index + "]accreditation_date", item.accreditation_date);
-                bigData.append("accredit_organ[" + index + "]foreign_accredit", item.foreign_accredit);
-            })
-        }
-        bigData.append("is_add_staff", toogle41);
-        if (toogle41) {
-            toogleCount41?.map((item, index) => {
-                bigData.append("staff[" + index + "]full_name_staff", item.full_name_staff);
-            })
-        }
-        bigData.append("laboratory_accredited", toogle5);
-        bigData.append("evidence_number_accreditation", evidence_number_accreditation);
-
         bigData.append("manage_system", srok);
         bigData.append("internal_audit", toogle6);
         bigData.append("leader_analyses", toogle7);
@@ -404,17 +278,13 @@ const ProductsAndServices = () => {
         bigData.append("payment_acc", raschot);
         bigData.append("soogu", soogu);
 
-        axios.post(API_APTH + "apps/application/send/ms-xo/", bigData, AUTH)
+        axios.post(API_APTH + "apps/application/send/6/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
-                // window.location.reload()
-            })
-            .catch(err =>{
-                toast.error("ERROR")
+                window.location.reload()
             })
     };
-
     useEffect(() => {
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
@@ -422,7 +292,6 @@ const ProductsAndServices = () => {
         else (
             setLocLang("ru")
         )
-
     }, []);
 
     return (
@@ -455,9 +324,10 @@ const ProductsAndServices = () => {
                     </div>
                 </div>
             </div>
+
             <div className="container">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
-                    {getText("ms1")}
+                    {getText("mp1")}
                 </h2>
                 <Checks
                     akk={akk}
@@ -487,15 +357,15 @@ const ProductsAndServices = () => {
                             titleLabel={getText("ser14")}
                             myClass="my-input-groups col-md-6"
                         />
-                        <OneInput
-                            refSelect={ref2}
-                            setState={setObjectName}
-                            star={true}
-                            inputType="text"
-                            font="open-sans-medium"
-                            titleLabel={getText("ser15")}
-                            myClass="my-input-groups col-md-6"
-                        />
+                        {/*<OneInput*/}
+                        {/*    refSelect={ref2}*/}
+                        {/*    setState={setObjectName}*/}
+                        {/*    star={true}*/}
+                        {/*    inputType="text"*/}
+                        {/*    font="open-sans-medium"*/}
+                        {/*    titleLabel={getText("ser15")}*/}
+                        {/*    myClass="my-input-groups col-md-6"*/}
+                        {/*/>*/}
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
@@ -627,7 +497,7 @@ const ProductsAndServices = () => {
                             star={true}
                             inputType="text"
                             font="open-sans-medium"
-                            titleLabel={getText("ms2")}
+                            titleLabel={getText("ser30")}
                             myClass="my-input-groups col-md-6"
                         />
                         <OneInput
@@ -636,16 +506,7 @@ const ProductsAndServices = () => {
                             star={true}
                             inputType="text"
                             font="open-sans-medium"
-                            titleLabel={getText("ms3")}
-                            myClass="my-input-groups col-md-6"
-                        />
-                        <OneInput
-                            refSelect={ref16}
-                            setState={setPhoneYurPerson2}
-                            star={true}
-                            inputType="text"
-                            font="open-sans-medium"
-                            titleLabel={getText("ms4")}
+                            titleLabel={getText("ser31")}
                             myClass="my-input-groups col-md-6"
                         />
                         <OneInput
@@ -673,72 +534,7 @@ const ProductsAndServices = () => {
                         {getText("ser331")}
                     </h2>
                     <div className="toggle">
-                        <label className="open-sans-medium">{getText("ser34")}
-                            <div>
-                                <button onClick={() => setToogle1(true)}
-                                        className={toogle1 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle1(false)}
-                                        className={toogle1 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-                    {
-                        toogle1
-                            ?
-                            <div className="many-checks-items">
-                                <p className="open-sans-medium">
-                                    {getText("ser35")}
-                                </p>
-                                {
-                                    inputsCount?.map((item, index) => (
-
-                                        <div className="row inputs-box">
-                                            <div className="index open-sans-bold">
-                                                {index + 1})
-                                            </div>
-                                            <button onClick={() => removeElement(index)}
-                                                    className="close open-sans-bold">
-                                                <img src="/img/close.png" alt=""/>
-                                            </button>
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser36")} </label>
-                                                <input onChange={(e) => changeValue(e, index)} value={item.address}
-                                                       name="address" type="text"/>
-                                            </div>
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser37")} </label>
-                                                <input onChange={(e) => changeValue(e, index)} value={item.phone_number}
-                                                       name="phone_number" type="text"/>
-                                            </div>
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium"> {getText("ser39")}</label>
-                                                <input onChange={(e) => changeValue(e, index)}
-                                                       value={item.employees_count_in_branch}
-                                                       name="employees_count_in_branch" type="text"/>
-                                            </div>
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium"> {getText("ser40")}</label>
-                                                <input onChange={(e) => changeValue(e, index)}
-                                                       value={item.key_activities} name="key_activities" type="text"/>
-                                            </div>
-                                        </div>
-                                    ))}
-
-                                <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            :
-                            ""
-                    }
-
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ms5")}
+                        <label className="open-sans-medium">{getText("ser41")}
                             <div>
                                 <button onClick={() => setToogle2(true)}
                                         className={toogle2 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
@@ -755,12 +551,12 @@ const ProductsAndServices = () => {
                             ?
                             <div className="many-checks">
                                 <p className="open-sans-medium">
-                                    {getText("ser42")}
+                                    {getText("mp3")}
                                 </p>
 
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
-                                        <label className="open-sans-medium">{getText("ser43")}</label>
+                                        <label className="open-sans-medium">{getText("mp2")}</label>
                                         <input type="text" onChange={(e) => setTypeOf(e.target.value)}/>
                                     </div>
 
@@ -770,233 +566,9 @@ const ProductsAndServices = () => {
                             ""
                     }
 
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ms6")}
-                            <div>
-                                <button onClick={() => setToogle31(true)}
-                                        className={toogle31 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle31(false)}
-                                        className={toogle31 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ser44")}
-                            <div>
-                                <button onClick={() => setToogle3(true)}
-                                        className={toogle3 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle3(false)}
-                                        className={toogle3 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-                    {
-                        toogle3
-                            ?
-                            <div className="many-checks">
-                                <p className="open-sans-medium">
-                                    {getText("ser45")}
-                                </p>
-
-                                <div className="row">
-                                    <div className="my-input-groups col-md-12">
-                                        <label className="open-sans-medium">{getText("ser46")}</label>
-                                        <input onChange={(e) => setSerCount(e.target.value)} type="number"/>
-                                    </div>
-
-                                </div>
-                            </div>
-                            :
-                            ""
-                    }
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ser47")}
-                            <div>
-                                <button onClick={() => setToogle4(true)}
-                                        className={toogle4 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle4(false)}
-                                        className={toogle4 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-                    {
-                        toogle4
-                            ?
-                            <div className="many-checks-items">
-                                {
-                                    toogleCount4?.map((item, index) => (
-                                        <div className="row inputs-box">
-                                            <div className="index open-sans-bold">
-                                                {index + 1})
-                                            </div>
-                                            <button onClick={() => removeToogle4(index)}
-                                                    className="close open-sans-bold">
-                                                <img src="/img/close.png" alt=""/>
-                                            </button>
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser49")}</label>
-                                                <input type="text"
-                                                       onChange={(e) => changeToogle4Value(e, index)}
-                                                       value={item.name}
-                                                       name="name"/>
-                                            </div>
-
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser50")}</label>
-                                                <input type="date"
-                                                       onChange={(e) => changeToogle4Value(e, index)}
-                                                       value={item.accreditation_date}
-                                                       name="accreditation_date"/>
-                                            </div>
-
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser501")}</label>
-                                                <input type="text"
-                                                       onChange={(e) => changeToogle4Value(e, index)}
-                                                       value={item.certificate_number}
-                                                       name="certificate_number"/>
-                                            </div>
-
-                                            <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser51")}</label>
-                                                <input type="text"
-                                                       onChange={(e) => changeToogle4Value(e, index)}
-                                                       value={item.foreign_accredit}
-                                                       name="foreign_accredit"/>
-                                            </div>
-
-                                        </div>
-                                    ))}
-                                <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
-                                            onClick={addElementToogle4Value}>Добавить ещё
-                                    </button>
-                                </div>
-                            </div>
-                            :
-                            ""
-                    }
-
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ms7")}
-                            <div>
-                                <button onClick={() => setToogle32(true)}
-                                        className={toogle32 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle32(false)}
-                                        className={toogle32 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-
-
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ms9")}
-                            <div>
-                                <button onClick={() => setToogle5(true)}
-                                        className={toogle5 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle5(false)}
-                                        className={toogle5 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-                    {
-                        toogle5
-                            ?
-                            <div className="many-checks-items">
-                                <p className="open-sans-medium">
-                                    {getText("ser53")}
-                                </p>
-
-                                        <div className="row inputs-box pt-0">
-                                            <div className="my-input-groups col-md-12 ">
-                                                <label className="open-sans-medium">{getText("ms10")}</label>
-                                                <input type="text"
-                                                       onChange={(e) => setevidence_number_accreditation(e.target.value)} />
-                                            </div>
-                                        </div>
-
-                            </div>
-                            :
-                            ""
-                    }
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("ms11")}
-                            <div>
-                                <button onClick={() => setToogle321(true)}
-                                        className={toogle321 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle321(false)}
-                                        className={toogle321 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-
-
-                    <div className="toggle">
-                        <label className="open-sans-medium">{getText("io5")}
-                            <div>
-                                <button onClick={() => setToogle41(true)}
-                                        className={toogle41 ? "open-sans-medium active" : "open-sans-medium"}>{getText("ser76")}
-                                </button>
-                                <button onClick={() => setToogle41(false)}
-                                        className={toogle41 ? "open-sans-medium " : "open-sans-medium active"}>{getText("ser77")}
-                                </button>
-                            </div>
-                        </label>
-                    </div>
-                    {
-                        toogle41
-                            ?
-                            <div className="many-checks-items">
-                                <p className="open-sans-medium">
-                                    {getText("ser48")}
-                                </p>
-
-                                {
-                                    toogleCount41?.map((item, index) => (
-
-                                        <div className="row inputs-box">
-                                            <div className="index open-sans-bold">
-                                                {index + 1})
-                                            </div>
-                                            <button onClick={() => removeToogle41(index)}
-                                                    className="close open-sans-bold">
-                                                <img src="/img/close.png" alt=""/>
-                                            </button>
-                                            <div className="my-input-groups col-md-12">
-                                                <label className="open-sans-medium">{getText("io6")}</label>
-                                                <input onChange={(e) => changeToogle41Value(e, index)}
-                                                       value={item.full_name_staff}
-                                                       name="full_name_staff"
-                                                       type="text"/>
-                                            </div>
-                                        </div>
-                                    ))}
-                                <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle41Value}>Добавить ещё
-                                    </button>
-                                </div>
-
-                            </div>
-                            :
-                            ""
-                    }
-
                     <SrokSelect
+                        title={getText("ser55")}
                         srok={srok}
-                        title={getText("ms8")}
                         setSrok={setSrok}
                     />
                     <div className="toggle">
@@ -1029,9 +601,9 @@ const ProductsAndServices = () => {
                     setToogle8={setToogle8}
                     setconsulting_info={setconsulting_info}
                     title={getText("ser61")}
-                    title2={getText("ser62")}
+                    title2={getText("mp4")}
                     title3={getText("ser63")}
-                    title4={getText("ser64")}
+                    title4={getText("mp5")}
                 />
                 <div className="big-box">
                     <h2 className="big-box-title">
@@ -1160,19 +732,10 @@ const ProductsAndServices = () => {
                         <h3 className="big-box-title open-sans-medium">
                             {getText("ser9")}
                         </h3>
-                        <div className="check-list">
-                            <label className="open-sans-medium">{getText("ser10")}</label>
-                            <label className="open-sans-medium" style={{marginLeft: "10px"}}>{getText("ser101")}</label>
-                        </div>
-
                         <div className="row mt-4">
                             <div className="my-input-groups col-md-6 pr-20 m-0 justify-content-center">
                                 <label className="open-sans-bold">{getText("ser14")} </label>
                                 <span className="mb-3">{fullName ? fullName : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser15")} </label>
-                                <span className="mb-3">{objectName ? objectName : "-"}</span>
                             </div>
                             <div className="my-input-groups col-md-6 m-0 justify-content-center">
                                 <label className="open-sans-bold"> {getText("ser16")} </label>
@@ -1255,57 +818,6 @@ const ProductsAndServices = () => {
                             {getText("ser331")}
                         </h2>
                         <div className="toggle">
-                            <label className="open-sans-bold">
-                                {getText("ser34")}
-                                <div>
-                                    {toogle1 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle1
-                                ?
-                                <div className="many-checks-items">
-                                    {
-                                        inputsCount?.map((item, index) => (
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser36")} </label>
-                                                    <span>{item?.address ? item.address : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser37")} </label>
-                                                    <span>{item?.phone_number ? item.phone_number : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold"> {getText("ser38")}</label>
-                                                    <span>{item?.full_name_head ? item.full_name_head : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser39")} </label>
-                                                    <span>{item?.employees_count_in_branch ? item.employees_count_in_branch : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser40")}</label>
-                                                    <span>{item?.key_activities ? item.key_activities : "-"}</span>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
-                                :
-                                ""
-                        }
-                        <div className="toggle">
                             <label className="open-sans-bold">{getText("ser41")}
                                 <div>
                                     {toogle2 ? (
@@ -1329,108 +841,6 @@ const ProductsAndServices = () => {
                                         </div>
 
                                     </div>
-                                </div>
-                                :
-                                ""
-                        }
-
-                        <div className="toggle">
-                            <label className="open-sans-bold">
-                                {getText("ser44")}
-                                <div>
-                                    {toogle3 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle3
-                                ?
-                                <div className="many-checks-items">
-
-                                    <div className="row inputs-box">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser76")}</label>
-                                            <span>{serCount ? serCount : "-"}</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                :
-                                ""
-                        }
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser47")}
-                                <div>
-                                    {toogle4 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle4
-                                ?
-                                <div className="many-checks-items">
-                                    {
-                                        toogleCount4?.map((item, index) => (
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser49")}</label>
-                                                    <span>{item.name ? item.name : "-"}</span>
-                                                </div>
-
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser50")}</label>
-                                                    <span>{item.accreditation_date ? item.accreditation_date : "-"}</span>
-                                                </div>
-
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser501")}</label>
-                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser51")}</label>
-                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
-                                                </div>
-
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
-                                :
-                                ""
-                        }
-
-
-                        {
-                            toogle41
-                                ?
-                                <div className="many-checks-items">
-
-                                    {
-                                        toogleCount41?.map((item, index)=>(
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("io6")}</label>
-
-                                                    <span>{item.full_name_staff ? item.full_name_staff : "-"}</span>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
                                 </div>
                                 :
                                 ""
@@ -1494,7 +904,7 @@ const ProductsAndServices = () => {
                         </h2>
                         <div className="toggle">
                             <label className="open-sans-bold">
-                                {getText("ser62")}
+                                {getText("mp4")}
                                 <div>
                                     {toogle8 ? (
                                         <img className="check-img-md" src="/img/bird.png"/>
@@ -1607,4 +1017,4 @@ const ProductsAndServices = () => {
     );
 };
 
-export default ProductsAndServices;
+export default ProviderChecks;
