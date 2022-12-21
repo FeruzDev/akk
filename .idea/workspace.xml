@@ -2,13 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/arr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/arr2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/CalibrationLaboratories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/MedicalLaboratories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/MetrologicalLaboratories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/TestLaboratories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/UnbrakableControl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/FileInputs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/RegNumber.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddEmployee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/RU.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/UZ.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" afterDir="false" />
@@ -27,6 +42,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -48,6 +64,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/public/img" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -81,7 +98,10 @@
       <workItem from="1671077875246" duration="1273000" />
       <workItem from="1671109944519" duration="51000" />
       <workItem from="1671170401683" duration="5176000" />
-      <workItem from="1671193706465" duration="1893000" />
+      <workItem from="1671193706465" duration="2003000" />
+      <workItem from="1671423155399" duration="5833000" />
+      <workItem from="1671510659244" duration="18344000" />
+      <workItem from="1671593536632" duration="782000" />
     </task>
     <servers />
   </component>
@@ -89,6 +109,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1671525793893">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1671525793893" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1669891481765">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -97,14 +121,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="657" y="142" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669879240094" />
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1670993449239">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1671527814771">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1670993449239" />
-    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1670917274203">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1671527814771" />
+    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1671594318949">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1670917274203" />
+    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1671594318949" />
     <state x="616" y="243" key="run.anything.popup" timestamp="1670589914224">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -119,7 +143,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/cerComponents/InspectionBody.js</url>
-          <line>735</line>
+          <line>726</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

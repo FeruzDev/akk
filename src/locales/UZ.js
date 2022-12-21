@@ -196,4 +196,43 @@ export const UZ = {
   xs16: "yiliga 3 marta",
   xs17: "4 dan ortiq",
 
+  mp1: "O‘z DSt ISO/IEC 17043:2015 bo‘yicha malaka sinovi provayderini akkreditatsiya qilish uchun",
+  mp2: "Qaysi turdagi biznesni belgilang",
+  mp3: "Yuridik shaxs boshqa tijorat faoliyati bilan shug'ullanadimi, malaka test dasturlarini ishlab chiqish va amalga oshirish bo'yicha xizmatlar ko'rsatishdan tashqari?",
+  mp4: "Malakat testi provayderi akkreditatsiyaga tayyorgarlik ko'rish uchun konsalting xizmatlaridan foydalanganmi?",
+  mp5: "Konsalting kompaniyasi yoki maslahatchi nomini kiriting.",
+
+  pt1: "Buzilmaydigan sinov laboratoriyasini Oʻz DSt ISO/IEC 17025:2019 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+  pt2: "Laboratoriya ma'lumotlari",
+  pt3: "Laboratoriya filiallari bormi?",
+  pt4: "Yuridik shaxs test xizmatlarini ko'rsatishdan tashqari boshqa tijorat faoliyati bilan shug'ullanadimi?",
+  pt5: "Ha bo'lsa, biznes turini ko'rsating",
+  pt6: "Sizda mobil sinov qurilmangiz bormi?",
+  pt7: "Ha bo'lsa, transport vositasining modeli, turi va davlat raqamini ko'rsating",
+  pt8: "Boshqaruv tizimi laboratoriyada qancha vaqtdan beri joriy qilingan?",
+  pt9: "Laboratoriya malaka testi/laboratoriyalararo testda qatnashdimi?",
+  pt10:"Ha bo'lsa, malaka testi provayderining nomi",
+  pt11: "Laboratoriya akkreditatsiyaga tayyorgarlik ko'rish uchun konsalting xizmatlaridan foydalanganmi?",
+  pt12: "Ha bo'lsa, maslahatchi kompaniya yoki maslahatchi nomini ko'rsating",
+
+  sl1: "Sinov laboratoriyasini Oʻz DSt ISO/IEC 17025:2019 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+
+  tl1: "tibbiy laboratoriyani Oʻz DSt ISO 15189:2019 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+  tl2: "Ha bo'lsa, malaka testi provayderining nomi/TL nomi",
+
+  kl1: "Kalibrlash laboratoriyasini Oʻz DSt ISO/IEC 17025:2019 talablariga muvofiqligi uchun akkreditatsiya qilish uchun",
+
+  ql1: "o‘lchov vositalarini O‘z DSt 3444:2020 ga muvofiqligini tekshiradigan metrologik xizmat/laboratoriyani akkreditatsiya qilish uchun",
+
+  sc1: "O'z DSt ISO/IEC 17021:2015 Menejment tizimini sertifikatlash",
+  sc2: "O'z DSt ISO/IEC 17065:2015 Mahsulot va xizmatlarni sertifikatlash",
+  sc3: "O'z DSt ISO/IEC 17024:2009 Xodimlarni sertifikatlash",
+  sc4: "O'z DSt ISO/IEC 17043:2015 Provayder tekshiruvlari",
+  sc5: "O'z DSt ISO/IEC 17020:2019 Tekshirish organi",
+  sc6: "O'z DSt ISO/IEC 17025:2019 Buzilmaydigan sinov",
+  sc7: "O'z DSt ISO/IEC 17025:2019 Sinov laboratoriyalari",
+  sc8: "O'z DSt ISO 15189:2019 Tibbiyot laboratoriyalari",
+  sc9: "O'z DSt ISO/IEC 17025:2019 Kalibrlash laboratoriyalari",
+  sc10: "O'z DSt 3444:2020 Metrologik xizmat/laboratoriyalar",
+
 };

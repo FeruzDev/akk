@@ -1,42 +1,88 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import {SITE_LANG} from "../tools/Const";
+import {getText} from "../locales";
 
 const SecondEnter = () => {
+    const [locLang, setLocLang] = useState("ru")
+
+    const changeLang = (lang) => {
+        localStorage.setItem(SITE_LANG, lang);
+        setLocLang(lang)
+    };
+
+    useEffect(() =>{
+        if (localStorage.getItem("language") === "uz") (
+            setLocLang("uz")
+        );
+        else (
+            setLocLang("ru")
+        )
+    },[]);
     return (
         <div className="second-enter">
-            <div className="container">
+
+            <div className="navbar-main">
+                <div className="container d-flex justify-content-between align-items-center h-100">
+                    <div className="logo">
+                        <img src="/img/logo12.svg" alt=""/>
+                    </div>
+                    <div className="lang-btn">
+                        <button
+                            onClick={() => changeLang("ru")}
+                            className={
+                                locLang !== "uz"
+                                    ? "active"
+                                    : ""
+                            }
+                        >
+                            Русский
+                        </button>
+                        <button
+                            onClick={() => changeLang("uz")}
+                            className={
+                                locLang === "uz" ? "active" : ""
+                            }
+                        >
+                            O'zbek
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div className="container second-enter-content">
                 <div className="row">
                     <Link to="/first-enter/second-enter/management-systems-certification"
                           className="col-md-12 open-sans-medium">
-                        O'z DSt ISO/IEC 17021:2015 Сертификация систем менеджмента
+                        {getText("sc1")}
                     </Link>
                     <Link to="/first-enter/second-enter/products-and-services" className="col-md-12 open-sans-medium">
-                        O'z DSt ISO/IEC 17065:2015 Сертификация продукции и услуг
+                        {getText("sc2")}
                     </Link>
                     <Link to="/first-enter/second-enter/personnel-certification" className="col-md-12 open-sans-medium">
-                        O'z DSt ISO/IEC 17024:2009 Сертификация персонала
+                        {getText("sc3")}
                     </Link>
                     <Link to="/first-enter/second-enter/provider-checks" className="col-md-12 open-sans-medium ">
-                        O'z DSt ISO/IEC 17043:2015 Проверки провайдера
+                        {getText("sc4")}
                     </Link>
                     <Link to="/first-enter/second-enter/inspection-body" className="col-md-12 open-sans-medium">
-                        O'z DSt ISO/IEC 17020:2019 Орган инспекции
+                        {getText("sc5")}
                     </Link>
-                    <a className="col-md-12 open-sans-medium inActive">
-                        O'z DSt ISO/IEC 17025:2019 Неразрушающий контроль
-                    </a>
-                    <a className="col-md-12 open-sans-medium inActive">
-                        O'z DSt ISO/IEC 17025:2019 Испытательные лаборатории
-                    </a>
-                    <a className="col-md-12 open-sans-medium inActive">
-                        O'z DSt ISO 15189:2019 Медицинские лаборатории
-                    </a>
-                    <a className="col-md-12 open-sans-medium inActive">
-                        O'z DSt ISO/IEC 17025:2019 Калибровочные лаборатории
-                    </a>
-                    <a className="col-md-12 open-sans-medium inActive">
-                        O'z DSt 3444:2020 Метрологическая служба/лаборатории
-                    </a>
+
+                    <Link to="/first-enter/second-enter/unbrakable-control" className="col-md-12 open-sans-medium">
+                        {getText("sc6")}
+                    </Link>
+                    <Link to="/first-enter/second-enter/test-laboratories" className="col-md-12 open-sans-medium ">
+                        {getText("sc7")}
+                    </Link>
+                    <Link to="/first-enter/second-enter/medical-laboratories" className="col-md-12 open-sans-medium  ">
+                        {getText("sc8")}
+                    </Link>
+                    <Link to="/first-enter/second-enter/medical-laboratories" className="col-md-12 open-sans-medium ">
+                        {getText("sc9")}
+                    </Link>
+                    <Link to="/first-enter/second-enter/metrological-laboratories" className="col-md-12 open-sans-medium ">
+                        {getText("sc10")}
+                    </Link>
                 </div>
             </div>
         </div>

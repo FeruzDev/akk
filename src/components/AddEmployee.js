@@ -438,7 +438,7 @@ const AddEmployee = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container add-employee-mt">
         <h2 className="open-sans-bold pt-5 mb-4">{getText("main")}</h2>
         <form className="row">
           <div className="col-md-4 my-form-groups   ">

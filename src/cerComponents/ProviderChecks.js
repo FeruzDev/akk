@@ -9,6 +9,7 @@ import Checks from "./inputs/Checks";
 import OneInput from "./inputs/OneInput";
 import Consulting from "./inputs/Consulting";
 import SrokSelect from "./inputs/SrokSelect";
+import RegNumber from "./inputs/RegNumber";
 
 const ProviderChecks = () => {
     const [locLang, setLocLang] = useState("ru")
@@ -605,32 +606,11 @@ const ProviderChecks = () => {
                     title3={getText("ser63")}
                     title4={getText("mp5")}
                 />
-                <div className="big-box">
-                    <h2 className="big-box-title">
-                        {getText("ser65")}
-                    </h2>
-                    <div className="row">
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser66")}</label>
-                            <input type="text" onChange={(e) => setregistration_number(e.target.value)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser67")}</label>
-                            <div className="row d-flex">
-                                <div className="date-field col-md-6  d-flex align-items-center">
-                                    <label className="open-sans-medium">{getText("ser68")}</label>
-                                    <input type="date"
-                                           onChange={(e) => setcertificate_validity_period_from(e.target.value)}/>
-                                </div>
-                                <div className="date-field col-md-6 d-flex align-items-center">
-                                    <label className="open-sans-medium">{getText("ser69")} </label>
-                                    <input type="date"
-                                           onChange={(e) => setcertificate_validity_period_to(e.target.value)}/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <RegNumber
+                    setcertificate_validity_period_from={setcertificate_validity_period_from}
+                    setregistration_number={setregistration_number}
+                    setcertificate_validity_period_to={setcertificate_validity_period_to}
+                />
                 <div className="big-box">
                     <h2 className="big-box-title">
                         {getText("ser70")}

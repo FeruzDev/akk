@@ -237,6 +237,9 @@ body{
     background-color: rgb(10, 44, 183);
     box-shadow: rgb(0 0 0 / 25%) 0px 5px 10px;
     color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
     height: 80px;
     .lang-btn{
         padding: 5px;
@@ -261,6 +264,9 @@ body{
 .add-employee{
     background-color: rgb(225, 225, 225);
     padding-bottom: 100px;
+    .add-employee-mt{
+        padding-top: 80px;
+    }
     .my-form-groups{
         margin-top: 35px;
     }
@@ -515,10 +521,10 @@ body{
 
 .second-enter{
     background-color: #acacac52;
-min-height: 100vh;
+    min-height: 100vh;
     padding-bottom: 50px;
-    .container{
-        padding-top: 20px;
+    .second-enter-content{
+        padding-top: 100px;
         .row{
             .col-md-12{
             display: block;
@@ -765,6 +771,8 @@ min-height: 100vh;
         color: #1D1929;
         max-width: 770px;
         margin: 30px auto;
+        margin-top: 0;
+        padding-top: 100px;
         text-align: center;
     }
 
