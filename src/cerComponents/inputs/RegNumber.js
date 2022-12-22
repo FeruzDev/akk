@@ -15,13 +15,13 @@ const RegNumber = (props) => {
                 <div className="my-input-groups col-md-6">
                     <label className="open-sans-medium">{getText("ser67")}</label>
                     <div className="row d-flex">
-                        <div className="date-field col-md-6  d-flex align-items-center">
-                            <label className="open-sans-medium">{getText("ser68")}</label>
+                        <div className=" col-md-6  d-flex align-items-center">
+                            <label className="open-sans-medium mt-2">{getText("ser68")}</label>
                             <input type="date"
                                    onChange={(e) =>  props.setcertificate_validity_period_from(e.target.value)}/>
                         </div>
-                        <div className="date-field col-md-6 d-flex align-items-center">
-                            <label className="open-sans-medium">{getText("ser69")} </label>
+                        <div className=" col-md-6 d-flex align-items-center">
+                            <label className="open-sans-medium mt-2">{getText("ser69")} </label>
                             <input type="date"
                                    onChange={(e) =>  props.setcertificate_validity_period_to(e.target.value)}/>
                         </div>

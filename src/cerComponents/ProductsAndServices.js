@@ -1,21 +1,19 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {API_APTH, AUTH, SITE_LANG} from "../tools/Const";
 import axios from "axios";
-import Select from "react-select";
 import {getText} from "../locales";
-import {Modal, ModalFooter, ModalHeader} from "reactstrap";
 import {toast} from "react-toastify";
 import Checks from "./inputs/Checks";
 import OneInput from "./inputs/OneInput";
 import Consulting from "./inputs/Consulting";
 import SrokSelect from "./inputs/SrokSelect";
 import RegNumber from "./inputs/RegNumber";
+import FileInputs from "./inputs/FileInputs";
+import ProductsAndServicesCheckModal from "./inputs/ProductsAndServicesCheckModal";
 
 const ProductsAndServices = () => {
     const [locLang, setLocLang] = useState("ru")
-
     const [mainModal, setMainModal] = useState(false);
-
     const [toogle1, setToogle1] = useState(false);
     const [toogle2, setToogle2] = useState(false);
     const [toogle3, setToogle3] = useState(false);
@@ -29,14 +27,12 @@ const ProductsAndServices = () => {
     const [toogle7, setToogle7] = useState(false);
     const [toogle8, setToogle8] = useState(false);
     const [srok, setSrok] = useState(null);
-
     const [akk, setAkk] = useState(false);
     const [prAkk, setPrAkk] = useState(false);
     const [rasAkk, setRasAkk] = useState(false);
     const [aktAkk, setAktAkk] = useState(false);
     const [sokAkk, setSokAkk] = useState(false);
     const [perAkk, setPerAkk] = useState(false);
-
     const [fullName, setFullName] = useState("");
     const [evidence_number_accreditation, setevidence_number_accreditation] = useState("");
     const [objectName, setObjectName] = useState("");
@@ -59,13 +55,11 @@ const ProductsAndServices = () => {
     const [orgSer, setOrgSer] = useState("");
     const [phoneOrgSer, setPhoneOrgSer] = useState("");
     const [typeOf, setTypeOf] = useState("");
-
     const [serCount, setSerCount] = useState("");
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
     const [certificate_validity_period_to, setcertificate_validity_period_to] = useState("");
-
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
     const [file3, setFile3] = useState(null);
@@ -75,7 +69,6 @@ const ProductsAndServices = () => {
         localStorage.setItem(SITE_LANG, lang);
         setLocLang(lang)
     };
-
     const [inputsCount, setInputsCount] = useState([{
         address: "",
         phone_number: "",
@@ -140,7 +133,6 @@ const ProductsAndServices = () => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
-
     const ref1 = useRef();
     const ref2 = useRef();
     const ref3 = useRef();
@@ -317,9 +309,9 @@ const ProductsAndServices = () => {
         return prover2;
     };
     const sendDataModal = () => {
-        if (validate()) {
+        // if (validate()) {
         setMainModal(true);
-        }
+        // }
     };
 
     const sendData = () => {
@@ -383,11 +375,9 @@ const ProductsAndServices = () => {
         }
         bigData.append("laboratory_accredited", toogle5);
         bigData.append("evidence_number_accreditation", evidence_number_accreditation);
-
         bigData.append("manage_system", srok);
         bigData.append("internal_audit", toogle6);
         bigData.append("leader_analyses", toogle7);
-
         bigData.append("is_consulting_company", toogle8);
         if (toogle8) {
             bigData.append("consulting_info", consulting_info);
@@ -399,23 +389,20 @@ const ProductsAndServices = () => {
         bigData.append("quality_guide", file2?.target?.files[0]);
         bigData.append("management_system_docs", file3?.target?.files[0]);
         bigData.append("information_about", file4?.target?.files[0]);
-
         bigData.append("mfo", mfo);
         bigData.append("oked", oked);
         bigData.append("payment_acc", raschot);
         bigData.append("soogu", soogu);
-
         axios.post(API_APTH + "apps/application/send/8/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
                 setMainModal(false);
                 // window.location.reload()
             })
-            .catch(err =>{
+            .catch(err => {
                 toast.error("ERROR")
             })
     };
-
     useEffect(() => {
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
@@ -423,12 +410,10 @@ const ProductsAndServices = () => {
         else (
             setLocLang("ru")
         )
-
     }, []);
 
     return (
         <div className="ManagementSystemsCertification">
-
             <div className="navbar-main">
                 <div className="container d-flex justify-content-between align-items-center h-100">
                     <div className="logo">
@@ -474,6 +459,16 @@ const ProductsAndServices = () => {
                     rasAkk={rasAkk}
                     setRasAkk={setRasAkk}
                 />
+                {
+                    prAkk === true || aktAkk === true || aktAkk === true || sokAkk === true || rasAkk === true ?
+                        <RegNumber
+                            setcertificate_validity_period_from={setcertificate_validity_period_from}
+                            setregistration_number={setregistration_number}
+                            setcertificate_validity_period_to={setcertificate_validity_period_to}
+                        />
+                        :
+                        ""
+                }
                 <div className="big-box">
                     <h3 className="big-box-title open-sans-medium">
                         {getText("ser9")}
@@ -500,7 +495,6 @@ const ProductsAndServices = () => {
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
-
                                 <OneInput
                                     refSelect={ref3}
                                     setState={setStatusOrgNum}
@@ -558,7 +552,6 @@ const ProductsAndServices = () => {
                             titleLabel={getText("ser22")}
                             myClass="my-input-groups col-md-6"
                         />
-
                         <OneInput
                             refSelect={ref9}
                             setState={setMail}
@@ -694,7 +687,6 @@ const ProductsAndServices = () => {
                                 </p>
                                 {
                                     inputsCount?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -726,7 +718,6 @@ const ProductsAndServices = () => {
                                             </div>
                                         </div>
                                     ))}
-
                                 <div className="row d-flex justify-content-end">
                                     <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
@@ -758,13 +749,11 @@ const ProductsAndServices = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser42")}
                                 </p>
-
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
                                         <label className="open-sans-medium">{getText("ser43")}</label>
                                         <input type="text" onChange={(e) => setTypeOf(e.target.value)}/>
                                     </div>
-
                                 </div>
                             </div>
                             :
@@ -803,13 +792,11 @@ const ProductsAndServices = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser45")}
                                 </p>
-
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
                                         <label className="open-sans-medium">{getText("ser46")}</label>
                                         <input onChange={(e) => setSerCount(e.target.value)} type="number"/>
                                     </div>
-
                                 </div>
                             </div>
                             :
@@ -848,7 +835,6 @@ const ProductsAndServices = () => {
                                                        value={item.name}
                                                        name="name"/>
                                             </div>
-
                                             <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser50")}</label>
                                                 <input type="date"
@@ -856,7 +842,6 @@ const ProductsAndServices = () => {
                                                        value={item.accreditation_date}
                                                        name="accreditation_date"/>
                                             </div>
-
                                             <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser501")}</label>
                                                 <input type="text"
@@ -864,7 +849,6 @@ const ProductsAndServices = () => {
                                                        value={item.certificate_number}
                                                        name="certificate_number"/>
                                             </div>
-
                                             <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser51")}</label>
                                                 <input type="text"
@@ -872,7 +856,6 @@ const ProductsAndServices = () => {
                                                        value={item.foreign_accredit}
                                                        name="foreign_accredit"/>
                                             </div>
-
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
@@ -918,14 +901,13 @@ const ProductsAndServices = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser53")}
                                 </p>
-
-                                        <div className="row inputs-box pt-0">
-                                            <div className="my-input-groups col-md-12 ">
-                                                <label className="open-sans-medium">{getText("ms10")}</label>
-                                                <input type="text"
-                                                       onChange={(e) => setevidence_number_accreditation(e.target.value)} />
-                                            </div>
-                                        </div>
+                                <div className="row inputs-box pt-0">
+                                    <div className="my-input-groups col-md-12 ">
+                                        <label className="open-sans-medium">{getText("ms10")}</label>
+                                        <input type="text"
+                                               onChange={(e) => setevidence_number_accreditation(e.target.value)}/>
+                                    </div>
+                                </div>
 
                             </div>
                             :
@@ -964,10 +946,8 @@ const ProductsAndServices = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser48")}
                                 </p>
-
                                 {
                                     toogleCount41?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -986,7 +966,8 @@ const ProductsAndServices = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle41Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle41Value}>Добавить ещё
                                     </button>
                                 </div>
 
@@ -1031,558 +1012,40 @@ const ProductsAndServices = () => {
                     setconsulting_info={setconsulting_info}
                     title={getText("ser61")}
                     title2={getText("ser62")}
-                    title3={getText("ser63")}
                     title4={getText("ser64")}
                 />
-                <RegNumber
-                    setcertificate_validity_period_from={setcertificate_validity_period_from}
-                    setregistration_number={setregistration_number}
-                    setcertificate_validity_period_to={setcertificate_validity_period_to}
+                <FileInputs
+                    ref17={ref17} setFile1={setFile1}
+                    ref18={ref18} setFile2={setFile2}
+                    ref19={ref19} setFile3={setFile3}
+                    ref20={ref20} setFile4={setFile4}
                 />
-                <div className="big-box">
-                    <h2 className="big-box-title">
-                        {getText("ser70")}
-                    </h2>
-                    <div className="row">
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser71")} <span className="with-star">*</span>
-                            </label>
-                            <input type="file" ref={ref17} onChange={(e) => setFile1(e)}/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser72")} <span className="with-star"
-                                                                                         style={{bottom: "0 !important"}}>*</span>
-                            </label>
-                            <input type="file" ref={ref18} onChange={(e) => setFile2(e)} accept=".zip,.rar,.7zip"/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser73")} <span className="with-star">*</span></label>
-                            <input type="file" ref={ref19} onChange={(e) => setFile3(e)} accept=".zip,.rar,.7zip"/>
-                        </div>
-                        <div className="my-input-groups col-md-6">
-                            <label className="open-sans-medium">{getText("ser74")} <span className="with-star">*</span></label>
-                            <input type="file" ref={ref20} onChange={(e) => setFile4(e)}/>
-                        </div>
-                    </div>
-                </div>
                 <div className="big-box justify-content-end d-flex footer-btn">
                     <button className="btn   open-sans-medium clear-btn">{getText("ser78")}</button>
                     <button type="button" className="btn   open-sans-medium add-btn"
                             onClick={sendDataModal}>{getText("send")}</button>
                 </div>
             </div>
-            <Modal
-                isOpen={mainModal}
-                size="xl"
-                toggle={() => setMainModal(false)}
-                className="main-modal"
-                dialogClassName="modal-100w"
-            >
-                <ModalHeader toggle={() => setMainModal(false)}>
-                    {getText("ser75")}
-                </ModalHeader>
-
-                <div className="main-modal-content">
-                    <div className="big-box">
-                        <h3 className="big-box-title open-sans-medium">
-                            {getText("ser2")}
-                        </h3>
-                        <div className="check-list d-flex align-items-center">
-                            {akk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser3")}</label>
-                        </div>
-                        <div className="check-list d-flex align-items-center">
-                            {prAkk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser4")}</label>
-                        </div>
-                        <div className="check-list d-flex align-items-center">
-                            {rasAkk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser5")} </label>
-                        </div>
-                        <div className="check-list d-flex align-items-center">
-                            {aktAkk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser6")} </label>
-                        </div>
-                        <div className="check-list d-flex align-items-center">
-                            {sokAkk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser7")} </label>
-                        </div>
-                        <div className="check-list d-flex align-items-center">
-                            {perAkk ? (
-                                <img className="check-img" src="/img/bird.png"/>
-                            ) : (
-                                <img className="check-img" src="/img/del.png"/>
-                            )}
-                            <label className="open-sans-medium">{getText("ser8")} </label>
-                        </div>
-                    </div>
-                    <div className="big-box">
-                        <h3 className="big-box-title open-sans-medium">
-                            {getText("ser9")}
-                        </h3>
-                        <div className="check-list">
-                            <label className="open-sans-medium">{getText("ser10")}</label>
-                            <label className="open-sans-medium" style={{marginLeft: "10px"}}>{getText("ser101")}</label>
-                        </div>
-
-                        <div className="row mt-4">
-                            <div className="my-input-groups col-md-6 pr-20 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser14")} </label>
-                                <span className="mb-3">{fullName ? fullName : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser15")} </label>
-                                <span className="mb-3">{objectName ? objectName : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold"> {getText("ser16")} </label>
-                                <div className="row">
-                                    <div className="col-md-6 m-0 justify-content-center">
-                                        <label className="open-sans-bold"> {getText("ser18")} </label>
-                                        <span className="mb-3">{statusOrgNum ? statusOrgNum : "-"}</span>
-                                    </div>
-                                    <div className="col-md-6 m-0 justify-content-center">
-                                        <label className="open-sans-bold">{getText("ser19")}</label>
-                                        <span className="mb-3">{statusOrgDate ? statusOrgDate : "-"}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold"> {getText("ser17")} </label>
-                                <span className="mb-3">{yurAddress ? yurAddress : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser20")} </label>
-                                <span className="mb-3">{factAddress ? factAddress : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser21")} </label>
-                                <span className="mb-3">{phoneNumber ? phoneNumber : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser22")} </label>
-                                <span className="mb-3">{siteName ? siteName : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser23")}</label>
-                                <span className="mb-3">{mail ? mail : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser24")}</label>
-                                <span className="mb-3">{bank ? bank : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser25")}</label>
-                                <span className="mb-3">{raschot ? raschot : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser26")}</label>
-                                <span className="mb-3">{mfo ? mfo : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser27")}</label>
-                                <span className="mb-3">{oked ? oked : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser28")}</label>
-                                <span className="mb-3">{soogu ? soogu : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser29")} </label>
-                                <span className="mb-3">{inn ? inn : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser30")} </label>
-                                <span className="mb-3">{yurPerson ? yurPerson : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser31")}</label>
-                                <span className="mb-3">{phoneYurPerson ? phoneYurPerson : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser32")}</label>
-                                <span className="mb-3">{orgSer ? orgSer : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6 m-0 justify-content-center">
-                                <label className="open-sans-bold">{getText("ser33")}</label>
-                                <span className="mb-3">{phoneOrgSer ? phoneOrgSer : "-"}</span>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div className="big-box">
-                        <h2 className="big-box-title">
-                            {getText("ser331")}
-                        </h2>
-                        <div className="toggle">
-                            <label className="open-sans-bold">
-                                {getText("ser34")}
-                                <div>
-                                    {toogle1 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle1
-                                ?
-                                <div className="many-checks-items">
-                                    {
-                                        inputsCount?.map((item, index) => (
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser36")} </label>
-                                                    <span>{item?.address ? item.address : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser37")} </label>
-                                                    <span>{item?.phone_number ? item.phone_number : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold"> {getText("ser38")}</label>
-                                                    <span>{item?.full_name_head ? item.full_name_head : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-6">
-                                                    <label className="open-sans-bold">{getText("ser39")} </label>
-                                                    <span>{item?.employees_count_in_branch ? item.employees_count_in_branch : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser40")}</label>
-                                                    <span>{item?.key_activities ? item.key_activities : "-"}</span>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
-                                :
-                                ""
-                        }
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser41")}
-                                <div>
-                                    {toogle2 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-
-                        {
-                            toogle2
-                                ?
-                                <div className="many-checks-items">
-
-                                    <div className="row inputs-box">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser76")}</label>
-                                            <span>{typeOf ? typeOf : "-"}</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                :
-                                ""
-                        }
-
-                        <div className="toggle">
-                            <label className="open-sans-bold">
-                                {getText("ser44")}
-                                <div>
-                                    {toogle3 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle3
-                                ?
-                                <div className="many-checks-items">
-
-                                    <div className="row inputs-box">
-                                        <div className="my-input-groups col-md-12">
-                                            <label className="open-sans-bold">{getText("ser76")}</label>
-                                            <span>{serCount ? serCount : "-"}</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                :
-                                ""
-                        }
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser47")}
-                                <div>
-                                    {toogle4 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        {
-                            toogle4
-                                ?
-                                <div className="many-checks-items">
-                                    {
-                                        toogleCount4?.map((item, index) => (
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser49")}</label>
-                                                    <span>{item.name ? item.name : "-"}</span>
-                                                </div>
-
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser50")}</label>
-                                                    <span>{item.accreditation_date ? item.accreditation_date : "-"}</span>
-                                                </div>
-
-                                                <div className="my-input-groups col-md-4">
-                                                    <label className="open-sans-bold">{getText("ser501")}</label>
-                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("ser51")}</label>
-                                                    <span>{item.foreign_accredit ? item.foreign_accredit : "-"}</span>
-                                                </div>
-
-                                            </div>
-                                        ))
-                                    }
-
-                                </div>
-                                :
-                                ""
-                        }
-
-
-                        {
-                            toogle41
-                                ?
-                                <div className="many-checks-items">
-
-                                    {
-                                        toogleCount41?.map((item, index)=>(
-                                            <div className="row inputs-box">
-                                                <div className="index open-sans-bold">
-                                                    {index + 1})
-                                                </div>
-                                                <div className="my-input-groups col-md-12">
-                                                    <label className="open-sans-bold">{getText("io6")}</label>
-
-                                                    <span>{item.full_name_staff ? item.full_name_staff : "-"}</span>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                                :
-                                ""
-                        }
-
-                        <div className="toggle-select mt-4 mb-4">
-                            <label className="open-sans-bold">{getText("ser55")}
-                                <div>
-                                    {
-                                        srok === 0 ?
-                                            <button disabled
-                                                    className="open-sans-medium active">
-                                                {getText("ser56")}
-                                            </button>
-                                            :
-                                            srok === 1 ?
-                                                <button disabled
-                                                        className="open-sans-medium active">
-                                                    {getText("ser57")}
-                                                </button> :
-                                                srok === 3 ?
-                                                    <button disabled
-                                                            className="open-sans-medium active">{getText("ser58")}
-                                                    </button>
-                                                    :
-                                                    <img className="check-img-md" src="/img/del.png"/>
-
-                                    }
-
-                                </div>
-
-                            </label>
-                        </div>
-
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser59")}
-                                <div>
-                                    {toogle6 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser60")}
-                                <div>
-                                    {toogle7 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <div className="big-box">
-                        <h2 className="big-box-title">
-                            {getText("ser61")}
-                        </h2>
-                        <div className="toggle">
-                            <label className="open-sans-bold">
-                                {getText("ser62")}
-                                <div>
-                                    {toogle8 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-
-                                </div>
-                            </label>
-                            {toogle8 ?
-                                <div className="my-input-groups col-md-12">
-                                    <span>{consulting_info ? consulting_info : "-"}</span>
-                                </div>
-                                :
-                                ""
-                            }
-                        </div>
-                    </div>
-                    <div className="big-box">
-                        <h2 className="big-box-title">
-                            {getText("ser65")}
-                        </h2>
-                        <div className="row">
-                            <div className="my-input-groups col-md-6">
-                                <label className="open-sans-medium">{getText("ser66")}</label>
-                                <span className="mb-3">{registration_number ? registration_number : "-"}</span>
-                            </div>
-                            <div className="my-input-groups col-md-6">
-                                <label className="open-sans-medium">{getText("ser67")}</label>
-                                <div className="row d-flex">
-                                    <div className="date-field col-md-6  d-flex align-items-center">
-                                        <label className="open-sans-medium">{getText("ser68")}</label>
-                                        <span
-                                            className="mb-2">{certificate_validity_period_from ? certificate_validity_period_from : "-"}</span>
-                                    </div>
-                                    <div className="date-field col-md-6 d-flex align-items-center">
-                                        <label className="open-sans-medium">{getText("ser69")} </label>
-                                        <span
-                                            className="mb-2">{certificate_validity_period_to ? certificate_validity_period_to : "-"}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="big-box">
-                        <h2 className="big-box-title">
-                            {getText("ser70")}
-                        </h2>
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser71")}
-                                <div>
-                                    {file1 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser72")}
-                                <div>
-                                    {file2 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser73")}
-                                <div>
-                                    {file3 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                        <div className="toggle">
-                            <label className="open-sans-bold">{getText("ser74")}
-                                <div>
-                                    {file4 ? (
-                                        <img className="check-img-md" src="/img/bird.png"/>
-                                    ) : (
-                                        <img className="check-img-md" src="/img/del.png"/>
-                                    )}
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-                <ModalFooter className="mt-4">
-                    <button
-                        className="modal-cancel-btn"
-                        onClick={() => setMainModal(false)}
-                    >
-                        {getText("cancel")}
-                    </button>
-                    <button onClick={sendData} className="modal-save-btn">
-                        {getText("send")}
-                    </button>
-                </ModalFooter>
-            </Modal>
+            <ProductsAndServicesCheckModal
+                mainModal={mainModal} setMainModal={setMainModal}
+                akk={akk} prAkk={prAkk} rasAkk={rasAkk} aktAkk={aktAkk}
+                sokAkk={sokAkk} perAkk={perAkk} fullName={fullName}
+                objectName={objectName} statusOrgNum={statusOrgNum}
+                statusOrgDate={statusOrgDate}
+                yurAddress={yurAddress} factAddress={factAddress} phoneNumber={phoneNumber}
+                siteName={siteName} mail={mail} bank={bank} raschot={raschot} mfo={mfo}
+                oked={oked} soogu={soogu} inn={inn} yurPerson={yurPerson} phoneYurPerson={phoneYurPerson}
+                orgSer={orgSer} phoneOrgSer={phoneOrgSer} toogle1={toogle1} toogle2={toogle2}
+                toogle3={toogle3} toogle4={toogle4} toogle6={toogle6}
+                inputsCount={inputsCount} serCount={serCount}
+                toogle7={toogle7} toogle8={toogle8} srok={srok}
+                toogleCount4={toogleCount4} typeOf={typeOf}
+                consulting_info={consulting_info} registration_number={registration_number}
+                certificate_validity_period_from={certificate_validity_period_from}
+                certificate_validity_period_to={certificate_validity_period_to}
+                toogle41={toogle41} toogleCount41={toogleCount41}
+                file1={file1} file2={file2} file3={file3} file4={file4} sendData={sendData}
+            />
         </div>
     );
 };

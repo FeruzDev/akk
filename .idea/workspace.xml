@@ -2,31 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="490b85b3-2c9c-4471-b825-ce745a939bbc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/arr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/arr2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/CalibrationLaboratories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/MedicalLaboratories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/MetrologicalLaboratories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/TestLaboratories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/UnbrakableControl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/FileInputs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/RegNumber.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sidebar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/InspectionBodyCheckModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/ManagementSystemsCertificationCheckModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/PersonnelCertificationCheckModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/ProductsAndServicesCheckModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/ProviderChecksModal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cerComponents/inputs/TestLaboratoriesCheckModal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/CalibrationLaboratories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/CalibrationLaboratories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/InspectionBody.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ManagementSystemsCertification.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/MedicalLaboratories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/MedicalLaboratories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/MetrologicalLaboratories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/MetrologicalLaboratories.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/PersonnelCertification.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProductsAndServices.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/ProviderChecks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddEmployee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddEmployee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/TestLaboratories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/TestLaboratories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/UnbrakableControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/UnbrakableControl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/inputs/Consulting.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/inputs/Consulting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cerComponents/inputs/RegNumber.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/cerComponents/inputs/RegNumber.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/locales/RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/UZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/UZ.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainEnter/SecondEnter.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +99,8 @@
       <workItem from="1671193706465" duration="2003000" />
       <workItem from="1671423155399" duration="5833000" />
       <workItem from="1671510659244" duration="18344000" />
-      <workItem from="1671593536632" duration="782000" />
+      <workItem from="1671593536632" duration="18220000" />
+      <workItem from="1671683756938" duration="7490000" />
     </task>
     <servers />
   </component>
@@ -121,14 +120,14 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="657" y="142" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1669879240094" />
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1671527814771">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1671617011054">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1671527814771" />
-    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1671594318949">
+    <state x="567" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1671617011054" />
+    <state x="656" y="123" width="737" height="804" key="find.popup" timestamp="1671693546892">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1671594318949" />
+    <state x="656" y="123" width="737" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1671693546892" />
     <state x="616" y="243" key="run.anything.popup" timestamp="1670589914224">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

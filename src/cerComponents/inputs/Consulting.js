@@ -28,12 +28,6 @@ const Consulting = (props) => {
                 props.toogle8
                     ?
                     <div className="many-checks">
-                        <p className="open-sans-medium">
-                            {
-                                props.title3
-                            }
-                        </p>
-
                         <div className="row">
                             <div className="my-input-groups col-md-12">
                                 <label className="open-sans-medium"> {

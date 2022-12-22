@@ -25,7 +25,6 @@ function App() {
         const [open, setOpen] =useState(false)
         const  Close=()=>{
             setOpen(!open)
-
     };
   useEffect(() => {
     if (localStorage.getItem("language") === "uz") (
@@ -34,22 +33,19 @@ function App() {
     else (
         setLocLang("ru")
     );
-
       setPath(window.location.pathname)
-      console.log(window.location.pathname)
+      console.log(window.location.pathname.slice(0, 12))
   }, []);
   return (
     <div className="App">
         <BrowserRouter>
             <Switch>
                 {
-                    path === "/" || path === "/first-enter" || path === "/add-employee" ?
+                    path === "/" || path === "/add-employee" ?
                       <>
                           <Route exact path="/"  component={Login} />
                           <Route exact path="/add-employee" component={AddEmployee} />
-
                       </>
-
                     :
                         <>
                             <button type="button" id="sidebarCollapse" onClick={Close} className="toggle-btn">
@@ -66,8 +62,7 @@ function App() {
                                     </ul>
                                 </nav>
                                 <div id="content">
-                                    <Route exact path="/first-enter" component={FirstEnter} />
-
+                                            <Route exact path="/first-enter" component={FirstEnter} />
                                             <Route exact path="/users/one_id/" component={OneId} />
                                             <Route exact path="/first-enter/second-enter" component={SecondEnter} />
                                             <Route exact path="/404"  component={NotFound} />
@@ -81,9 +76,6 @@ function App() {
                                             <Route exact path="/first-enter/second-enter/medical-laboratories"  component={MedicalLaboratories} />
                                             <Route exact path="/first-enter/second-enter/calibration-laboratories"  component={CalibrationLaboratories} />
                                             <Route exact path="/first-enter/second-enter/metrological-laboratories"  component={MetrologicalLaboratories} />
-
-                                            {/*<Route path"/https://id.egov.uz/?client_id=e_akkred_uz&token_id=808c8a7a-ad7b-45f9-8e23-73d6e1538ff2&method=IDPW" exact component={OneId}/>*/}
-
                                 </div>
                             </div>
                         </>
