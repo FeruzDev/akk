@@ -8,6 +8,7 @@ import RegNumber from "./inputs/RegNumber";
 import FileInputs from "./inputs/FileInputs";
 import TestLaboratoriesCheckModal from "./inputs/TestLaboratoriesCheckModal";
 import Consulting from "./inputs/Consulting";
+
 const UnbrakableControl = () => {
     const [locLang, setLocLang] = useState("ru")
     const [mainModal, setMainModal] = useState(false);
@@ -359,7 +360,8 @@ const UnbrakableControl = () => {
         );
         else (
             setLocLang("ru")
-        )}, []);
+        )
+    }, []);
     const changeValue = (e, ind) => {
         setInputsCount(inputsCount.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
@@ -380,9 +382,9 @@ const UnbrakableControl = () => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
- return (
+    return (
         <div className="ManagementSystemsCertification">
-         <div className="navbar-main">
+            <div className="navbar-main">
                 <div className="container d-flex justify-content-between align-items-center h-100">
                     <div className="logo">
                         <img src="/img/logo12.svg" alt=""/>
@@ -536,7 +538,7 @@ const UnbrakableControl = () => {
                             <label className="open-sans-medium">{getText("ser33")}</label>
                             <input type="text" onChange={(e) => setPhoneOrgSer(e.target.value)}/>
                         </div>
-                 </div>
+                    </div>
                 </div>
                 <div className="big-box">
                     <h2 className="big-box-title">
@@ -595,7 +597,8 @@ const UnbrakableControl = () => {
                             </div>
                             :
                             ""
-                    }  <div className="toggle">
+                    }
+                    <div className="toggle">
                         <label className="open-sans-medium">{getText("pt4")}
                             <div>
                                 <button onClick={() => setToogle2(true)}
@@ -660,7 +663,8 @@ const UnbrakableControl = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle3Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle3Value}>Добавить ещё
                                     </button>
                                 </div>
                             </div>
@@ -706,7 +710,8 @@ const UnbrakableControl = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle4Value}>Добавить ещё
                                     </button>
                                 </div>
                             </div>
@@ -752,7 +757,8 @@ const UnbrakableControl = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle5Value}>Добавить ещё
                                     </button>
                                 </div>
                             </div>
@@ -828,7 +834,7 @@ const UnbrakableControl = () => {
                             ""
                     }
                 </div>
-               <Consulting
+                <Consulting
                     toogle8={toogle8}
                     setToogle8={setToogle8}
                     setconsulting_info={setconsulting_info}
@@ -867,7 +873,6 @@ const UnbrakableControl = () => {
                 certificate_validity_period_to={certificate_validity_period_to}
                 file1={file1} file2={file2} file3={file3} file4={file4} sendData={sendData}
             />
-
         </div>
     );
 };

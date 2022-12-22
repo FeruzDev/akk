@@ -3,7 +3,6 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 const MainModal = (props) => {
   useEffect(() => {
-    console.log(props.data);
   }, [props.mainModal]);
   return (
     <Modal

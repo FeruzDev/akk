@@ -25,19 +25,16 @@ const PersonnelCertification = () => {
     const [toogle7, setToogle7] = useState(false);
     const [srok, setSrok] = useState(null);
     const [srok2, setSrok2] = useState(null);
-
     const [akk, setAkk] = useState(false);
     const [prAkk, setPrAkk] = useState(false);
     const [rasAkk, setRasAkk] = useState(false);
     const [aktAkk, setAktAkk] = useState(false);
     const [sokAkk, setSokAkk] = useState(false);
     const [perAkk, setPerAkk] = useState(false);
-
     const [akk1, setAkk1] = useState(false);
     const [akk2, setAkk2] = useState(false);
     const [akk3, setAkk3] = useState(false);
     const [akk4, setAkk4] = useState(false);
-
     const [fullName, setFullName] = useState("");
     const [objectName, setObjectName] = useState("");
     const [statusOrgDate, setStatusOrgDate] = useState("");
@@ -63,7 +60,6 @@ const PersonnelCertification = () => {
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
     const [certificate_validity_period_to, setcertificate_validity_period_to] = useState("");
-
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
     const [file3, setFile3] = useState(null);
@@ -73,7 +69,6 @@ const PersonnelCertification = () => {
         localStorage.setItem(SITE_LANG, lang);
         setLocLang(lang)
     };
-
     const [inputsCount, setInputsCount] = useState([{
         address: "",
         phone_number: "",
@@ -85,7 +80,6 @@ const PersonnelCertification = () => {
         accreditation_date: "",
         foreign_accredit: "",
     }]);
-
     const [toogleCount41, setToogleCount41] = useState([{
         full_name_staff: "",
     }]);
@@ -98,12 +92,10 @@ const PersonnelCertification = () => {
             phone_number: "",
             full_name_head: ""
         }))
-
     };
     const removeElement = (item) => {
         setInputsCount(inputsCount.filter((abs, index) => index !== item));
     };
-
     const changeValue = (e, ind) => {
         setInputsCount(inputsCount.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
@@ -117,7 +109,6 @@ const PersonnelCertification = () => {
             foreign_accredit: "",
         }));
     };
-
     const addElementToogle5Value = () => {
         setToogleCount5(toogleCount5.concat({
             additional_offices: ""
@@ -172,7 +163,6 @@ const PersonnelCertification = () => {
     const ref19 = useRef();
     const ref20 = useRef();
     let prover2 = true;
-
     const validate = () => {
         if (file4 === null) {
             ref20.current.className = "errorInput";
@@ -302,7 +292,6 @@ const PersonnelCertification = () => {
             prover2 = false;
         } else {
             ref3.current.classList.remove("errorInput");
-
         }
         if (objectName === "") {
             ref2.current.focus();
@@ -310,7 +299,6 @@ const PersonnelCertification = () => {
             prover2 = false;
         } else {
             ref2.current.classList.remove("errorInput");
-
         }
         if (fullName === "") {
             ref1.current.focus();
@@ -319,15 +307,13 @@ const PersonnelCertification = () => {
         } else {
             ref1.current.classList.remove("errorInput");
         }
-
         return prover2;
     };
     const sendDataModal = () => {
         // if (validate()) {
-            setMainModal(true);
+        setMainModal(true);
         // }
     };
-
     const sendData = () => {
         bigData.append("is_accreditation", akk);
         bigData.append("is_re_accreditation", prAkk);
@@ -350,12 +336,10 @@ const PersonnelCertification = () => {
         bigData.append("phone_number_legal_person", phoneYurPerson);
         bigData.append("full_name_head_certification", orgSer);
         bigData.append("phone_head_certification", phoneOrgSer);
-
         bigData.append("eval_cert_organ", akk1);
         bigData.append("eval_education", akk2);
         bigData.append("eval_production", akk3);
         bigData.append("eval_other_places", akk4);
-
         bigData.append("is_branches", toogle1);
         if (toogle1) {
             inputsCount?.map((item, index) => {
@@ -363,7 +347,6 @@ const PersonnelCertification = () => {
                 bigData.append("branches[" + index + "]phone_number", item.phone_number);
                 bigData.append("branches[" + index + "]full_name_head", item.full_name_head);
             })
-
         }
         bigData.append("active_cert_programs", toogle21);
         if (toogle2) {
@@ -373,46 +356,36 @@ const PersonnelCertification = () => {
         if (toogle2) {
             bigData.append("type_of_commercial_activity", typeOf);
         }
-
         bigData.append("certification_activity", toogle3);
         if (toogle3) {
             bigData.append("certification_activity_count", serCount);
         }
-
         bigData.append("is_accredited_organ", toogle4);
         if (toogle4) {
             toogleCount4?.map((item, index) => {
-
                 bigData.append("accredit_organ[" + index + "]name", item.name);
                 // bigData.append("accredit_organ[" + index + "]certificate_number", item.certificate_number);
                 bigData.append("accredit_organ[" + index + "]accreditation_date", item.accreditation_date);
                 bigData.append("accredit_organ[" + index + "]foreign_accredit", item.foreign_accredit);
             })
         }
-
         bigData.append("is_add_staff", toogle41);
         if (toogle41) {
             toogleCount41?.map((item, index) => {
                 bigData.append("staff[" + index + "]full_name_staff", item.full_name_staff);
             })
         }
-
-
         bigData.append("is_add_offices", toogle5);
         if (toogle5) {
             toogleCount5?.map((item, index) => {
-
                 bigData.append("offices[" + index + "]additional_offices", item.additional_offices);
             })
-
         }
-
         bigData.append("manage_system", srok);
         bigData.append("exam_frequently", srok2);
         bigData.append("internal_audit", toogle6);
         bigData.append("engaged_staff", toogle31);
         bigData.append("leader_analyses", toogle7);
-
         bigData.append("registration_number", registration_number);
         bigData.append("certificate_validity_period_from", certificate_validity_period_from);
         bigData.append("certificate_validity_period_to", certificate_validity_period_to);
@@ -420,12 +393,10 @@ const PersonnelCertification = () => {
         bigData.append("quality_guide", file2?.target?.files[0]);
         bigData.append("management_system_docs", file3?.target?.files[0]);
         bigData.append("information_about", file4?.target?.files[0]);
-
         bigData.append("mfo", mfo);
         bigData.append("oked", oked);
         bigData.append("payment_acc", raschot);
         bigData.append("soogu", soogu);
-
         axios.post(API_APTH + "apps/application/send/7/", bigData, AUTH)
             .then(res => {
                 toast.success("OK");
@@ -433,27 +404,22 @@ const PersonnelCertification = () => {
                 // window.location.reload()
             })
     };
-
-    const clearCheckBoxes =()=>{
+    const clearCheckBoxes = () => {
         setAkk1(false)
         setAkk2(false)
         setAkk3(false)
         setAkk4(false)
     }
     useEffect(() => {
-
         if (localStorage.getItem("language") === "uz") (
             setLocLang("uz")
         )
         else (
             setLocLang("ru")
         )
-
     }, []);
-
     return (
         <div className="ManagementSystemsCertification">
-
             <div className="navbar-main">
                 <div className="container d-flex justify-content-between align-items-center h-100">
                     <div className="logo">
@@ -513,7 +479,6 @@ const PersonnelCertification = () => {
                     <h3 className="big-box-title open-sans-medium">
                         {getText("ser9")}
                     </h3>
-
                     <div className="row">
                         <OneInput
                             refSelect={ref1}
@@ -536,7 +501,6 @@ const PersonnelCertification = () => {
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
-
                                 <OneInput
                                     refSelect={ref3}
                                     setState={setStatusOrgNum}
@@ -557,7 +521,6 @@ const PersonnelCertification = () => {
                                 />
                             </div>
                         </div>
-
                         <OneInput
                             refSelect={ref5}
                             setState={setYurAddress}
@@ -594,7 +557,6 @@ const PersonnelCertification = () => {
                             titleLabel={getText("ser22")}
                             myClass="my-input-groups col-md-6"
                         />
-
                         <OneInput
                             refSelect={ref9}
                             setState={setMail}
@@ -721,7 +683,6 @@ const PersonnelCertification = () => {
                                 </p>
                                 {
                                     inputsCount?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -747,18 +708,14 @@ const PersonnelCertification = () => {
                                             </div>
                                         </div>
                                     ))}
-
                                 <div className="row d-flex justify-content-end">
                                     <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
-
                             :
                             ""
                     }
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("xs2")}
                             <div>
@@ -771,7 +728,6 @@ const PersonnelCertification = () => {
                             </div>
                         </label>
                     </div>
-
                     {
                         toogle21
                             ?
@@ -796,32 +752,31 @@ const PersonnelCertification = () => {
                         <div className="check-list">
                             <input type="checkbox"
                                    onChange={() => setAkk1(!akk1)}
-                                   disabled={akk2 === true || akk3 === true || akk4 === true ? true  : false}
+                                   disabled={akk2 === true || akk3 === true || akk4 === true ? true : false}
                                    id="cur11"/>
                             <label htmlFor="cur11" className="open-sans-medium">{getText("xs7")}</label>
                         </div>
                         <div className="check-list">
                             <input type="checkbox"
                                    onChange={() => setAkk2(!akk2)}
-                                   disabled={akk1 === true || akk3 === true || akk4 === true ? true  : false}
+                                   disabled={akk1 === true || akk3 === true || akk4 === true ? true : false}
                                    id="cur12"/>
                             <label htmlFor="cur12" className="open-sans-medium">{getText("xs8")}</label>
                         </div>
                         <div className="check-list">
                             <input type="checkbox"
                                    onChange={() => setAkk3(!akk3)}
-                                   disabled={akk2 === true || akk1 === true || akk4 === true ? true  : false}
+                                   disabled={akk2 === true || akk1 === true || akk4 === true ? true : false}
                                    id="cur13"/>
                             <label htmlFor="cur13" className="open-sans-medium">{getText("xs9")}</label>
                         </div>
                         <div className="check-list">
                             <input type="checkbox"
                                    onChange={() => setAkk4(!akk4)}
-                                   disabled={akk2 === true || akk3 === true || akk1 === true ? true  : false}
+                                   disabled={akk2 === true || akk3 === true || akk1 === true ? true : false}
                                    id="cur14"/>
                             <label htmlFor="cur14" className="open-sans-medium">{getText("xs10")}</label>
                         </div>
-
                     </div>
                     <div className="toggle-select many-checks">
                         <label className="open-sans-medium">{getText("xs11")}</label>
@@ -829,12 +784,10 @@ const PersonnelCertification = () => {
                             <button onClick={() => setSrok2(0)}
                                     className={srok2 === 0 ? "open-sans-medium active" : "open-sans-medium"}>
                                 {getText("xs12")}
-
                             </button>
                             <button onClick={() => setSrok2(1)}
                                     className={srok2 === 1 ? "open-sans-medium active" : "open-sans-medium"}>
                                 {getText("xs13")}
-
                             </button>
                             <button onClick={() => setSrok2(2)}
                                     className={srok2 === 2 ? "open-sans-medium active" : "open-sans-medium"}>
@@ -866,7 +819,6 @@ const PersonnelCertification = () => {
                             </div>
                         </label>
                     </div>
-
                     {
                         toogle2
                             ?
@@ -874,13 +826,11 @@ const PersonnelCertification = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser42")}
                                 </p>
-
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
                                         <label className="open-sans-medium">{getText("ser43")}</label>
                                         <input type="text" onChange={(e) => setTypeOf(e.target.value)}/>
                                     </div>
-
                                 </div>
                             </div>
                             :
@@ -917,13 +867,11 @@ const PersonnelCertification = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser45")}
                                 </p>
-
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
                                         <label className="open-sans-medium">{getText("ser46")}</label>
                                         <input onChange={(e) => setSerCount(e.target.value)} type="number"/>
                                     </div>
-
                                 </div>
                             </div>
                             :
@@ -948,7 +896,6 @@ const PersonnelCertification = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser48")}
                                 </p>
-
                                 {
                                     toogleCount4?.map((item, index) => (
                                         <div className="row inputs-box">
@@ -966,7 +913,6 @@ const PersonnelCertification = () => {
                                                        value={item.name}
                                                        name="name"/>
                                             </div>
-
                                             <div className="my-input-groups col-md-6">
                                                 <label className="open-sans-medium">{getText("ser50")}</label>
                                                 <input type="date"
@@ -1011,10 +957,8 @@ const PersonnelCertification = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser48")}
                                 </p>
-
                                 {
                                     toogleCount41?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -1033,16 +977,14 @@ const PersonnelCertification = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle41Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle41Value}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
                             :
                             ""
                     }
-
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("ser52")}
                             <div>
@@ -1072,8 +1014,6 @@ const PersonnelCertification = () => {
                                                     className="close open-sans-bold">
                                                 <img src="/img/close.png" alt=""/>
                                             </button>
-
-
                                             <div className="my-input-groups col-md-12">
                                                 <label className="open-sans-medium">{getText("ser54")}</label>
                                                 <input type="text"
@@ -1082,7 +1022,6 @@ const PersonnelCertification = () => {
                                                        name="additional_offices"/>
                                             </div>
                                         </div>
-
                                     ))}
                                 <div className="row d-flex justify-content-end">
                                     <button className='btn btn-primary d-inline '
@@ -1155,10 +1094,10 @@ const PersonnelCertification = () => {
                 siteName={siteName} mail={mail} bank={bank} raschot={raschot} mfo={mfo}
                 oked={oked} soogu={soogu} inn={inn} yurPerson={yurPerson} phoneYurPerson={phoneYurPerson}
                 orgSer={orgSer} phoneOrgSer={phoneOrgSer} toogle1={toogle1} toogle2={toogle2}
-                toogle3={toogle3}  toogle31={toogle31} toogle4={toogle4} toogle5={toogle5} toogle6={toogle6}
+                toogle3={toogle3} toogle31={toogle31} toogle4={toogle4} toogle5={toogle5} toogle6={toogle6}
                 inputsCount={inputsCount} toogle41={toogle41} toogleCount41={toogleCount41}
                 toogle7={toogle7} srok={srok} toogleCount5={toogleCount5}
-                toogleCount4={toogleCount4} typeOf={typeOf}  registration_number={registration_number}
+                toogleCount4={toogleCount4} typeOf={typeOf} registration_number={registration_number}
                 certificate_validity_period_from={certificate_validity_period_from}
                 certificate_validity_period_to={certificate_validity_period_to} mark={mark}
                 srok2={srok2} akk2={akk2} akk1={akk1} akk3={akk3} akk4={akk4} serCount={serCount}

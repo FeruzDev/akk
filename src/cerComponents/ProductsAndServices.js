@@ -925,8 +925,6 @@ const ProductsAndServices = () => {
                             </div>
                         </label>
                     </div>
-
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("io5")}
                             <div>
@@ -975,7 +973,6 @@ const ProductsAndServices = () => {
                             :
                             ""
                     }
-
                     <SrokSelect
                         srok={srok}
                         title={getText("ms8")}

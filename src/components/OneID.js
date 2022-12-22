@@ -8,7 +8,6 @@ const OneId = (props) => {
     const params = new URLSearchParams(location.search);
     const history = useHistory();
     useEffect(() => {
-        console.log(params.get("code"));
         axios.post(API_APTH + "users/one_id/",
             {"access_token": params.get("code")}
         )

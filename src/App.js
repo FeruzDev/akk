@@ -34,7 +34,6 @@ function App() {
         setLocLang("ru")
     );
       setPath(window.location.pathname)
-      console.log(window.location.pathname.slice(0, 12))
   }, []);
   return (
     <div className="App">

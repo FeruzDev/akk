@@ -79,7 +79,6 @@ const ProviderChecks = () => {
     const ref19 = useRef();
     const ref20 = useRef();
     let prover2 = true;
-
     const validate = () => {
         if (file4 === null) {
             ref20.current.className = "errorInput";
@@ -221,7 +220,7 @@ const ProviderChecks = () => {
     };
     const sendDataModal = () => {
         // if (validate()) {
-            setMainModal(true);
+        setMainModal(true);
         // }
     };
     const sendData = () => {
@@ -252,7 +251,6 @@ const ProviderChecks = () => {
         bigData.append("manage_system", srok);
         bigData.append("internal_audit", toogle6);
         bigData.append("leader_analyses", toogle7);
-
         bigData.append("is_consulting_company", toogle8);
         if (toogle8) {
             bigData.append("consulting_info", consulting_info);
@@ -283,10 +281,8 @@ const ProviderChecks = () => {
             setLocLang("ru")
         )
     }, []);
-
     return (
         <div className="ManagementSystemsCertification">
-
             <div className="navbar-main">
                 <div className="container d-flex justify-content-between align-items-center h-100">
                     <div className="logo">
@@ -314,7 +310,6 @@ const ProviderChecks = () => {
                     </div>
                 </div>
             </div>
-
             <div className="container">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("mp1")}
@@ -369,7 +364,6 @@ const ProviderChecks = () => {
                         <div className="my-input-groups col-md-6">
                             <label className="open-sans-medium">{getText("ser16")}</label>
                             <div className="row">
-
                                 <OneInput
                                     refSelect={ref3}
                                     setState={setStatusOrgNum}
@@ -426,7 +420,6 @@ const ProviderChecks = () => {
                             titleLabel={getText("ser22")}
                             myClass="my-input-groups col-md-6"
                         />
-
                         <OneInput
                             refSelect={ref9}
                             setState={setMail}
@@ -544,7 +537,6 @@ const ProviderChecks = () => {
                             </div>
                         </label>
                     </div>
-
                     {
                         toogle2
                             ?
@@ -552,19 +544,16 @@ const ProviderChecks = () => {
                                 <p className="open-sans-medium">
                                     {getText("mp3")}
                                 </p>
-
                                 <div className="row">
                                     <div className="my-input-groups col-md-12">
                                         <label className="open-sans-medium">{getText("mp2")}</label>
                                         <input type="text" onChange={(e) => setTypeOf(e.target.value)}/>
                                     </div>
-
                                 </div>
                             </div>
                             :
                             ""
                     }
-
                     <SrokSelect
                         title={getText("ser55")}
                         srok={srok}
@@ -618,7 +607,7 @@ const ProviderChecks = () => {
             <ProviderChecksModal
                 mainModal={mainModal} setMainModal={setMainModal}
                 akk={akk} prAkk={prAkk} rasAkk={rasAkk} aktAkk={aktAkk}
-                sokAkk={sokAkk} perAkk={perAkk} fullName={fullName}  statusOrgNum={statusOrgNum}
+                sokAkk={sokAkk} perAkk={perAkk} fullName={fullName} statusOrgNum={statusOrgNum}
                 statusOrgDate={statusOrgDate}
                 yurAddress={yurAddress} factAddress={factAddress} phoneNumber={phoneNumber}
                 siteName={siteName} mail={mail} bank={bank} raschot={raschot} mfo={mfo}

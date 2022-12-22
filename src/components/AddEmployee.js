@@ -307,7 +307,6 @@ const AddEmployee = () => {
 
   const [allData, setAllData] = useState(null);
   const sendData2 = (e, value) => {
-    console.log(prover2);
     // e.preventDefault();
     if (validate()) {
       setMainModal(true);
@@ -318,8 +317,6 @@ const AddEmployee = () => {
   };
 
   const sendAllData = () => {
-    console.log(certificateValue);
-    console.log(familyValue);
     bigData.append("photo_pic", pic.target.files[0]);
     bigData.append("resume", cv.target.files[0]);
     bigData.append("address", adressPropiska);

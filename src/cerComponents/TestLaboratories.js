@@ -11,9 +11,7 @@ import Consulting from "./inputs/Consulting";
 
 const TestLaboratories = () => {
     const [locLang, setLocLang] = useState("ru")
-
     const [mainModal, setMainModal] = useState(false);
-
     const [toogle1, setToogle1] = useState(false);
     const [toogle2, setToogle2] = useState(false);
     const [toogle3, setToogle3] = useState(false);
@@ -24,14 +22,12 @@ const TestLaboratories = () => {
     const [toogle8, setToogle8] = useState(false);
     const [toogle9, setToogle9] = useState(false);
     const [srok, setSrok] = useState(null);
-
     const [akk, setAkk] = useState(false);
     const [prAkk, setPrAkk] = useState(false);
     const [rasAkk, setRasAkk] = useState(false);
     const [aktAkk, setAktAkk] = useState(false);
     const [sokAkk, setSokAkk] = useState(false);
     const [perAkk, setPerAkk] = useState(false);
-
     const [fullName, setFullName] = useState("");
     const [objectName, setObjectName] = useState("");
     const [statusOrgDate, setStatusOrgDate] = useState("");
@@ -53,14 +49,10 @@ const TestLaboratories = () => {
     const [phoneOrgSer, setPhoneOrgSer] = useState("");
     const [typeOf, setTypeOf] = useState("");
     const [toogle9Value, setToogle9Value] = useState("");
-
-
     const [consulting_info, setconsulting_info] = useState("");
     const [registration_number, setregistration_number] = useState("");
     const [certificate_validity_period_from, setcertificate_validity_period_from] = useState("");
     const [certificate_validity_period_to, setcertificate_validity_period_to] = useState("");
-
-
     const [file1, setFile1] = useState(null);
     const [file2, setFile2] = useState(null);
     const [file3, setFile3] = useState(null);
@@ -70,7 +62,6 @@ const TestLaboratories = () => {
         localStorage.setItem(SITE_LANG, lang);
         setLocLang(lang)
     };
-
     const [inputsCount, setInputsCount] = useState([{
         adress: "",
         phone_number: "",
@@ -85,10 +76,8 @@ const TestLaboratories = () => {
     const [toogleCount5, setToogleCount5] = useState([{
         additional_offices: "",
     }]);
-
     const addElement = () => {
         setInputsCount(inputsCount.concat({adress: "", phone_number: "", full_name_head: ""}));
-
     };
     const addElementToogle3Value = () => {
         setToogleCount3(toogleCount3.concat({mobile_complex: ""}));
@@ -105,7 +94,6 @@ const TestLaboratories = () => {
     const removeToogle3 = (item) => {
         setToogleCount3(toogleCount3.filter((abs, index) => index !== item));
     };
-
     const removeToogle4 = (item) => {
         setToogleCount4(toogleCount4.filter((abs, index) => index !== item));
     };
@@ -134,9 +122,7 @@ const TestLaboratories = () => {
     const ref19 = useRef();
     const ref20 = useRef();
     let prover2 = true;
-
     const validate = () => {
-
         if (file4 === null) {
             ref20.current.className = "errorInput";
             prover2 = false;
@@ -259,25 +245,20 @@ const TestLaboratories = () => {
         } else {
             ref4.current.classList.remove("errorInput");
         }
-
         if (statusOrgNum === "") {
             ref3.current.focus();
             ref3.current.className = "errorInput";
             prover2 = false;
         } else {
             ref3.current.classList.remove("errorInput");
-
         }
-
         if (objectName === "") {
             ref2.current.focus();
             ref2.current.className = "errorInput";
             prover2 = false;
         } else {
             ref2.current.classList.remove("errorInput");
-
         }
-
         if (fullName === "") {
             ref1.current.focus();
             ref1.current.className = "errorInput";
@@ -285,7 +266,6 @@ const TestLaboratories = () => {
         } else {
             ref1.current.classList.remove("errorInput");
         }
-
         return prover2;
     };
     const sendDataModal = () => {
@@ -332,7 +312,6 @@ const TestLaboratories = () => {
             toogleCount3?.map((item, index) => {
                 bigData.append("mobile_complex[" + index + "]reg_number", item.mobile_complex);
             })
-
         }
         bigData.append("is_add_staff", toogle4);
         if (toogle4) {
@@ -382,9 +361,7 @@ const TestLaboratories = () => {
         else (
             setLocLang("ru")
         )
-
     }, []);
-
     const changeValue = (e, ind) => {
         setInputsCount(inputsCount.map((item, index) => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
@@ -405,10 +382,8 @@ const TestLaboratories = () => {
             return index === ind ? {...item, [e.target.name]: e.target.value} : item
         }))
     };
-
     return (
         <div className="ManagementSystemsCertification">
-
             <div className="navbar-main">
                 <div className="container d-flex justify-content-between align-items-center h-100">
                     <div className="logo">
@@ -563,7 +538,6 @@ const TestLaboratories = () => {
                             <label className="open-sans-medium">{getText("ser33")}</label>
                             <input type="text" onChange={(e) => setPhoneOrgSer(e.target.value)}/>
                         </div>
-
                     </div>
                 </div>
                 <div className="big-box">
@@ -591,7 +565,6 @@ const TestLaboratories = () => {
                                 </p>
                                 {
                                     inputsCount?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -617,18 +590,14 @@ const TestLaboratories = () => {
                                             </div>
                                         </div>
                                     ))}
-
                                 <div className="row d-flex justify-content-end">
                                     <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
-
                             :
                             ""
                     }
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("pt4")}
                             <div>
@@ -641,7 +610,6 @@ const TestLaboratories = () => {
                             </div>
                         </label>
                     </div>
-
                     {
                         toogle2
                             ?
@@ -651,13 +619,11 @@ const TestLaboratories = () => {
                                         <label className="open-sans-medium">{getText("pt5")}</label>
                                         <input type="text" onChange={(e) => setTypeOf(e.target.value)}/>
                                     </div>
-
                                 </div>
                             </div>
                             :
                             ""
                     }
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("pt6")}
                             <div>
@@ -677,11 +643,8 @@ const TestLaboratories = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser45")}
                                 </p>
-
-
                                 {
                                     toogleCount3?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -700,10 +663,10 @@ const TestLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle3Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle3Value}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
                             :
                             ""
@@ -727,10 +690,8 @@ const TestLaboratories = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser48")}
                                 </p>
-
                                 {
                                     toogleCount4?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -749,16 +710,14 @@ const TestLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle4Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle4Value}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
                             :
                             ""
                     }
-
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("ser52")}
                             <div>
@@ -778,10 +737,8 @@ const TestLaboratories = () => {
                                 <p className="open-sans-medium">
                                     {getText("ser53")}
                                 </p>
-
                                 {
                                     toogleCount5?.map((item, index) => (
-
                                         <div className="row inputs-box">
                                             <div className="index open-sans-bold">
                                                 {index + 1})
@@ -800,10 +757,10 @@ const TestLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElementToogle5Value}>Добавить ещё
+                                    <button className='btn btn-primary d-inline '
+                                            onClick={addElementToogle5Value}>Добавить ещё
                                     </button>
                                 </div>
-
                             </div>
                             :
                             ""
@@ -814,12 +771,10 @@ const TestLaboratories = () => {
                                 <button onClick={() => setSrok(0)}
                                         className={srok === 0 ? "open-sans-medium active" : "open-sans-medium"}>
                                     {getText("ser56")}
-
                                 </button>
                                 <button onClick={() => setSrok(1)}
                                         className={srok === 1 ? "open-sans-medium active" : "open-sans-medium"}>
                                     {getText("ser57")}
-
                                 </button>
                                 <button onClick={() => setSrok(2)}
                                         className={srok === 2 ? "open-sans-medium active" : "open-sans-medium"}>
@@ -828,7 +783,6 @@ const TestLaboratories = () => {
                             </div>
                         </label>
                     </div>
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("ser59")}
                             <div>
@@ -853,7 +807,6 @@ const TestLaboratories = () => {
                             </div>
                         </label>
                     </div>
-
                     <div className="toggle">
                         <label className="open-sans-medium">{getText("pt9")}
                             <div>
@@ -866,7 +819,6 @@ const TestLaboratories = () => {
                             </div>
                         </label>
                     </div>
-
                     {
                         toogle9
                             ?
@@ -876,14 +828,13 @@ const TestLaboratories = () => {
                                         <label className="open-sans-medium">{getText("pt10")}</label>
                                         <input type="text" onChange={(e) => setToogle9Value(e.target.value)}/>
                                     </div>
-
                                 </div>
                             </div>
                             :
                             ""
                     }
                 </div>
-               <Consulting
+                <Consulting
                     toogle8={toogle8}
                     setToogle8={setToogle8}
                     setconsulting_info={setconsulting_info}
@@ -903,7 +854,6 @@ const TestLaboratories = () => {
                             onClick={sendDataModal}>{getText("send")}</button>
                 </div>
             </div>
-
             <TestLaboratoriesCheckModal
                 mainModal={mainModal} setMainModal={setMainModal}
                 akk={akk} prAkk={prAkk} rasAkk={rasAkk} aktAkk={aktAkk}
