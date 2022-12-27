@@ -10,7 +10,7 @@ import TestLaboratoriesCheckModal from "./inputs/TestLaboratoriesCheckModal";
 import Consulting from "./inputs/Consulting";
 
 const MedicalLaboratories = () => {
-    const [locLang, setLocLang] = useState("ru")
+
     const [mainModal, setMainModal] = useState(false);
     const [toogle1, setToogle1] = useState(false);
     const [toogle2, setToogle2] = useState(false);
@@ -58,10 +58,7 @@ const MedicalLaboratories = () => {
     const [file3, setFile3] = useState(null);
     const [file4, setFile4] = useState(null);
     let bigData = new FormData();
-    const changeLang = (lang) => {
-        localStorage.setItem(SITE_LANG, lang);
-        setLocLang(lang)
-    };
+
     const [inputsCount, setInputsCount] = useState([{
         adress: "",
         phone_number: "",
@@ -355,12 +352,7 @@ const MedicalLaboratories = () => {
             })
     };
     useEffect(() => {
-        if (localStorage.getItem("language") === "uz") (
-            setLocLang("uz")
-        );
-        else (
-            setLocLang("ru")
-        )
+
     }, []);
     const changeValue = (e, ind) => {
         setInputsCount(inputsCount.map((item, index) => {
@@ -384,33 +376,7 @@ const MedicalLaboratories = () => {
     };
     return (
         <div className="ManagementSystemsCertification">
-            <div className="navbar-main">
-                <div className="container d-flex justify-content-between align-items-center h-100">
-                    <div className="logo">
-                        <img src="/img/logo12.svg" alt=""/>
-                    </div>
-                    <div className="lang-btn">
-                        <button
-                            onClick={() => changeLang("ru")}
-                            className={
-                                locLang !== "uz"
-                                    ? "active"
-                                    : ""
-                            }
-                        >
-                            Русский
-                        </button>
-                        <button
-                            onClick={() => changeLang("uz")}
-                            className={
-                                locLang === "uz" ? "active" : ""
-                            }
-                        >
-                            O'zbek
-                        </button>
-                    </div>
-                </div>
-            </div>
+
             <div className="container">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("tl1")}

@@ -25,7 +25,12 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 const AddEmployee = () => {
   const data = [];
   let bigData = new FormData();
+  const [locLang, setLocLang] = useState("ru")
 
+  const changeLang = (lang) => {
+    localStorage.setItem(SITE_LANG, lang);
+    setLocLang(lang)
+  };
   // modal
   const [mainModal, setMainModal] = useState(false);
   const [locationModal, setLocationModal] = useState(false);
@@ -57,7 +62,7 @@ const AddEmployee = () => {
   const [certificate, setCertificate] = useState(false);
   const [family, setFamily] = useState(false);
 
-  const [locLang, setLocLang] = useState("ru")
+
 
   // info user
   const [users, setUsers] = useState([]);
@@ -300,10 +305,7 @@ const AddEmployee = () => {
     return prover2;
   };
 
-  const changeLang = (lang) => {
-    localStorage.setItem(SITE_LANG, lang);
-    setLocLang(lang)
-  };
+
 
   const [allData, setAllData] = useState(null);
   const sendData2 = (e, value) => {
@@ -315,6 +317,7 @@ const AddEmployee = () => {
       toast.warning("Warning");
     }
   };
+
 
   const sendAllData = () => {
     bigData.append("photo_pic", pic.target.files[0]);
@@ -411,7 +414,7 @@ const AddEmployee = () => {
           <div className="logo">
             <img src="/img/logo12.svg" alt="" />
           </div>
-          <div className="lang-btn">
+          <div className="lang-btn position-relative" style={{bottom: "0"}}>
             <button
                 onClick={() => changeLang("ru")}
                 className={

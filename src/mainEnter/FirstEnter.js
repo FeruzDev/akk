@@ -13,7 +13,7 @@ const FirstEnter = () => {
             <Link to="/first-enter/second-enter" className="akk-btn open-sans-medium">
               Заявка на аккредитацию
             </Link>
-            <a className="od-btn open-sans-medium">Заявка на одебрение</a>
+            <a className="akk-btn open-sans-medium">Заявка на одебрение</a>
           </div>
         </div>
       </div>

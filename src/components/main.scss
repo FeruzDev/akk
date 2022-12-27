@@ -58,7 +58,7 @@ body{
 }
 
 .login-page{
-    background: #E5E5E5;
+    background: #fafafa;
     padding: 30px;
     width: 100%;
     min-height: 100vh;
@@ -234,35 +234,62 @@ body{
 }
 
 .navbar-main{
-    background-color: rgb(10, 44, 183);
+    //background-color: rgb(10, 44, 183);
+    background-color: #19315f;
     box-shadow: rgb(0 0 0 / 25%) 0px 5px 10px;
     color: white;
     position: fixed;
     width: 100%;
     z-index: 10;
-    height: 80px;
-    .lang-btn{
-        padding: 5px;
-        border-radius: 8px;
-        background-color: white;
-        button{
-            width: 80px;
-            border-radius: 8px;
-            border: none;
-            height: 40px;
-            color: black;
-            &:nth-child(2){
-                margin-left: 5px;
+    height: 64px;
+    .logo{
+        margin-left: 73px;
+        padding-right: 73px;}
+    .search-box-navbar{
+        position: relative;
+        height: 48px;
+        .jss12{
+            display: block;
+            position: relative;
+            max-width: 800px;
+            background: white;
+            margin-right: 16px;
+            border-radius: 4px;
+            height: 100%;
+            button{
+                position: absolute;
+                border: none;
+                padding-left: 12px;
+                padding-right: 12px;
+                left: 0;
+                height: 100%;
+                border-radius: 50%;
+                background-color: transparent;
+                &:hover{
+                    background-color: #f6f6f6;
+
+                }
+            }
+            input{
+                width: 100%;
+                border: none;
+                cursor: text;
+                outline: 0;
+                padding: 11.2px;
+                font-size: 1rem;
+                background: transparent;
+                text-indent: 30px;
             }
         }
-        .active{
-            background-color:  rgb(10, 44, 183);
-            color: white;
-        }
+        flex: 1 1 0%;
+        box-sizing: border-box;
+    }
+    .right-bar{
+        padding-right: 30px;
     }
 }
 .add-employee{
-    background-color: rgb(225, 225, 225);
+    background-color: #fafafa;
     padding-bottom: 100px;
     .add-employee-mt{
         padding-top: 80px;
@@ -470,7 +497,7 @@ body{
 }
 
 .first-enter{
-    background-color: #acacac52;
+    background-color: #fafafa;
     .container{
         .row{
             .col-md-12{
@@ -511,7 +538,7 @@ body{
                     text-decoration: none;
                     border: none;
                     background-color: #dadada;
-                    border-radius: 10px;
+                    border-radius: 20px;
                 }
             }
         }
@@ -520,7 +547,7 @@ body{
 
 
 .second-enter{
-    background-color: #acacac52;
+    background-color: #fafafa;
     min-height: 100vh;
     padding-bottom: 50px;
     .second-enter-content{
@@ -537,8 +564,10 @@ body{
             border-radius: 8px;
             color: #1D1929;
             font-weight: bold;
-            &:hover{
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
+
+                &:hover{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
             cursor: pointer;
                 }
             }
@@ -804,4 +833,143 @@ body{
 }
 .ProductsAndServices{
 
+}
+
+.lang-btn{
+    padding: 5px;
+    border-radius: 8px;
+    background-color: white;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+    button{
+        width: 80px;
+        border-radius: 6px;
+        border: none;
+        height: 40px;
+        color: black;
+        &:nth-child(2){
+            margin-left: 10px;
+        }
+    }
+    .active{
+        background-color:  rgb(10, 44, 183);
+        color: white;
+    }
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    position: fixed;
+    z-index: 9;
+    min-height: 100vh;
+    background: #fafafa;
+    box-shadow: 0 1px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
+    color: #fff;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transition: all 0.3s;
+}
+.components-lists{
+    padding-top: 100px;
+}
+.components-lists li{
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.components-lists a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #1D1929;
+    font-weight: bold;
+
+}
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    background: #6d7fcc;
+}
+
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.toggle-btn{
+    position: fixed;
+    top: 7px;
+    left: 5px;
+    z-index: 111;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: end;
+    box-sizing: border-box;
+
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+    svg{
+        fill: #fff;
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        font-size: 1.5rem;
+        transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        flex-shrink: 0;
+        user-select: none;
+    }
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
 }

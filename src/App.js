@@ -11,18 +11,19 @@ import NotFound from "./components/NotFound";
 import InspectionBody from "./cerComponents/InspectionBody";
 import ProductsAndServices from "./cerComponents/ProductsAndServices";
 import PersonnelCertification from "./cerComponents/PersonnelCertification";
-import {SITE_LANG} from "./tools/Const";
 import ProviderChecks from "./cerComponents/ProviderChecks";
-import "./components/sidebar.css"
 import UnbrakableControl from "./cerComponents/UnbrakableControl";
 import TestLaboratories from "./cerComponents/TestLaboratories";
 import MedicalLaboratories from "./cerComponents/MedicalLaboratories";
 import CalibrationLaboratories from "./cerComponents/CalibrationLaboratories";
 import MetrologicalLaboratories from "./cerComponents/MetrologicalLaboratories";
+import SideBar from "./components/SideBar";
+import NavbarMain from "./components/NavbarMain";
+import Test from "./components/Test";
 function App() {
   const [locLang, setLocLang] = useState("ru")
   const [path, setPath] = useState("")
-        const [open, setOpen] =useState(false)
+        const [open, setOpen] =useState(true)
         const  Close=()=>{
             setOpen(!open)
     };
@@ -48,18 +49,16 @@ function App() {
                     :
                         <>
                             <button type="button" id="sidebarCollapse" onClick={Close} className="toggle-btn">
-                                <img src="/img/menu.png" alt="arrow"/>
+                                <svg className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24"
+                                     aria-hidden="true">
+                                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+                                </svg>
                             </button>
                             <div className="wrapper">
-                                <nav id="sidebar" className={open ? "active" : ""}>
-                                    <ul className="list-unstyled components-lists">
-                                        <li> <a href="#!">HOME</a></li>
-                                        <li> <a href="#!">HOME</a></li>
-                                        <li> <a href="#!">HOME</a></li>
-                                        <li> <a href="#!">HOME</a></li>
-                                        <li> <a href="#!">HOME</a></li>
-                                    </ul>
-                                </nav>
+
+                                <NavbarMain/>
+                                {/*<Test/>*/}
+                                <SideBar open={open} />
                                 <div id="content">
                                             <Route exact path="/first-enter" component={FirstEnter} />
                                             <Route exact path="/users/one_id/" component={OneId} />
