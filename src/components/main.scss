@@ -71,6 +71,8 @@ body{
         background: #FFFFFF;
         padding: 48px;
         border-radius: 16px;
+        box-shadow: 0px 8px 12px rgba(10, 44, 183, 0.08), 0px 4px 48px rgba(10, 44, 183, 0.08);
+
         .my-tabs-list{
             display: flex;
             margin-bottom: 10px;
@@ -551,7 +553,7 @@ body{
     min-height: 100vh;
     padding-bottom: 50px;
     .second-enter-content{
-        padding-top: 100px;
+        padding: 100px 50px;
         .row{
             .col-md-12{
             display: block;
@@ -757,7 +759,6 @@ body{
             div{
                 margin-left: 0px !important;
                 margin-top: 20px;
-
             }
         }
     }
@@ -804,7 +805,6 @@ body{
         padding-top: 100px;
         text-align: center;
     }
-
 }
 .footer-btn{
     .clear-btn{
@@ -831,18 +831,15 @@ body{
         }
     }
 }
-.ProductsAndServices{
-
+.container2{
+    padding-left: 30px;
+    padding-right: 30px;
 }
-
 .lang-btn{
-    padding: 5px;
-    border-radius: 8px;
-    background-color: white;
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
     button{
         width: 80px;
         border-radius: 6px;
@@ -858,59 +855,74 @@ body{
         color: white;
     }
 }
-
 .wrapper {
     display: flex;
     width: 100%;
     align-items: stretch;
 }
-
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    position: fixed;
+    min-width: 270px;
+    max-width: 270px;
     z-index: 9;
-    min-height: 100vh;
-    background: #fafafa;
-    box-shadow: 0 1px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
+    height: 100vh;
+    position: relative;
     color: #fff;
     padding-top: 8px;
     padding-bottom: 8px;
     transition: all 0.3s;
 }
+.text-color{
+    color: rgba(0, 0, 0, 0.87) !important;
+}
 .components-lists{
-    padding-top: 100px;
+    padding-top: 60px;
+    width: 270px;
+    background: #fafafa;
+    box-shadow: 0 1px 14px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
+    position: fixed;
+    overflow-y: scroll;
+    height: 100vh;
+    .my-btn{
+        font-size: 0.875rem;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0.00938em;
+        color: rgba(0, 0, 0, 0.87) !important;
+    }
+    .MuiListItemIcon-root{
+        min-width: 45px;
+    }
+    .MuiSvgIcon-root{
+        margin-left: 10px;
+    }
+    .MuiBadge-badge{
+        margin-right: 10px;
+    }
 }
 .components-lists li{
-    padding-left: 20px;
+    padding: 12px 0;
     margin-top: 20px;
 }
 .components-lists a{
     text-decoration: none;
-    font-size: 16px;
+    font-size: 14px;
     color: #1D1929;
-    font-weight: bold;
-
 }
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -270px;
 }
-
 #sidebar .sidebar-header {
     background: #6d7fcc;
 }
-
-
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
 }
-
 a[data-toggle="collapse"] {
     position: relative;
 }
-
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -918,7 +930,6 @@ a[data-toggle="collapse"] {
     right: 20px;
     transform: translateY(-50%);
 }
-
 .toggle-btn{
     position: fixed;
     top: 7px;
@@ -929,7 +940,6 @@ a[data-toggle="collapse"] {
     display: flex;
     justify-content: end;
     box-sizing: border-box;
-
     color: rgba(0, 0, 0, 0.54);
     padding: 12px;
     overflow: visible;
@@ -948,23 +958,14 @@ a[data-toggle="collapse"] {
         user-select: none;
     }
 }
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-
 #content {
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
 }
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -270px;
     }
     #sidebar.active {
         margin-left: 0;

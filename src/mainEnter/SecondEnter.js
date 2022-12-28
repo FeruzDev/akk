@@ -9,7 +9,7 @@ const SecondEnter = () => {
     }, [localStorage.getItem("language")]);
     return (
         <div className="second-enter">
-            <div className="container second-enter-content">
+            <div className="container2 second-enter-content">
                 <div className="row">
                     <Link to="/first-enter/second-enter/management-systems-certification"
                           className="col-md-12 open-sans-medium">

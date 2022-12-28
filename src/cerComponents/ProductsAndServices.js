@@ -407,7 +407,7 @@ const ProductsAndServices = () => {
     return (
         <div className="ManagementSystemsCertification">
 
-            <div className="container">
+            <div className="container2">
                 <h2 className="open-sans-bold main-title">{getText("ser75")} <br/>
                     {getText("ms1")}
                 </h2>
