@@ -21,6 +21,9 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="my-form">
+          <div className="login-logo">
+              <img src="/img/logo2.png" alt=""/>
+          </div>
       <div className="my-tabs-list">
           <button onClick={() => setMyTabs(true)} className={myTabs ? "my-tabs my-tabs-active" : "my-tabs"}>One ID</button>
           <button onClick={() => setMyTabs(false)} className={myTabs ? "my-tabs" : "my-tabs my-tabs-active"}>Авторизация</button>
@@ -34,13 +37,12 @@ const Login = () => {
                   </div>
                   :
                   <div className="for-username" >
+
                       <div className="forms">
-                          <label htmlFor="username">Имя пользователя</label>
-                          <input id="username"/>
+                          <input id="username" placeholder="Имя пользователя"/>
                       </div>
                       <div className="forms">
-                          <label htmlFor="password">Пароль</label>
-                          <input id="password" type="password"/>
+                          <input id="password" type="password" placeholder="Пароль"/>
                       </div>
                       <button  type='submit' onClick={login} className="submit-btn">
                           Войти

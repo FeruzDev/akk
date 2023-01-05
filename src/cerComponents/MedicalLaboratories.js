@@ -557,7 +557,7 @@ const MedicalLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
+                                    <button className='btn btn-primary-private d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
                                 </div>
                             </div>
@@ -629,7 +629,7 @@ const MedicalLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
+                                    <button className='btn btn-primary-private d-inline '
                                             onClick={addElementToogle3Value}>Добавить ещё
                                     </button>
                                 </div>
@@ -676,7 +676,7 @@ const MedicalLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
+                                    <button className='btn btn-primary-private d-inline '
                                             onClick={addElementToogle4Value}>Добавить ещё
                                     </button>
                                 </div>
@@ -723,7 +723,7 @@ const MedicalLaboratories = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
+                                    <button className='btn btn-primary-private d-inline '
                                             onClick={addElementToogle5Value}>Добавить ещё
                                     </button>
                                 </div>

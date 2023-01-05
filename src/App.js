@@ -25,7 +25,7 @@ import Box from "@mui/material/Box";
 function App() {
   const [locLang, setLocLang] = useState("ru")
   const [path, setPath] = useState("")
-        const [open, setOpen] =useState(true)
+        const [open, setOpen] =useState(false)
         const  Close=()=>{
             setOpen(!open)
     };
@@ -43,10 +43,9 @@ function App() {
         <BrowserRouter>
             <Switch>
                 {
-                    path === "/" || path === "/add-employee" ?
+                    path === "/"   ?
                       <>
                           <Route exact path="/"  component={Login} />
-                          <Route exact path="/add-employee" component={AddEmployee} />
                       </>
                     :
                         <>
@@ -62,7 +61,8 @@ function App() {
                                 {/*<Test/>*/}
                                 <SideBar open={open} />
                                 <div id="content">
-                                            <Route exact path="/first-enter" component={FirstEnter} />
+                                        <Route exact path="/add-employee" component={AddEmployee} />
+                                        <Route exact path="/first-enter" component={FirstEnter} />
                                             <Route exact path="/users/one_id/" component={OneId} />
                                             <Route exact path="/first-enter/second-enter" component={SecondEnter} />
                                             <Route exact path="/404"  component={NotFound} />

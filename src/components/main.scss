@@ -58,7 +58,7 @@ body{
 }
 
 .login-page{
-    background: #fafafa;
+    background: #19315f;
     padding: 30px;
     width: 100%;
     min-height: 100vh;
@@ -69,13 +69,20 @@ body{
         width: 472px;
         height: 465px;
         background: #FFFFFF;
-        padding: 48px;
+        padding: 45px;
         border-radius: 16px;
         box-shadow: 0px 8px 12px rgba(10, 44, 183, 0.08), 0px 4px 48px rgba(10, 44, 183, 0.08);
+        .login-logo{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
 
+        }
         .my-tabs-list{
             display: flex;
             margin-bottom: 10px;
+
             .my-tabs{
                 border: none;
                 border-radius: 12px 0px  0 12px;
@@ -90,7 +97,7 @@ body{
                 }
             }
             .my-tabs-active{
-                background-color: rgb(10, 44, 183);
+                background-color: #19315f;
                 color: white;
                 box-shadow: 0px 8px 12px rgba(10, 44, 183, 0.08), 0px 4px 48px rgba(10, 44, 183, 0.08);
 
@@ -120,7 +127,7 @@ body{
             }
             .submit-btn{
                 border: none;
-                background-color: rgb(10, 44, 183);
+                background-color: #19315f;
                 color: white;
                 border-radius: 12px;
                 width: 100%;
@@ -142,14 +149,14 @@ body{
                 margin-top: 30px;
                 display: block;
                 width: 100%;
-                border: 2px solid rgb(10, 44, 183);
+                border: 2px solid #19315f;
                 padding: 16px;
                 text-align: center;
                 text-decoration: none;
                 font-size: 18px;
                 font-weight: 700;
                 border-radius: 18px;
-                color: rgb(10, 44, 183);
+                color: #19315f;
                 box-shadow: 0px 8px 12px rgba(10, 44, 183, 0.08), 0px 4px 48px rgba(10, 44, 183, 0.08);
             }
         }
@@ -158,7 +165,8 @@ body{
 .with-star{
     color: #ff6666;
     position: absolute;
-    //top: -5px;
+    margin-left: 5px;
+    margin-top: -3px;
 }
 .my-select-style{
     position: relative;
@@ -168,7 +176,8 @@ body{
         .with-star{
             color: #ff6666;
             position: absolute;
-            //top: -5px;
+            margin-left: 5px;
+            margin-top: -3px;
         }
     }
     .add-btn{
@@ -184,10 +193,10 @@ body{
         //height: 50px;
         display: flex;
         border: none;
-        border-radius: 0px 18px 18px 0px;
+        border-radius: 0px  8px  8px 0px;
         align-items: center;
         justify-content: center;
-        background-color: rgb(10, 44, 183);
+        background-color: #19315f;
         height: 100%;
         &:focus{
             outline: none;
@@ -213,7 +222,7 @@ body{
     input{
         background: #FFFFFF;
         border: 1.5px solid #E8E8EA;
-        border-radius: 18px !important;
+        border-radius:  8px !important;
         min-height: 50px !important;
         transition: background-color 0.5s ease-out;
         &:focus{
@@ -224,7 +233,7 @@ body{
 }
 .my-check-style{
     display: flex;
-    align-items: end;
+    align-items: center;
     input{
         width: 20px;
         height: 20px;
@@ -246,7 +255,7 @@ body{
     height: 64px;
     .logo{
         margin-left: 73px;
-        padding-right: 73px;}
+        padding-right: 79px;}
     .search-box-navbar{
         position: relative;
         height: 48px;
@@ -342,7 +351,7 @@ body{
 .css-1s2u09g-control{
     background: #FFFFFF;
     border: 1px solid #E8E8EA;
-    border-radius: 18px !important;
+    border-radius:  8px !important;
     min-height: 50px !important;
 }
 .css-1pahdxg-control{
@@ -350,21 +359,21 @@ body{
     background: #FFFFFF;
     border: 1px solid #E8E8EA;
     //height: 50px !important;
-    border-radius: 18px !important;
+    border-radius:  8px !important;
 }
 .css-b62m3t-container{
     padding-left: 0;
 }
 
 .save-btn{
-    background-color: rgb(10, 44, 183);
+    background-color: #19315f;
     border: none;
     margin-top: 35px;
     width: 100%;
     color: #fff;
     height: 50px;
     font-size: 18px;
-    border-radius: 18px;
+    border-radius:  8px;
 }
 .modal-content{
     margin-top: 200px;
@@ -375,8 +384,8 @@ body{
 }
 
 .modal-save-btn{
-    border-radius: 18px;
-    background-color: rgb(10, 44, 183);
+    border-radius: 8px;
+    background-color: #19315f;
     //height: 40px;
     color: white;
     margin-right: 30px;
@@ -385,7 +394,7 @@ body{
 }
 
 .modal-cancel-btn{
-    border-radius: 18px;
+    border-radius:  8px;
     background-color: rgb(238, 62, 85);
     //height: 40px;
     min-width: 120px;
@@ -407,7 +416,7 @@ body{
     padding: 10px;
     background-color: white;
     margin-right: 12px;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-top: 10px;
     .trdName{
         display: flex;
@@ -441,12 +450,12 @@ body{
 }
 
 .full_add_btn{
-        border-radius: 18px;
+        border-radius:  8px;
         font-size: 18px;
         height: 50px;
         border: none;
         color: #fff;
-    background-color: rgb(10, 44, 183);
+     background-color: #19315f;
 
         img{
             width: 20px;
@@ -460,7 +469,6 @@ body{
         margin-top: 50px;
     }
     .container{
-        padding-top: 10px;
         padding: 30px;
         .row{
             .col-md-4{
@@ -512,7 +520,7 @@ body{
                     height: 320px;
                     font-size: 30px;
                     text-transform: uppercase;
-                    color: #2684ff;
+                    color: #fff;
                     margin-right: 20px;
                     display: flex;
                     align-items: center;
@@ -520,7 +528,7 @@ body{
                     text-decoration: none;
                     border: none;
                     border-radius: 10px;
-                    background-color: #fff;
+                    background-color: #19315f;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
                     &:hover{
                     box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 16px 30px 0 rgba(0, 0, 0, 0.19);
@@ -564,7 +572,7 @@ body{
             text-align: center;
             text-decoration: none;
             border-radius: 8px;
-            color: #1D1929;
+            color: #19315f;
             font-weight: bold;
                 box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(103, 128, 241, 0.19);
 
@@ -595,7 +603,7 @@ body{
         position: absolute;
         top: 8px;
         left: 6px;
-        color: #2684ff;
+        color: #19315f;
         width: 50px;
     }
     .close{
@@ -612,6 +620,11 @@ body{
         img{
             width: 18px;
         }
+    }
+}
+.file-inputs-main{
+    input{
+        padding-top: 4px;
     }
 }
 .big-box{
@@ -705,7 +718,7 @@ body{
                         border-radius: 0 8px 8px 0;
                     }
                     &.active{
-                        background-color: #2684ff;
+                        background-color: #19315f;
                         color: #FFFFFF;
                     }
                 }
@@ -735,7 +748,7 @@ body{
                 background-color: #f6f6f6;
 
                 &.active{
-                    background-color: #2684ff;
+                    background-color: #19315f;
                     color: #FFFFFF;
                 }
             }
@@ -821,19 +834,28 @@ body{
     }
     .add-btn{
         padding: 10px 20px;
-        background-color: #2684ff;
+        background-color: #19315f;
         border: none;
         color: #FFFFFF;
         &:focus{
             outline: none;
             color: #FFFFFF;
-            background-color: #2684ff;
+            background-color: #19315f;
         }
     }
 }
 .container2{
     padding-left: 30px;
     padding-right: 30px;
+}
+.btn-primary-private{
+    background-color: #19315f;
+    color: #FFF;
+    &:hover{
+        background-color: rgba(25, 49, 95, 0.93);
+        color: #FFF;
+
+    }
 }
 .lang-btn{
     padding: 10px;
@@ -851,7 +873,7 @@ body{
         }
     }
     .active{
-        background-color:  rgb(10, 44, 183);
+        background-color:  #19315f;
         color: white;
     }
 }

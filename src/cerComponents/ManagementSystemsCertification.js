@@ -727,7 +727,7 @@ const ManagementSystemsCertification = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline ' onClick={addElement}>Добавить ещё
+                                    <button className='btn btn-primary-private d-inline ' onClick={addElement}>Добавить ещё
                                     </button>
                                 </div>
                             </div>
@@ -839,7 +839,7 @@ const ManagementSystemsCertification = () => {
                                                        name="accreditation_date"/>
                                             </div>
                                             <div className="my-input-groups col-md-6">
-                                                <label className="open-sans-medium">{getText("ser501")}</label>
+                                                <label className="open-sans-medium mt-auto">{getText("ser501")}</label>
                                                 <input type="text"
                                                        onChange={(e) => changeToogle4Value(e, index)}
                                                        value={item.certificate_number}
@@ -855,7 +855,7 @@ const ManagementSystemsCertification = () => {
                                         </div>
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
+                                    <button className='btn btn-primary-private d-inline '
                                             onClick={addElementToogle4Value}>Добавить ещё
                                     </button>
                                 </div>
@@ -905,7 +905,7 @@ const ManagementSystemsCertification = () => {
 
                                     ))}
                                 <div className="row d-flex justify-content-end">
-                                    <button className='btn btn-primary d-inline '
+                                    <button className='btn btn-primary-private d-inline '
                                             onClick={addElementToogle5Value}>Добавить ещё
                                     </button>
                                 </div>

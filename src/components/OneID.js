@@ -13,6 +13,7 @@ const OneId = (props) => {
         )
             .then(res => {
                 localStorage.setItem("auth_token", res.data.token);
+                localStorage.setItem("role", '3');
                 history.push("/first-enter")
 
             })

@@ -409,38 +409,39 @@ const AddEmployee = () => {
 
   return (
     <div className="add-employee">
-      <div className="navbar-main">
-        <div className="container d-flex justify-content-between align-items-center h-100">
-          <div className="logo">
-            <img src="/img/logo12.svg" alt="" />
-          </div>
-          <div className="lang-btn position-relative" style={{bottom: "0"}}>
-            <button
-                onClick={() => changeLang("ru")}
-                className={
-                  !locLang ||
-                  locLang === "ru"
-                      ? "active"
-                      : ""
-                }
-            >
-              Русский
-            </button>
-            <button
-                onClick={() => changeLang("uz")}
-                className={
-                  locLang === "uz" ? "active" : ""
-                }
-            >
-              O'zbek
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <div className="container add-employee-mt">
+      <div className="container2 add-employee-mt">
         <h2 className="open-sans-bold pt-5 mb-4">{getText("main")}</h2>
         <form className="row">
+          <div className="col-md-12 my-form-groups   d-flex flex-row">
+            <div className="userPhoto">
+              <label htmlFor="userPhoto" id="img1">
+                {" "}
+                <img src={photo123} alt="" />
+              </label>
+              <input
+                  type="file"
+                  onChange={(e) => uploadImg(e)}
+                  id="userPhoto"
+              />
+              <p className="open-sans-semibold">{getText("photo")}</p>
+            </div>
+            <div className="userPhoto ">
+              <label htmlFor="userFile">
+                <img
+                    id="img3"
+                    src="/img/check.png"
+                    style={{ display: "none" }}
+                    alt="file"
+                />
+              </label>
+              <label htmlFor="userFile">
+                <img id="img2" src="/img/file.png" alt="file" />
+              </label>
+              <input type="file" onChange={uploadImg2} id="userFile" />
+              <p className="open-sans-semibold  ">{getText("resume")}</p>
+            </div>
+          </div>
           <div className="col-md-4 my-form-groups   ">
             <div className="my-select-style">
               <label htmlFor="dd2" className="open-sans-semibold">
@@ -1479,40 +1480,18 @@ const AddEmployee = () => {
               </label>
             </div>
           </div>
-          <div className="col-md-12 my-form-groups   d-flex flex-row">
-            <div className="userPhoto">
-              <label htmlFor="userPhoto" id="img1">
-                {" "}
-                <img src={photo123} alt="" />
-              </label>
-              <input
-                type="file"
-                onChange={(e) => uploadImg(e)}
-                id="userPhoto"
-              />
-              <p className="open-sans-semibold">{getText("photo")}</p>
-            </div>
-            <div className="userPhoto ">
-              <label htmlFor="userFile">
-                <img
-                  id="img3"
-                  src="/img/check.png"
-                  style={{ display: "none" }}
-                  alt="file"
-                />
-              </label>
-              <label htmlFor="userFile">
-                <img id="img2" src="/img/file.png" alt="file" />
-              </label>
-              <input type="file" onChange={uploadImg2} id="userFile" />
-              <p className="open-sans-semibold  ">{getText("resume")}</p>
-            </div>
-          </div>
-          <div className="col-md-12">
+
+          <div className="col-md-12 d-flex justify-content-end mt-5">
+            <button
+                type="button"
+                className="modal-cancel-btn open-sans-semibold"
+            >
+              {getText("ser78")}
+            </button>
             <button
               type="button"
               onClick={sendData2}
-              className="save-btn open-sans-semibold"
+              className="modal-save-btn open-sans-semibold"
             >
               {getText("save")}
             </button>

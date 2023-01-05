@@ -8,8 +8,9 @@ const SecondEnter = () => {
 
     }, [localStorage.getItem("language")]);
     return (
-        <div className="second-enter">
+        <div className="second-enter ">
             <div className="container2 second-enter-content">
+                <h3 className="text-center mb-4 text-uppercase fw-bold">{getText("sc0")}</h3>
                 <div className="row">
                     <Link to="/first-enter/second-enter/management-systems-certification"
                           className="col-md-12 open-sans-medium">

@@ -3,13 +3,13 @@ import {getText} from "../../locales";
 
 const FileInputs = (props) => {
     return (
-        <div className="big-box">
+        <div className="big-box file-inputs-main">
             <h2 className="big-box-title">
                 {getText("ser70")}
             </h2>
             <div className="row">
                 <div className="my-input-groups col-md-6">
-                    <label className="open-sans-medium">{getText("ser71")} <span className="with-star">*</span>
+                    <label className="open-sans-medium mt-auto">{getText("ser71")} <span className="with-star">*</span>
                     </label>
                     <input type="file" ref={props.ref17} onChange={(e) => props.setFile1(e)}/>
                 </div>
@@ -24,7 +24,7 @@ const FileInputs = (props) => {
                     <input type="file" ref={props.ref19} onChange={(e) => props.setFile3(e)} accept=".zip,.rar,.7zip"/>
                 </div>
                 <div className="my-input-groups col-md-6">
-                    <label className="open-sans-medium">{getText("ser74")} <span className="with-star">*</span></label>
+                    <label className="open-sans-medium mt-auto">{getText("ser74")} <span className="with-star">*</span></label>
                     <input type="file" ref={props.ref20} onChange={(e) => props.setFile4(e)}/>
                 </div>
             </div>
